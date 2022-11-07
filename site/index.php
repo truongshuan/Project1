@@ -88,7 +88,8 @@
             <div><i class='bx bx-search-alt-2'></i></div>
             <div><i class='bx bxs-cart'></i></div>
             <div><i class='bx bx-user-pin'></i></div>
-            <button class="btn_header">Get A Quote <div><i style="font-size: 28px;" class='bx bx-right-arrow-alt'></i></div></button>
+            <button class="btn_header">Get A Quote <div><i style="font-size: 28px;" class='bx bx-right-arrow-alt'></i>
+                </div></button>
         </div>
     </section>
     <!-- content -->
@@ -100,20 +101,26 @@
                     <span>Garden Landscaping</span>
                 </div>
                 <p>Build The Green City by Landscaping</p>
-                <span>Gettree garden began operations in 1996 as a residential landscaping lawn maintenance company. From the very beginning, our focus has been attention to detail, professionalism</span>
+                <span>Gettree garden began operations in 1996 as a residential landscaping lawn maintenance company.
+                    From the very beginning, our focus has been attention to detail, professionalism</span>
                 <div class="btn_garden">
-                    <button class="btn_garden1">Get Started<div><i style="font-size: 28px;" class='bx bx-right-arrow-alt'></i></div> </button>
-                    <button class="btn_garden2">How It Works<div><i style="font-size: 28px;" class='bx bx-right-arrow-alt'></i></div></button>
+                    <button class="btn_garden1">Get Started<div><i style="font-size: 28px;"
+                                class='bx bx-right-arrow-alt'></i></div> </button>
+                    <button class="btn_garden2">How It Works<div><i style="font-size: 28px;"
+                                class='bx bx-right-arrow-alt'></i></div></button>
                 </div>
             </div>
             <div class="col l-6"><img src="../content/client/img/about1.jfif" alt=""></div>
         </div>
     </section>
     <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#ffffff" fill-opacity="1" d="M0,288L24,282.7C48,277,96,267,144,250.7C192,235,240,213,288,208C336,203,384,213,432,229.3C480,245,528,267,576,240C624,213,672,139,720,128C768,117,816,171,864,176C912,181,960,139,1008,144C1056,149,1104,203,1152,218.7C1200,235,1248,213,1296,218.7C1344,224,1392,256,1416,272L1440,288L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"></path>
+        <path fill="#ffffff" fill-opacity="1"
+            d="M0,288L24,282.7C48,277,96,267,144,250.7C192,235,240,213,288,208C336,203,384,213,432,229.3C480,245,528,267,576,240C624,213,672,139,720,128C768,117,816,171,864,176C912,181,960,139,1008,144C1056,149,1104,203,1152,218.7C1200,235,1248,213,1296,218.7C1344,224,1392,256,1416,272L1440,288L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z">
+        </path>
     </svg>
     <!-- offer -->
-    <section class="offer" style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../content/client/img/bg_offer.jfif);">
+    <section class="offer"
+        style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../content/client/img/bg_offer.jfif);">
         <p>What We Offer</p>
         <h1>Make Your Dream Landscaping <br>
             Garden With Gettree</h1>
@@ -124,31 +131,31 @@
                         <div class="offer1_circle"><i class='bx bx-color'></i></div>
                         <p>Landscaping</p>
                         <span>Quis autem vel eum iure ende scnse quats</span>
-                        <div class="read_more"><a href="">Read More</a></div>     
+                        <div class="read_more"><a href="">Read More</a></div>
                     </div>
                 </div>
                 <div class="col l-3">
-                <div class="offer1">
+                    <div class="offer1">
                         <div class="offer1_circle"><i class='bx bx-color'></i></div>
                         <p>Landscaping</p>
                         <span>Quis autem vel eum iure ende scnse quats</span>
-                        <div class="read_more"><a href="">Read More</a></div>     
+                        <div class="read_more"><a href="">Read More</a></div>
                     </div>
                 </div>
                 <div class="col l-3">
-                <div class="offer1">
+                    <div class="offer1">
                         <div class="offer1_circle"><i class='bx bx-color'></i></div>
                         <p>Landscaping</p>
                         <span>Quis autem vel eum iure ende scnse quats</span>
-                        <div class="read_more"><a href="">Read More</a></div>     
+                        <div class="read_more"><a href="">Read More</a></div>
                     </div>
                 </div>
                 <div class="col l-3">
-                <div class="offer1">
+                    <div class="offer1">
                         <div class="offer1_circle"><i class='bx bx-color'></i></div>
                         <p>Landscaping</p>
                         <span>Quis autem vel eum iure ende scnse quats</span>
-                        <div class="read_more"><a href="">Read More</a></div>     
+                        <div class="read_more"><a href="">Read More</a></div>
                     </div>
                 </div>
             </div>
@@ -164,7 +171,9 @@
                     <span>About Company</span>
                 </div>
                 <p>Professional Service Company For Landscaping</p>
-                <span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</span>
+                <span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                    dicta sunt explicabo.</span>
                 <div class="about2">
                     <div class="about2_icon"><i class='bx bxs-tree-alt'></i></div>
                     <div class="about2_content">
@@ -236,7 +245,8 @@
         </div>
     </section>
     <!-- recore -->
-    <section class="recore" style="background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../content/client/img/record.jfif);">
+    <section class="recore"
+        style="background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../content/client/img/record.jfif);">
         <section class="grid wide">
             <div class="row">
                 <div class="col l-3">
