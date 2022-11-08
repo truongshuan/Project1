@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gettree – Garden & Landscaping</title>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link href="https://fonts.googleapis.com/css2?
-    family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Smooch&family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../content/client/css/index.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
 </head>
@@ -93,7 +91,7 @@
         </div>
     </section>
     <!-- content -->
-    <section class="grid wide ">
+    <section class="grid wide">
         <div class="row garden">
             <div class="col l-6 garden_trai">
                 <div class="garden1">
@@ -164,7 +162,9 @@
     <!-- about -->
     <section class="grid wide">
         <div class="row about">
-            <div class="col l-6"><img src="../content/client/img/blob1.jfif" alt=""></div>
+            <div class="col l-6">
+                <img src="../content/client/img/z.png" alt="">
+            </div>
             <div class="col l-6 about_phai">
                 <div class="about1">
                     <div><i style="color:#348e38;font-size: 30px;" class='bx bx-leaf'></i></div>
@@ -292,9 +292,8 @@
     <!-- team -->
     <section class="grid wide team">
         <div class="row team">
-
         </div>
     </section>
 </body>
 
-</html+
+</html>
