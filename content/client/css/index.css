@@ -78,7 +78,7 @@ body {
     text-decoration: none;
     color: #262626;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .menu_con {
@@ -87,7 +87,7 @@ body {
     width: 200px;
     height: 250px;
     clip-path: polygon(15% 25%, 22% 36%, 100% 36%, 100% 100%, 0 100%, 0 36%, 12% 36%);
-    background-color: #f0f0f0;
+    background-color: #ece1e1;
     position: absolute;
     line-height: 40px;
     margin: 0;
@@ -101,6 +101,8 @@ body {
 
 .menu_con li>a {
     text-decoration: none;
+    color: black;
+    font-weight: 600;
 }
 
 .menu_con>li>a {
@@ -138,7 +140,7 @@ body {
 }
 
 
-/* about */
+/* garden */
 
 .garden {
     margin-bottom: -10px;
@@ -215,7 +217,7 @@ body {
     padding-top: 80px;
     color: white;
     margin-top: 100px;
-    height: 700px;
+    height: 750px;
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -241,13 +243,15 @@ h1 {
     background-color: white;
     position: relative;
     text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .offer1>p {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 80px;
     color: black;
     margin: 0px;
     margin-bottom: 10px;
@@ -323,7 +327,7 @@ h1 {
     align-items: center;
     margin-top: 30px;
     width: 530px;
-    height: 140px;
+    height: 130px;
     background-color: #f0f0f0;
     padding: 30px;
 }
@@ -342,6 +346,10 @@ h1 {
 
 .about2_content>span {
     line-height: 30px;
+}
+
+.about_img>img {
+    width: 97%;
 }
 
 
@@ -451,8 +459,277 @@ h1 {
 
 /* team */
 
+.team {
+    margin-top: -60px;
+}
+
 .p {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
+}
+
+.team_img>img {
+    width: 270px;
+    height: 270px;
+}
+
+.team_img {
+    position: relative;
+    width: 100%;
+    height: 270px;
+}
+
+.team_name {
+    z-index: 2;
+    position: absolute;
+    left: 35px;
+    bottom: -40px;
+    background-color: #f0f0f0;
+    width: 200px;
+    height: 80px;
+    transition: ease .40s;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.team_name_content {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.team_name_content>p {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.team_name_content>b {
+    font-weight: normal;
+}
+
+.team_img:hover>.team_name {
+    background-color: #348e38;
+    color: white;
+    width: 100%;
+    left: 0;
+}
+
+.team_contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 1;
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    background-color: #348e38;
+    transition: all linear 0.35s;
+    transform: translateX(30%);
+    opacity: 0;
+}
+
+.team_img:hover>.team_contact {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.team_contact>i {
+    margin-top: -30px;
+    color: white;
+    font-size: 25px;
+}
+
+
+/* hinh anh garden */
+
+.img_garden {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 180px;
+    height: 450px;
+}
+
+.img_garden1 {
+    padding-top: 340px;
+    height: 100%;
+    width: 23%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: all ease 0.35s;
+    position: relative;
+}
+
+.img_garden1:hover {
+    background-size: 106%;
+}
+
+.img_garden1_content {
+    color: white;
+    text-align: center;
+}
+
+.img_garden1_content>p {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.img_garden1_content>b {
+    font-weight: normal;
+}
+
+
+/* feedback */
+
+.bg_feedback {
+    padding-top: 300px;
+    margin-top: -160px;
+    width: 100%;
+    height: 850px;
+    background-color: #348e38;
+}
+
+.feedback {
+    display: flex;
+    width: 100%;
+    height: 670px;
+}
+
+.feedback_img {
+    width: 40%;
+    height: 100%;
+}
+
+.feedback_img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.feedback_content {
+    padding-left: 100px;
+    padding-top: 100px;
+    background-color: #0f4229;
+    width: 60%;
+    height: 100%;
+}
+
+.feedback_content>b {
+    font-weight: normal;
+    color: white;
+    font-size: 20px;
+}
+
+.feedback_content>p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: white;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.feedback_box {
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 470px;
+    height: 280px;
+    background-color: white;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.feedback_box>p {
+    text-align: justify;
+}
+
+.client_feedback {
+    display: flex;
+    align-items: center;
+}
+
+.client_feedback p {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.client_feedback b {
+    font-weight: normal;
+}
+
+.client_feedback>img {
+    margin-right: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+
+/* new and blog */
+
+.new_blog {
+    margin-top: 260px;
+}
+
+.new_blog>p {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: -20px;
+}
+
+.new_blog>h1 {
+    color: #0f4229;
+    margin-bottom: 60px;
+}
+
+.box_new {
+    width: 100%;
+    height: 480px;
+}
+
+.box_new_top {
+    width: 100%;
+    height: 50%;
+}
+
+.box_new_top>img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.box_new_content {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    height: 40%;
+    border: 1px solid gray;
+}
+
+.box_new_content>b {
+    font-size: 22px;
+}
+
+.box_new_content>p {
+    color: gray;
+}
+
+hr {
+    height: 100%;
+}
+
+.box_new_bot {
+    color: gray;
+    justify-content: center;
+    padding: 0px 20px;
+    align-items: center;
+    display: flex;
+    height: 13%;
+    width: 100%;
+    border: 1px solid gray;
 }
