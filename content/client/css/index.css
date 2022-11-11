@@ -470,6 +470,7 @@ h1 {
 }
 
 .team_img>img {
+    object-fit: cover;
     width: 270px;
     height: 270px;
 }
@@ -538,7 +539,7 @@ h1 {
     opacity: 1;
 }
 
-.team_contact>i {
+.team_contact>a {
     margin-top: -30px;
     color: white;
     font-size: 25px;

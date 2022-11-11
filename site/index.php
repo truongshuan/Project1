@@ -14,60 +14,9 @@
 </head>
 
 <body>
-    <!-- infor -->
-    <section class="infor">
-        <div class="infor_left">
-            <div class="infor_left_content"><i class='bx bx-check-circle'></i>
-                ISO 9001:2015,Certified Landscape Designer</div>
-            <div class="infor_left_content"><i class='bx bx-map'></i>
-                331 An Khánh, Cần Thơ</div>
-            <div class="infor_left_content"> <i class='bx bx-time-five'></i>
-                Sun - Friday, 08 am - 05 pm</div>
-        </div>
-        <div class="infor_right">
-            <div>Select Language</div>
-            <div><i class='bx bxl-facebook'></i></div>
-            <div><i class='bx bxl-twitter'></i></div>
-            <div><i class='bx bxl-google'></i></div>
-            <div><i class='bx bxl-instagram-alt'></i></div>
-        </div>
-    </section>
-    <!-- header -->
-    <section class="header">
-        <div class="logo"><img src="../content/client/img/logo.png" alt=""></div>
-        <div class="menu">
-            <div class="menu_ngang">
-                <a href="">Home</a>
-            </div>
-            <div class="menu_ngang">
-                <a href="">About Us</i></a>
-            </div>
-            <div class="menu_ngang">
-                <a href="">Services<i class='bx bx-chevron-down'></i></a>
-                <ul class="menu_con">
-                    <li> <a href=""> Landscaping</a></li>
-                    <li> <a href=""> Pruning Plants</a></li>
-                    <li> <a href=""> Lawn Maintenance</a></li>
-                    <li> <a href=""> Lawn Moving</a></li>
-                </ul>
-            </div>
-            <div class="menu_ngang">
-                <a href="">Product</a>
-            </div>
-            <div class="menu_ngang">
-                <a href="">Blog</a>
-            </div>
-
-            <div class="menu_ngang"> <a href="">Contact</a></div>
-        </div>
-        <div class="header_icon">
-            <div><i class='bx bx-search-alt-2'></i></div>
-            <div><i class='bx bxs-cart'></i></div>
-            <div><i class='bx bx-user-pin'></i></div>
-            <button class="btn_header">Get A Quote <div><i style="font-size: 28px;" class='bx bx-right-arrow-alt'></i>
-                </div></button>
-        </div>
-    </section>
+    <?php 
+        include "page/header.php";
+    ?>
     <!-- content -->
     <section class="grid wide">
         <div class="row garden">
@@ -97,7 +46,7 @@
     </svg>
     <!-- offer -->
     <section class="offer"
-        style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../content/client/img/bg_offer.jfif);">
+        style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../content/client/img/bg_offer.jpg);">
         <p data-aos="fade-up " data-aos-duration="1000">What We Offer</p>
         <h1 data-aos="fade-up" data-aos-duration="1000">Make Your Dream Landscaping <br>
             Garden With Gettree</h1>
@@ -272,10 +221,10 @@
             <div class="col l-3  ">
                 <div class="team_img">
                     <div class="team_contact">
-                        <i class='bx bx-envelope'></i>
-                        <i class='bx bxl-facebook'></i>
-                        <i class='bx bxl-twitter'></i>
-                        <i class='bx bxl-instagram-alt'></i>
+                        <a href=""><i class='bx bx-envelope'></i></a>
+                        <a href="https://www.facebook.com/hoangthuan.saranghe.1/"><i class='bx bxl-facebook'></i></a>
+                        <a href=""><i class='bx bxl-twitter'></i></a>
+                        <a href=""><i class='bx bxl-instagram-alt'></i></a>
                     </div>
                     <div class="team_name">
                         <div class="team_name_content">
@@ -289,10 +238,10 @@
             <div class="col l-3 ">
                 <div class="team_img">
                     <div class="team_contact">
-                        <i class='bx bx-envelope'></i>
-                        <i class='bx bxl-facebook'></i>
-                        <i class='bx bxl-twitter'></i>
-                        <i class='bx bxl-instagram-alt'></i>
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                        <a href="https://www.facebook.com/truongshuan.isme"><i class='bx bxl-facebook'></i></a>
+                        <a href=""><i class='bx bxl-twitter'></i></a>
+                        <a href=""><i class='bx bxl-instagram-alt'></i></a>
                     </div>
                     <div class="team_name">
                         <div class="team_name_content">
@@ -306,10 +255,10 @@
             <div class="col l-3">
                 <div class="team_img">
                     <div class="team_contact">
-                        <i class='bx bx-envelope'></i>
-                        <i class='bx bxl-facebook'></i>
-                        <i class='bx bxl-twitter'></i>
-                        <i class='bx bxl-instagram-alt'></i>
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                        <a href="https://www.facebook.com/nguyenminhty8"><i class='bx bxl-facebook'></i></a>
+                        <a href=""><i class='bx bxl-twitter'></i></a>
+                        <a href=""><i class='bx bxl-instagram-alt'></i></a>
                     </div>
                     <div class="team_name">
                         <div class="team_name_content">
@@ -323,10 +272,10 @@
             <div class="col l-3 ">
                 <div class="team_img">
                     <div class="team_contact">
-                        <i class='bx bx-envelope'></i>
-                        <i class='bx bxl-facebook'></i>
-                        <i class='bx bxl-twitter'></i>
-                        <i class='bx bxl-instagram-alt'></i>
+                    <a href=""><i class='bx bx-envelope'></i></a>
+                        <a href="https://www.facebook.com/chi.hii.hiii"><i class='bx bxl-facebook'></i></a>
+                        <a href=""><i class='bx bxl-twitter'></i></a>
+                        <a href=""><i class='bx bxl-instagram-alt'></i></a>
                     </div>
                     <div class="team_name">
                         <div class="team_name_content">
@@ -467,115 +416,10 @@
     <section class="foodter_img">
         <img src="../content/client/img/foodter.jpg" alt="">
     </section>
-    <footer>
-        <section class="grid wide contact_home">
-            <div class="row">
-                <div class="col l-3">
-                    <div class="contact_home1">
-                        <img src="../content/client/img/logo.png" alt="">
-                    </div>
-                </div>
-                <div class="col l-3">
-                    <div class="contact_home2">
-                        <i class='bx bxs-map'></i>
-                        <div class="contact_home2_content">
-                            <p> Address</p>
-                            <b>Cần Thơ</b>
-                        </div>
-                    </div>
-                </div>
-                <div class="col l-3">
-                    <div class="contact_home2">
-                        <i class='bx bx-phone'></i>
-                        <div class="contact_home2_content">
-                            <p> Hotline</p>
-                            <b>0941477074</b>
-                        </div>
-                    </div>
-                </div>
-                <div class="col l-3">
-                    <div class="contact_home2">
-                        <i class='bx bx-envelope'></i>
-                        <div class="contact_home2_content">
-                            <p> Email Us</p>
-                            <b>hoangthuan@gmail.com</b>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="grid wide about_home">
-            <div class="row">
-                <div class="col l-3">
-                    <div class="about_home1">
-                        <p>About Us</p>
-
-                        <b>Consectetur adipiscing elit sed tempor incididunt ut labore dolore magna aliqua. Quis suspe
-                            ndisse ultrices gravida risus</b>
-                        <div class="icon_about_home1">
-                            <i class='bx bx-envelope'></i>
-                            <i class='bx bxl-facebook'></i>
-                            <i class='bx bxl-twitter'></i>
-                            <i class='bx bxl-instagram-alt'></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col l-3">
-                    <div class="about_home2">
-                        <p>Explore</p>
-                        <ul class="ul_about_home2">
-                            <li>Company Story</li>
-                            <li>Latest Services</li>
-                            <li>Meet The Team</li>
-                            <li>Need a Career?</li>
-                            <li>Setting & Privacy</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col l-3">
-                    <div class="about_home3">
-                        <p>Recent Post</p>
-                        <div class="about_home3_1">
-                            <img src="../content/client/img/foodter1.jpg" alt="">
-                            <div>
-                                <p>16 garden design ideas to make</p>
-                                <div class="about_home3_1_icon">
-                                    <i class='bx bx-envelope'></i> May 8, 2021
-                                </div>
-                            </div>
-                        </div>
-                        <div class="about_home3_1">
-                            <img src="../content/client/img/foodter2.jpg" alt="">
-                            <div>
-                                <p>
-                                    How to grow and arrange your</p>
-                                <div class="about_home3_1_icon">
-                                    <i class='bx bx-envelope'></i> May 8, 2021
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col l-3">
-                    <div class="about_home4">
-                        <p>Newsletter</p>
-                        <b>Tempor incididunt ut labore dolore magna aliqua suspe ndisse</b>
-                        <br>
-                        <div class="input_foodter_box">
-                            <input type="text" class="input_foodter" placeholder="Email Address">
-                            <div class="input_foodter_email">
-                                <i class='bx bx-envelope'></i>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <p>Copyright &copy 2021 The Gettree Landscaping. Designed by H. Thuận, M. Tý and T. Xuân</p>
-        </section>
-    </footer>
+    <!-- foodter -->
+    <?php 
+        include "page/foodter.php"
+    ?>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
     AOS.init();
