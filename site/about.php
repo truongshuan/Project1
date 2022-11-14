@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../content/client/css/about.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
+    <link rel="stylesheet" href="../content/client/css/header.css">
+    <link rel="stylesheet" href="../content/client/css/foodter.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="../content/client/js/onscroll.js"></script>
+    <link rel="stylesheet" href="../content/client/css/backtotop.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="../content/client/js/backtotop.js"></script>
 </head>
 
 <body>
@@ -185,7 +191,7 @@
                             <p>All I can say is wow! Very professional and good at what they do! I highly recommend it!</p>
                         </div>
                         <div class="box1">
-                        <div class="top">
+                            <div class="top">
                                 <img src="../content/client/img/feedback3.jpg" alt="">
                                 <div class="content">
                                     <p>Võ Hoàng Thuận</p>
@@ -208,9 +214,12 @@
         <img src="../content/client/img/foodter.jpg" alt="">
     </section>
     <!-- foodter -->
-    <?php 
-        include "page/foodter.php"
+    <?php
+    include "page/foodter.php"
     ?>
+     <section id="goTop">
+        <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
+    </section>
 </body>
 
 </html>

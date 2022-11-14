@@ -17,14 +17,14 @@
         </div>
     </section>
     <!-- header -->
-    <section class="header">
+    <section class="header" id="header">
         <div class="logo"><img src="../content/client/img/logo.png" alt=""></div>
         <div class="menu">
             <div class="menu_ngang">
-                <a href="">Home</a>
+                <a href="index.php">Home</a>
             </div>
             <div class="menu_ngang">
-                <a href="">About Us</i></a>
+                <a href="about.php">About Us</i></a>
             </div>
             <div class="menu_ngang">
                 <a href="">Services<i class='bx bx-chevron-down'></i></a>
@@ -42,7 +42,7 @@
                 <a href="">Blog</a>
             </div>
 
-            <div class="menu_ngang"> <a href="">Contact</a></div>
+            <div class="menu_ngang"> <a href="contact.php">Contact</a></div>
         </div>
         <div class="header_icon">
             <div><i class='bx bx-search-alt-2'></i></div>

@@ -1,0 +1,20 @@
+#goTop {
+    bottom: 200px;
+    cursor: pointer;
+    display: none;
+    height: 35px;
+    position: fixed;
+    right: 50px;
+    width: 44px;
+    z-index: 1000000;
+}
+
+.bx-chevron-up {
+    text-align: center;
+    background-color: #348e38;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: white;
+    font-size: 40px;
+}

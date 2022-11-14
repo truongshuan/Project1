@@ -8,8 +8,14 @@
     <title>Gettree – Garden & Landscaping</title>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../content/client/css/index.css">
+    <link rel="stylesheet" href="../content/client/css/header.css">
+    <link rel="stylesheet" href="../content/client/css/foodter.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
+    <link rel="stylesheet" href="../content/client/css/backtotop.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="../content/client/js/onscroll.js"></script>
+    <script src="../content/client/js/backtotop.js"></script>
 
 </head>
 
@@ -420,10 +426,14 @@
     <?php 
         include "page/foodter.php"
     ?>
+    <section id="goTop">
+        <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
+    </section>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
     AOS.init();
     </script>
+    
 </body>
 
 </html>
