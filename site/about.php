@@ -23,7 +23,8 @@
     <?php
     include "page/header.php";
     ?>
-    <section class="tiltle_about" style="background-image:linear-gradient(rgba(15,66,41,0.95),rgba(15,66,41,0.95)),url(../content/client/img/record.jfif);">
+    <section class="tiltle_about"
+        style="background-image:linear-gradient(rgba(15,66,41,0.95),rgba(15,66,41,0.95)),url(../content/client/img/record.jfif);">
         <div class="tiltle_about_content">
             <p>About Us</p>
             <div class="tiltle_about_content1">
@@ -54,7 +55,8 @@
                     <span>ABOUT US</span>
                     <p>We are available for
                         24/7 for Garden Services</p>
-                    <b>We began with a single vision shared between 10 brothers. Originally, we opened our doors as Care in 1987. As time passed and more brothers joined the project. <b>We provide main service</b></b>
+                    <b>We began with a single vision shared between 10 brothers. Originally, we opened our doors as Care
+                        in 1987. As time passed and more brothers joined the project. <b>We provide main service</b></b>
                     <div class="box">
                         <div class="left">
                             <div class="content">
@@ -90,7 +92,7 @@
         </div>
     </section>
     <!-- work -->
-    <section class="grid wide work ">
+    <section class="grid wide work">
         <p>WORK PROCESS</p>
         <h1>We Complete Every
             <br>
@@ -102,17 +104,18 @@
                     <div class="left" count="1"><i class='bx bx-shower'></i></div>
                     <div class="right">
                         <p>Consulting & Estimation</p>
-                        <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been the</b>
+                        <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
+                            the</b>
                     </div>
                 </div>
-
             </div>
             <div class="col l-6">
                 <div class="work1">
                     <div class="left" count="2"><i class='bx bx-shield-plus'></i></div>
                     <div class="right">
                         <p>Design & Choose Material</p>
-                        <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been the</b>
+                        <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
+                            the</b>
                     </div>
                 </div>
             </div>
@@ -123,7 +126,8 @@
                     <div class="left" count="3"><i class='bx bx-podcast'></i></div>
                     <div class="right">
                         <p>Proceed To Work</p>
-                        <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been the</b>
+                        <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
+                            the</b>
                     </div>
                 </div>
 
@@ -133,7 +137,8 @@
                     <div class="left" count="4"><i class='bx bx-ghost'></i></div>
                     <div class="right">
                         <p>Complete & Maintenance</p>
-                        <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been the</b>
+                        <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
+                            the</b>
                     </div>
                 </div>
             </div>
@@ -149,7 +154,8 @@
                         <div class="content_recore">
 
                             <p>We are nice people with a lot of experience.</p>
-                            <b><b>Our Mission:</b> is to provide our customers with responsive service and unsurpassed quality a very competitive price</b>
+                            <b><b>Our Mission:</b> is to provide our customers with responsive service and unsurpassed
+                                quality a very competitive price</b>
                         </div>
                     </div>
                 </div>
@@ -178,7 +184,8 @@
                 <div class="left">
                     <span>CLIENT TESTIMONIALS</span>
                     <p>What our clients say</p>
-                    <b>We pride ourselves on making sure every client is 100% satisfied. Here’s what a few of our clients say about us…</b>
+                    <b>We pride ourselves on making sure every client is 100% satisfied. Here’s what a few of our
+                        clients say about us…</b>
                     <div class="box">
                         <div class="box1">
                             <div class="top">
@@ -188,7 +195,8 @@
                                     <b>Client</b>
                                 </div>
                             </div>
-                            <p>All I can say is wow! Very professional and good at what they do! I highly recommend it!</p>
+                            <p>All I can say is wow! Very professional and good at what they do! I highly recommend it!
+                            </p>
                         </div>
                         <div class="box1">
                             <div class="top">
@@ -198,7 +206,8 @@
                                     <b>Client</b>
                                 </div>
                             </div>
-                            <p>Gettree Landscaping Services has done such a great job on all of our landscaping, I rate 5 stars</p>
+                            <p>Gettree Landscaping Services has done such a great job on all of our landscaping, I rate
+                                5 stars</p>
                         </div>
                     </div>
                 </div>
@@ -217,7 +226,7 @@
     <?php
     include "page/foodter.php"
     ?>
-     <section id="goTop">
+    <section id="goTop">
         <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
     </section>
 </body>

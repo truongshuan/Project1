@@ -20,8 +20,8 @@
 </head>
 
 <body>
-    <?php 
-        include "page/header.php";
+    <?php
+    include "page/header.php";
     ?>
     <!-- content -->
     <section class="grid wide">
@@ -53,7 +53,7 @@
     <!-- offer -->
     <section class="offer"
         style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../content/client/img/bg_offer.jpg);">
-        <p data-aos="fade-up " data-aos-duration="1000">What We Offer</p>
+        <p data-aos="fade-up" data-aos-duration="1000">What We Offer</p>
         <h1 data-aos="fade-up" data-aos-duration="1000">Make Your Dream Landscaping <br>
             Garden With Gettree</h1>
         <section class="grid wide" data-aos="fade-up" data-aos-duration="1000">
@@ -244,7 +244,7 @@
             <div class="col l-3 ">
                 <div class="team_img">
                     <div class="team_contact">
-                    <a href=""><i class='bx bx-envelope'></i></a>
+                        <a href=""><i class='bx bx-envelope'></i></a>
                         <a href="https://www.facebook.com/truongshuan.isme"><i class='bx bxl-facebook'></i></a>
                         <a href=""><i class='bx bxl-twitter'></i></a>
                         <a href=""><i class='bx bxl-instagram-alt'></i></a>
@@ -261,7 +261,7 @@
             <div class="col l-3">
                 <div class="team_img">
                     <div class="team_contact">
-                    <a href=""><i class='bx bx-envelope'></i></a>
+                        <a href=""><i class='bx bx-envelope'></i></a>
                         <a href="https://www.facebook.com/nguyenminhty8"><i class='bx bxl-facebook'></i></a>
                         <a href=""><i class='bx bxl-twitter'></i></a>
                         <a href=""><i class='bx bxl-instagram-alt'></i></a>
@@ -278,7 +278,7 @@
             <div class="col l-3 ">
                 <div class="team_img">
                     <div class="team_contact">
-                    <a href=""><i class='bx bx-envelope'></i></a>
+                        <a href=""><i class='bx bx-envelope'></i></a>
                         <a href="https://www.facebook.com/chi.hii.hiii"><i class='bx bxl-facebook'></i></a>
                         <a href=""><i class='bx bxl-twitter'></i></a>
                         <a href=""><i class='bx bxl-instagram-alt'></i></a>
@@ -423,8 +423,8 @@
         <img src="../content/client/img/foodter.jpg" alt="">
     </section>
     <!-- foodter -->
-    <?php 
-        include "page/foodter.php"
+    <?php
+    include "page/foodter.php"
     ?>
     <section id="goTop">
         <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
@@ -433,7 +433,7 @@
     <script>
     AOS.init();
     </script>
-    
+
 </body>
 
 </html>
