@@ -36,10 +36,10 @@
             </ul>
         </div>
         <div class="menu_ngang">
-            <a href="">Product</a>
+            <a href="product.php">Product</a>
         </div>
         <div class="menu_ngang">
-            <a href="">Blog</a>
+            <a href="blog.php">Blog</a>
         </div>
 
         <div class="menu_ngang"> <a href="contact.php">Contact</a></div>
