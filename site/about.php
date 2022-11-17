@@ -28,9 +28,9 @@
         <div class="tiltle_about_content">
             <p>About Us</p>
             <div class="tiltle_about_content1">
-                <a href="">Home</a>
+                <a href="index.php">Home</a>
                 <hr>
-                <a href="">About Us</a>
+                <a href="about.php">About Us</a>
             </div>
         </div>
     </section>
