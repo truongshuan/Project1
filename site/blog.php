@@ -58,7 +58,7 @@
                         </ul>
                     </li>
                     <li class="nav__link animation">
-                        <a href="" class="nav__item">Page <i class="fa-solid fa-chevron-down"></i></a>
+                        <a href="about.php" class="nav__item">About<i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown__list">
                             <li class="dropdown__item"><a href="#" class="dropdown__link">About us</a></li>
                             <li class="dropdown__item"><a href="#" class="dropdown__link">Team members</a></li>
