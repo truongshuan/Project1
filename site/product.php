@@ -131,41 +131,42 @@
                         </ul>
                     </li>
                     <li class="nav__link animation">
-                        <a href="" class="nav__item">Page <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown__list">
+                        <a href="about.php" class="nav__item">About us</a>
+                        <!-- <ul class="dropdown__list">
                             <li class="dropdown__item"><a href="#" class="dropdown__link">About us</a></li>
                             <li class="dropdown__item"><a href="#" class="dropdown__link">Team members</a></li>
                             <li class="dropdown__item"><a href="#" class="dropdown__link">Case study</a></li>
                             <li class="dropdown__item"><a href="#" class="dropdown__link">Case single</a></li>
                             <li class="dropdown__item"><a href="#" class="dropdown__link">Elements</a></li>
                             <li class="dropdown__item"><a href="#" class="dropdown__link">Faq</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li class="nav__link animation">
                         <a href="service.php" class="nav__item">Services <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown__list">
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Garden Walls</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Landscasings</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Lawn Moving</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Pruning Plants</a></li>
+                            <li class="dropdown__item"><a href="service.php" class="dropdown__link">Garden Walls</a>
+                            </li>
+                            <li class="dropdown__item"><a href="service.php" class="dropdown__link">Landscasings</a>
+                            </li>
+                            <li class="dropdown__item"><a href="service.php" class="dropdown__link">Lawn Moving</a></li>
+                            <li class="dropdown__item"><a href="service.php" class="dropdown__link">Pruning Plants</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav__link animation">
                         <a href="product.php" class="nav__item">Shop <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown__list">
                             <li class="dropdown__item"><a href="product.php" class="dropdown__link">Product</a></li>
+                            <!-- <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li>
                             <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li>
+                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li> -->
                         </ul>
                     </li>
                     <li class="nav__link animation">
-                        <a href="" class="nav__item">Blog <i class="fa-solid fa-chevron-down"></i></a>
+                        <a href="blog.php" class="nav__item">Blog <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown__list">
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li>
+                            <li class="dropdown__item"><a href="blog.php" class="dropdown__link">Blog Listing</a></li>
+                            <li class="dropdown__item"><a href="blog.php" class="dropdown__link">Blog Single</a></li>
                         </ul>
                     </li>
                     <li class="nav__link">
@@ -192,9 +193,9 @@
         <div class="banner__content">
             <h1 class="banner__content-tittle">Shop </h1>
             <div class="banner__content-add">
-                <a href="" class="banner--link">Home</a>
+                <a href="index.php" class="banner--link">Home</a>
                 <hr>
-                <a href="" class="banner--link">Product</a>
+                <a href="product.php" class="banner--link">Product</a>
             </div>
         </div>
     </section>

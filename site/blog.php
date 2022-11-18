@@ -86,10 +86,10 @@
                         </ul>
                     </li>
                     <li class="nav__link animation">
-                        <a href="" class="nav__item">Blog <i class="fa-solid fa-chevron-down"></i></a>
+                        <a href="blog.php" class="nav__item">Blog <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown__list">
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Blog Listing</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Blog Single</a></li>
+                            <li class="dropdown__item"><a href="blog.php" class="dropdown__link">Blog Listing</a></li>
+                            <li class="dropdown__item"><a href="blog.php" class="dropdown__link">Blog Single</a></li>
                         </ul>
                     </li>
                     <li class="nav__link">
