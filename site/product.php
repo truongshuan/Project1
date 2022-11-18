@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>Gettree - Product</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../content/client/img/favicon.png" type="image/x-icon">
     <!-- CSS -->
     <link rel="stylesheet" href="../content/client/css/product.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
@@ -14,6 +16,58 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <script src="https://kit.fontawesome.com/088d757bb6.js" crossorigin="anonymous"></script>
     <!-- JS -->
+    <style>
+    .desc__icons {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        background-color: transparent;
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    .desc__icon {
+        margin: 0px 10px;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff;
+        background: #348e38;
+        cursor: pointer;
+        transition: all .3s;
+        font-size: 17px;
+    }
+
+    .desc__icon:hover {
+        background-color: #10412D;
+    }
+
+    .product__card:hover .desc__icons {
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+
+    /* @keyframes fade_up {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: none;
+        }
+    } */
+    </style>
 </head>
 
 <body>
@@ -215,6 +269,11 @@
                             </div>
                             <span class="product__card-name">Aloe vera</span>
                             <p class="product__card-price">$12.00</p>
+                            <div class="desc__icons">
+                                <a href="" class="desc__icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
+                                <a href="" class="desc__icon"><i class="fa-regular fa-eye"></i></a>
+                            </div>
                         </div>
                         <div class="product__card">
                             <div class="product__card-img">

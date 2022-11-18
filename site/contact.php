@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Gettree - Contact</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../content/client/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../content/client/css/contact.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
@@ -23,7 +25,8 @@
     <?php
     include "page/header.php";
     ?>
-    <section class="tiltle_about" style="background-image:linear-gradient(rgba(15,66,41,0.95),rgba(15,66,41,0.95)),url(../content/client/img/record.jfif);">
+    <section class="tiltle_about"
+        style="background-image:linear-gradient(rgba(15,66,41,0.95),rgba(15,66,41,0.95)),url(../content/client/img/record.jfif);">
         <div class="tiltle_about_content">
             <p>Contact</p>
             <div class="tiltle_about_content1">
@@ -40,7 +43,8 @@
                     <span>CONTACT US</span>
                     <p>We are available for
                         24/7 for Garden</p>
-                    <b>The Most Relaiable & Professional Company for Gardening & Lawncare . Please contact or leave information on the form</b>
+                    <b>The Most Relaiable & Professional Company for Gardening & Lawncare . Please contact or leave
+                        information on the form</b>
                     <div class="box box1">
                         <i class='bx bx-map'></i>
                         <div class="content">
@@ -97,7 +101,8 @@
         </div>
     </section>
     <div class="map">
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1XRP3XzTIILnhkzeZVYJ1UhXDNRMlKIGh&ehbc=2E312F" width="100%" height="100%">
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1XRP3XzTIILnhkzeZVYJ1UhXDNRMlKIGh&ehbc=2E312F"
+            width="100%" height="100%">
         </iframe>
     </div>
     <section class="foodter_img">
@@ -107,7 +112,7 @@
     <?php
     include "page/foodter.php"
     ?>
-     <section id="goTop">
+    <section id="goTop">
         <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
     </section>
 </body>

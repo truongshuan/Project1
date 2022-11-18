@@ -490,6 +490,7 @@ img {
 }
 
 .product__card {
+    position: relative;
     width: 270px;
     height: 320px;
     padding: 10px;
