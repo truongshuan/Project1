@@ -30,9 +30,9 @@
         <div class="tiltle_about_content">
             <p>Contact</p>
             <div class="tiltle_about_content1">
-                <a href="">Home</a>
+                <a href="index.php">Home</a>
                 <hr>
-                <a href="">Contact</a>
+                <a href="contact.php">Contact</a>
             </div>
         </div>
     </section>
