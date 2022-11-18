@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <script src="https://kit.fontawesome.com/088d757bb6.js" crossorigin="anonymous"></script>
     <!-- JS -->
+    <script src="../content/client/js/onscroll.js"></script>
+    <script src="../content/client/js/scrollreveal.min.js"></script>
+    <script src="../content/client/js/main.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <style>
     .desc__icons {
         width: 100%;
@@ -54,6 +58,27 @@
     .product__card:hover .desc__icons {
         opacity: 1;
         transform: translateY(-20px);
+    }
+
+    #goTop {
+        bottom: 200px;
+        cursor: pointer;
+        display: none;
+        height: 35px;
+        position: fixed;
+        right: 50px;
+        width: 44px;
+        z-index: 1000000;
+    }
+
+    .bx-chevron-up {
+        text-align: center;
+        background-color: #348e38;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        color: white;
+        font-size: 40px;
     }
 
     /* @keyframes fade_up {
@@ -117,7 +142,7 @@
                         </ul>
                     </li>
                     <li class="nav__link animation">
-                        <a href="" class="nav__item">Services <i class="fa-solid fa-chevron-down"></i></a>
+                        <a href="service.php" class="nav__item">Services <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown__list">
                             <li class="dropdown__item"><a href="#" class="dropdown__link">Garden Walls</a></li>
                             <li class="dropdown__item"><a href="#" class="dropdown__link">Landscasings</a></li>
@@ -349,9 +374,24 @@
     <?php
     require 'page/foodter.php';
     ?>
-    <script src="../content/client/js/onscroll.js"></script>
-    <script src="../content/client/js/scrollreveal.min.js"></script>
-    <script src="../content/client/js/main.js"></script>
+    <section id="goTop">
+        <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
+    </section>
+    <script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) $("#goTop").fadeIn();
+            else $("#goTop").fadeOut();
+        });
+        $("#goTop").click(function() {
+            $("body,html").animate({
+                    scrollTop: 0
+                },
+                "fast"
+            );
+        });
+    });
+    </script>
 </body>
 
 </html>

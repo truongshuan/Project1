@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landscaping</title>
+    <title>Gettree – Garden & Landscaping</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../content/client/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../content/client/css/service.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
@@ -23,7 +25,8 @@
     <?php
     include "page/header.php";
     ?>
-    <section class="tiltle_about" style="background-image:linear-gradient(rgba(15,66,41,0.5),rgba(15,66,41,0.95)),url(../content/client/img/service_tiltle.jpg);">
+    <section class="tiltle_about"
+        style="background-image:linear-gradient(rgba(15,66,41,0.5),rgba(15,66,41,0.95)),url(../content/client/img/service_tiltle.jpg);">
         <div class="tiltle_about_content">
             <p>Landscaping</p>
             <div class="tiltle_about_content1">
@@ -40,7 +43,11 @@
             <div class="col l-8">
                 <div class="left">
                     <h1>What is landscaping? How can help you.</h1>
-                    <p class="dropcap">People have practiced landscaping for centuries. As far back as the ancient Mayans, humans were manipulating the land for both aesthetic and practical reasons. The addition of plants, changes to the existing terrain and the construction of structures are all part of landscaping. Today landscaping refers to the planning, laying out and construction of gardens that enhance the appearance and create useable space for outdoor activities around a home.</p>
+                    <p class="dropcap">People have practiced landscaping for centuries. As far back as the ancient
+                        Mayans, humans were manipulating the land for both aesthetic and practical reasons. The addition
+                        of plants, changes to the existing terrain and the construction of structures are all part of
+                        landscaping. Today landscaping refers to the planning, laying out and construction of gardens
+                        that enhance the appearance and create useable space for outdoor activities around a home.</p>
                     <h1>Landscaping Options & Ideas</h1>
                     <p>If you are considering landscaping your home check out these resources:</p>
                     <div class="box1">
@@ -114,7 +121,8 @@
                     </div>
                     <div class="box4">
                         <p>BY &nbsp;&nbsp;<span>D. JHON SHIKON MILON</span></p>
-                        <b>"Gettree and crew did a fantastic install of a Hunter WiFi sprinkler system. The neatest crew we have ever at home"</b>
+                        <b>"Gettree and crew did a fantastic install of a Hunter WiFi sprinkler system. The neatest crew
+                            we have ever at home"</b>
                     </div>
                     <h1>Our Commitment</h1>
                     <div class="box5">
@@ -155,7 +163,8 @@
                     <h1>Reason You Should Choise Us</h1>
                     <div class="box6">
                         <div class="left">
-                            <p>Garden Services provides full & comprehensive services in irrigation, landscape , maintenance and professional tree care management.</p>
+                            <p>Garden Services provides full & comprehensive services in irrigation, landscape ,
+                                maintenance and professional tree care management.</p>
                             <div class="content">
                                 <i class='bx bxs-check-circle'></i> Free Estimates
                             </div>
@@ -199,7 +208,8 @@
                         <label for="">Your Massage</label>
                         <br>
                         <br>
-                        <textarea name="" id="" cols="30" rows="5" class="message" placeholder="Your Message"></textarea>
+                        <textarea name="" id="" cols="30" rows="5" class="message"
+                            placeholder="Your Message"></textarea>
                         <button class="btn_services">Send message</button>
                     </form>
                 </div>
@@ -263,7 +273,7 @@
                     </div>
                     <div class="content_right3_bottom">
                         <div class="content_right3_left">
-                        <i class='bx bxs-envelope'></i>
+                            <i class='bx bxs-envelope'></i>
                             <span>Email:</span>
                         </div>
                         <span>thuan@gmail.com</span>
@@ -272,14 +282,15 @@
                 <div class="box_right4">
                     <span>CASE STUDIO</span>
                     <p>2021 Brochure</p>
-                    <b>Lorem market standard dummy available market industry Lorem simply dummy text of free available market</b>
+                    <b>Lorem market standard dummy available market industry Lorem simply dummy text of free available
+                        market</b>
                     <div class="btn_box_right4">
-                    <button class="btn_download">DOWNLOAD</button>
-                    <button class="btn_discover">DISCOVER</button>
+                        <button class="btn_download">DOWNLOAD</button>
+                        <button class="btn_discover">DISCOVER</button>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
     <section class="foodter_img">

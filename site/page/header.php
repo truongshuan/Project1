@@ -27,7 +27,7 @@
             <a href="about.php">About Us</i></a>
         </div>
         <div class="menu_ngang">
-            <a href="">Services<i class='bx bx-chevron-down'></i></a>
+            <a href="service.php">Services<i class='bx bx-chevron-down'></i></a>
             <ul class="menu_con">
                 <li> <a href="service.php"> Landscaping</a></li>
                 <li> <a href="service.php"> Pruning Plants</a></li>

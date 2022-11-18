@@ -19,10 +19,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script src="../content/client/js/onscroll.js"></script>
     <script src="../content/client/js/backtotop.js"></script>
-
 </head>
 
 <body>
+    <!-- Loader Starts -->
     <?php
     include "page/header.php";
     ?>

@@ -10,3 +10,8 @@ const sr = ScrollReveal({
 sr.reveal(`.product__list`);
 sr.reveal(`.contact_home`, { origin: "top" });
 sr.reveal(`.about_home`, {});
+// Preload
+window.onload = function() {
+    $("#loader").fadeOut();
+    $("body").remove;
+};
