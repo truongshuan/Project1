@@ -200,7 +200,7 @@
                             </ul>
                         </li>
                         <li class="onhover-dropdown p-0">
-                            <button class="btn btn-primary-light" type="button"><a href="login_two.html"><i
+                            <button class="btn btn-primary-light" type="button"><a href="logout-user.php"><i
                                         data-feather="log-out"></i>Log out</a></button>
                         </li>
                     </ul>
@@ -215,10 +215,11 @@
             <header class="main-nav">
                 <div class="sidebar-user text-center"><a class="setting-primary" href="javascript:void(0)"><i
                             data-feather="settings"></i></a><img class="img-90 rounded-circle"
-                        src="../content/admin/images/dashboard/admin.jpg" alt="">
-                    <div class="badge-bottom"><span class="badge badge-primary">Admin</span></div>
+                        src="../uploads/<?= $fetch_info['avatar'] ?>" alt="">
+                    <div class="badge-bottom"><span class="badge badge-primary">Admin</span>
+                    </div>
                     <a href="user-profile.html">
-                        <h6 class="mt-3 f-14 f-w-600"><?php echo 'Admin' ?></h6>
+                        <h6 class="mt-3 f-14 f-w-600"><?= $fetch_info['ten_ad'] ?></h6>
                     </a>
                     <p class="mb-0 font-roboto">Human Resources Department</p>
                     <ul>

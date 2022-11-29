@@ -1,3 +1,27 @@
+<?php
+session_start();
+require '../connection.php';
+$email = $_SESSION['email'];
+$password = $_SESSION['password'];
+if ($email != false && $password != false) {
+    $sql = "SELECT * FROM `admin` WHERE email = '$email'";
+    $run_Sql = mysqli_query($con, $sql);
+    if ($run_Sql) {
+        $fetch_info = mysqli_fetch_assoc($run_Sql);
+        $status = $fetch_info['trang_thai'];
+        $code = $fetch_info['code'];
+        if ($status == "verified") {
+            if ($code != 0) {
+                header('Location: ../reset-code.php');
+            }
+        } else {
+            header('Location: ../user-otp.php');
+        }
+    }
+} else {
+    header('Location: ../login-user.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -195,7 +219,7 @@
                             </ul>
                         </li>
                         <li class="onhover-dropdown p-0">
-                            <button class="btn btn-primary-light" type="button"><a href="login_two.html"><i
+                            <button class="btn btn-primary-light" type="button"><a href="../logout-user.php"><i
                                         data-feather="log-out"></i>Log out</a></button>
                         </li>
                     </ul>
@@ -210,12 +234,12 @@
             <header class="main-nav">
                 <div class="sidebar-user text-center"><a class="setting-primary" href="javascript:void(0)"><i
                             data-feather="settings"></i></a><img class="img-90 rounded-circle"
-                        src="../../content/admin/images/dashboard/1.png" alt="">
-                    <div class="badge-bottom"><span class="badge badge-primary">New</span></div>
+                        src="../../uploads/<?= $fetch_info['avatar'] ?>" alt="">
+                    <div class="badge-bottom"><span class="badge badge-primary">Admin</span></div>
                     <a href="user-profile.html">
-                        <h6 class="mt-3 f-14 f-w-600">Emay Walter</h6>
+                        <h6 class="mt-3 f-14 f-w-600"><?= $fetch_info['ten_ad'] ?></h6>
                     </a>
-                    <p class="mb-0 font-roboto">Human Resources Department</p>
+                    <p class="mb-0 font-roboto"><?= $fetch_info['email'] ?></p>
                     <ul>
                         <li><span><span class="counter">19.8</span>k</span>
                             <p>Follow</p>
