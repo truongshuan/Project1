@@ -220,8 +220,7 @@
                         <li><span><span class="counter">19.8</span>k</span>
                             <p>Follow</p>
                         </li>
-                        <li>
-                            <>2 year</ span>
+                        <li><span>2 year</span>
                             <p>Experince</p>
                         </li>
                         <li><span><span class="counter">95.2</span>k</span>
@@ -254,8 +253,8 @@
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
                                             data-feather="database"></i><span>Products</span></a>
                                     <ul class="nav-submenu menu-content">
-                                        <li><a href="index.php">Main Table</a></li>
-                                        <li><a href="new.php">New Product</a></li>
+                                        <li><a href="../product/index.php">Main Table</a></li>
+                                        <li><a href="../product/new.php">New Product</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
@@ -269,7 +268,6 @@
                                             data-feather="users"></i><span>Users</span></a>
                                     <ul class="nav-submenu menu-content">
                                         <li><a href="../users/index.php">Main Table</a></li>
-
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
@@ -281,15 +279,15 @@
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
                                             data-feather="gift"></i><span>Vouchers</span></a>
                                     <ul class="nav-submenu menu-content">
-                                        <li><a href="../vouchers/index.php">Main Table</a></li>
-                                        <li><a href="../vouchers/new.php">New voucher</a></li>
+                                        <li><a href="index.php">Main Table</a></li>
+                                        <li><a href="new.php">New voucher</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
                                             data-feather="bar-chart"></i><span>Charts</span></a>
                                     <ul class="nav-submenu menu-content">
                                         <li><a href="../charts/index.php">Main Table</a></li>
-                                        <li><a href="../charts/charts.php">Google Charts</a></li>
+                                        <li><a href="../charts/charts_detail.php">Google Charts</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -304,11 +302,11 @@
                     <div class="page-header">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h3>Products</h3>
+                                <h3>Google Chart</h3>
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-                                    <li class="breadcrumb-item">Tables</li>
-                                    <li class="breadcrumb-item">Lists product</li>
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item">Charts</li>
+                                    <li class="breadcrumb-item active">Google Chart</li>
                                 </ol>
                             </div>
                             <div class="col-sm-6">
@@ -345,333 +343,136 @@
                 <!-- Container-fluid starts-->
                 <div class="container-fluid">
                     <div class="row">
-                        <!-- <div class="col-sm-12">
+                        <div class="col-sm-12 col-xl-4 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Defult Styling</h5><span>use class <code>table table-styling</code> inside table
-                                        element</span>
+                                    <h5>Pie Chart <span class="digits">1</span></h5>
                                 </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive">
-                                            <table class="table table-styling">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                <div class="card-body p-0 chart-block">
+                                    <div class="chart-overflow" id="pie-chart4"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 col-xl-4 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Table head options</h5><span>Use class<code>.table-primary</code> inside thead
-                                        tr element.</span>
+                                    <h5>Area Chart <span class="digits">1</span></h5>
                                 </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="table-primary">
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Table Main Products</h5>
-                                </div>
-                                <div>
-                                    <a href="new.php" class="btn btn-primary active" style="margin: 10px 15px;"
-                                        type="button">New</a>
-                                </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-primary">
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Image</th>
-                                                        <th scope="col">Name</th>
-                                                        <th scope="col">Price</th>
-                                                        <th scope="col">Sale Off</th>
-                                                        <th scope="col">Views</th>
-                                                        <th scope="col">Categories</th>
-                                                        <th scope="col">Description</th>
-                                                        <th scope="col">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>
-                                                            <img src="../../content/client/img/product1.png"
-                                                                width="100px">
-                                                        </td>
-                                                        <td>Product 1</td>
-                                                        <td>50 $</td>
-                                                        <td>92<i class="fa-solid fa-eye"></i></td>
-                                                        <td>2 <i class="fa-solid fa-percent"></i></td>
-                                                        <td>Loai1</td>
-                                                        <td>Plant is beatiful</td>
-                                                        <td>
-                                                            <a href="edit.php" class="btn btn-primary active"
-                                                                type="button"><i
-                                                                    class="fa-solid fa-pen-to-square"></i></a>
-                                                            <a href="delete.php" class="btn btn-danger active"
-                                                                type="button"><i class="fa-solid fa-trash"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-block row">
-                                    <!-- <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="table-success">
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div> -->
+                                <div class="card-body p-0 chart-block">
+                                    <div class="chart-overflow" id="area-chart1"></div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-sm-12">
+                        <div class="col-sm-12 col-xl-4 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Table Footer Styling</h5><span>Use class
-                                        <code>table-info</code>,<code>table-success</code>,<code>table-success</code>,<code>table-info</code>,<code>table-danger</code>,<code>table-primary</code>,<code>table-secondary</code>,<code>table-light</code>,<code>table-active</code>and
-                                        also use <code>bg-*</code> inside tfoot element.</span>
+                                    <h5>Area Chart <span class="digits">2</span></h5>
                                 </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive table-border-radius">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot class="table-success">
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Custom Table Color</h5><span>Use class<code>table-*</code> inside table
-                                        element.</span>
-                                </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive table-border-radius">
-                                            <table class="table table-styling table-primary">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                <div class="card-body p-0 chart-block">
+                                    <div class="chart-overflow" id="area-chart2"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 col-xl-4 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Custom Table Color with Hover and Stripped</h5><span>Use
-                                        class<code>table-hover, table-striped
-                                            table-*</code><code>table-info</code>,<code>table-success</code>,<code>table-success</code>,<code>table-info</code>,<code>table-danger</code>,<code>table-primary</code>,<code>table-secondary</code>,<code>table-light</code>,<code>table-active</code>
-                                        inside table element.</span>
+                                    <h5>Pie Chart <span class="digits">2</span></h5>
                                 </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive table-border-radius">
-                                            <table class="table table-styling table-hover table-striped table-primary">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                <div class="card-body p-0 chart-block">
+                                    <div class="chart-overflow" id="pie-chart1"></div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
+                        <div class="col-sm-12 col-xl-4 box-col-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Pie Chart <span class="digits">3</span></h5>
+                                </div>
+                                <div class="card-body p-0 chart-block">
+                                    <div class="chart-overflow" id="pie-chart2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xl-4 box-col-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Pie Chart <span class="digits">4</span></h5>
+                                </div>
+                                <div class="card-body p-0 chart-block">
+                                    <div class="chart-overflow" id="pie-chart3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xl-6 box-col-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Column Chart <span class="digits">1 </span></h5>
+                                </div>
+                                <div class="card-body chart-block">
+                                    <div class="chart-overflow" id="column-chart1"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xl-6 box-col-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Column Chart <span class="digits">2</span></h5>
+                                </div>
+                                <div class="card-body chart-block">
+                                    <div class="chart-overflow" id="column-chart2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 box-col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Gantt Chart</h5>
+                                </div>
+                                <div class="card-body chart-block">
+                                    <div class="chart-overflow" id="gantt_chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 box-col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Line Chart</h5>
+                                </div>
+                                <div class="card-body chart-block">
+                                    <div class="chart-overflow" id="line-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 box-col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Combo Chart</h5>
+                                </div>
+                                <div class="card-body chart-block">
+                                    <div class="chart-overflow" id="combo-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xl-6 box-col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>bar-chart2</h5>
+                                </div>
+                                <div class="card-body chart-block">
+                                    <div id="bar-chart2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xl-6 box-col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>word tree</h5>
+                                </div>
+                                <div class="card-body chart-block">
+                                    <div class="word-tree" id="wordtree_basic"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Container-fluid Ends-->
@@ -704,6 +505,8 @@
     <script src="../../content/admin/js/bootstrap/popper.min.js"></script>
     <script src="../../content/admin/js/bootstrap/bootstrap.min.js"></script>
     <!-- Plugins JS start-->
+    <script src="../../content/admin/js/chart/google/google-chart-loader.js"></script>
+    <script src="../../content/admin/js/chart/google/google-chart.js"></script>
     <script src="../../content/admin/js/tooltip-init.js"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->

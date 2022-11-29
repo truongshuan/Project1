@@ -132,14 +132,6 @@
                     </li>
                     <li class="nav__link animation">
                         <a href="about.php" class="nav__item">About</a>
-                        <!-- <ul class="dropdown__list">
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">About us</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Team members</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Case study</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Case single</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Elements</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Faq</a></li>
-                        </ul> -->
                     </li>
                     <li class="nav__link animation">
                         <a href="service.php" class="nav__item">Services <i class="fa-solid fa-chevron-down"></i></a>
@@ -157,9 +149,6 @@
                         <a href="product.php" class="nav__item">Shop <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown__list">
                             <li class="dropdown__item"><a href="product.php" class="dropdown__link">Product</a></li>
-                            <!-- <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home</a></li> -->
                         </ul>
                     </li>
                     <li class="nav__link animation">
@@ -179,10 +168,10 @@
                     <div class="nav__icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
-                    <div class="nav__icon">
+                    <a href="shopping/cart.php" class="nav__icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span class="total__cart">0</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -298,7 +287,7 @@
                             <div class="desc__icons">
                                 <a href="" class="desc__icon"><i class="fa-solid fa-cart-shopping"></i></a>
                                 <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
-                                <a href="" class="desc__icon"><i class="fa-regular fa-eye"></i></a>
+                                <a href="details.php" class="desc__icon"><i class="fa-regular fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="product__card">

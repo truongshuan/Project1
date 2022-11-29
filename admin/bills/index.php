@@ -44,6 +44,7 @@
     <link id="color" rel="stylesheet" href="../../content/admin/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../../content/admin/css/responsive.css">
+    <link rel="stylesheet" href="../content/admin/css/a.css">
 </head>
 
 <body>
@@ -254,15 +255,15 @@
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
                                             data-feather="database"></i><span>Products</span></a>
                                     <ul class="nav-submenu menu-content">
-                                        <li><a href="index.php">Main Table</a></li>
-                                        <li><a href="new.php">New Product</a></li>
+                                        <li><a href="../product/index.php">Main Table</a></li>
+                                        <li><a href="../product/new.php">New Product</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
                                             data-feather="file-text"></i><span>Bills</span></a>
                                     <ul class="nav-submenu menu-content">
-                                        <li><a href="../bills/index.php">Main Table</a></li>
-                                        <li><a href="../bills/com_table.php">Completed Table</a></li>
+                                        <li><a href="index.php">Main Table</a></li>
+                                        <li><a href="com_table.php">Completed Table</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
@@ -304,11 +305,11 @@
                     <div class="page-header">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h3>Products</h3>
+                                <h3>Bills</h3>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-                                    <li class="breadcrumb-item">Tables</li>
-                                    <li class="breadcrumb-item">Lists product</li>
+                                    <li class="breadcrumb-item">Bills.</li>
+                                    <li class="breadcrumb-item">List bills</li>
                                 </ol>
                             </div>
                             <div class="col-sm-6">
@@ -345,50 +346,6 @@
                 <!-- Container-fluid starts-->
                 <div class="container-fluid">
                     <div class="row">
-                        <!-- <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Defult Styling</h5><span>use class <code>table table-styling</code> inside table
-                                        element</span>
-                                </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive">
-                                            <table class="table table-styling">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
@@ -401,83 +358,40 @@
                                             <table class="table">
                                                 <thead class="table-primary">
                                                     <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Table Main Products</h5>
-                                </div>
-                                <div>
-                                    <a href="new.php" class="btn btn-primary active" style="margin: 10px 15px;"
-                                        type="button">New</a>
-                                </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-primary">
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Image</th>
-                                                        <th scope="col">Name</th>
-                                                        <th scope="col">Price</th>
-                                                        <th scope="col">Sale Off</th>
-                                                        <th scope="col">Views</th>
-                                                        <th scope="col">Categories</th>
-                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Id bill</th>
+                                                        <th scope="col">User</th>
+                                                        <th scope="col">Email</th>
+                                                        <th scope="col">Phone number</th>
+                                                        <th scope="col">Id product</th>
+                                                        <th scope="col">Quality</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Desc</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td>
-                                                            <img src="../../content/client/img/product1.png"
-                                                                width="100px">
-                                                        </td>
-                                                        <td>Product 1</td>
-                                                        <td>50 $</td>
-                                                        <td>92<i class="fa-solid fa-eye"></i></td>
-                                                        <td>2 <i class="fa-solid fa-percent"></i></td>
-                                                        <td>Loai1</td>
-                                                        <td>Plant is beatiful</td>
+                                                        <td>Mark</td>
+                                                        <td>1@gmail.com</td>
+                                                        <td>092343243</td>
+                                                        <td>43</td>
+                                                        <td>2</td>
+                                                        <td>23499 $</td>
+                                                        <?php
+                                                        $test = 1234;
+                                                        if ($test == 2) {
+                                                            echo '<td style="color: red; font-weight: bold;">Disable</td>';
+                                                        } else if ($test == 3) {
+                                                            echo '<td style="color: #24695C; font-weight: bold;">Accept</td>';
+                                                        } else {
+                                                            echo '<td style="color: #24695C; font-weight: bold;">Paymented</td>';
+                                                        }
+                                                        ?>
                                                         <td>
                                                             <a href="edit.php" class="btn btn-primary active"
                                                                 type="button"><i
                                                                     class="fa-solid fa-pen-to-square"></i></a>
-                                                            <a href="delete.php" class="btn btn-danger active"
-                                                                type="button"><i class="fa-solid fa-trash"></i></a>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -485,193 +399,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-block row">
-                                    <!-- <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="table-success">
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div> -->
-                                </div>
                             </div>
                         </div>
-                        <!-- <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Table Footer Styling</h5><span>Use class
-                                        <code>table-info</code>,<code>table-success</code>,<code>table-success</code>,<code>table-info</code>,<code>table-danger</code>,<code>table-primary</code>,<code>table-secondary</code>,<code>table-light</code>,<code>table-active</code>and
-                                        also use <code>bg-*</code> inside tfoot element.</span>
-                                </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive table-border-radius">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot class="table-success">
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Custom Table Color</h5><span>Use class<code>table-*</code> inside table
-                                        element.</span>
-                                </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive table-border-radius">
-                                            <table class="table table-styling table-primary">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Custom Table Color with Hover and Stripped</h5><span>Use
-                                        class<code>table-hover, table-striped
-                                            table-*</code><code>table-info</code>,<code>table-success</code>,<code>table-success</code>,<code>table-info</code>,<code>table-danger</code>,<code>table-primary</code>,<code>table-secondary</code>,<code>table-light</code>,<code>table-active</code>
-                                        inside table element.</span>
-                                </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive table-border-radius">
-                                            <table class="table table-styling table-hover table-striped table-primary">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">First Name</th>
-                                                        <th scope="col">Last Name</th>
-                                                        <th scope="col">Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
                 <!-- Container-fluid Ends-->

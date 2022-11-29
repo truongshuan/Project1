@@ -102,10 +102,10 @@
                     <div class="nav__icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
-                    <div class="nav__icon">
+                    <a href="shopping/cart.php" class="nav__icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span class="total__cart">0</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </nav>

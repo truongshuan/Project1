@@ -46,7 +46,7 @@
     </div>
     <div class="header_icon">
         <div><i class='bx bx-search-alt-2'></i></div>
-        <div><i class='bx bxs-cart'></i></div>
+        <a href="shopping/cart.php" style="color: #000;"><i class='bx bxs-cart'></i></a>
         <div><i class='bx bx-user-pin'></i></div>
         <button class="btn_header">Get A Quote <div><i style="font-size: 28px;" class='bx bx-right-arrow-alt'></i>
             </div></button>
