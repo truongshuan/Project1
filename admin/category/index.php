@@ -1,6 +1,10 @@
 <?php
 session_start();
 require '../connection.php';
+require '../../global.php';
+require '../../dao/pdo.php';
+require '../../dao/loai.php';
+pdo_get_connection();
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
 if ($email != false && $password != false) {
@@ -22,6 +26,7 @@ if ($email != false && $password != false) {
     header('Location: ../login-user.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,6 +73,34 @@ if ($email != false && $password != false) {
     <link id="color" rel="stylesheet" href="../../content/admin/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../../content/admin/css/responsive.css">
+    <link rel="stylesheet" href="../toastr/toastr.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="../toastr/toastr.min.js"></script>
+    <script>
+    function msg(massage) {
+        $(function() {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr["success"](massage)
+        });
+    }
+    </script>
 </head>
 
 <body>
@@ -328,7 +361,7 @@ if ($email != false && $password != false) {
                             <div class="col-sm-6">
                                 <h3>Category</h3>
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+                                    <li class="breadcrumb-  item"><a href="../index.php">Home</a></li>
                                     <li class="breadcrumb-item">Tables</li>
                                     <li class="breadcrumb-item">Lists Category</li>
                                 </ol>
@@ -374,10 +407,46 @@ if ($email != false && $password != false) {
                                 </div>
                                 <div>
                                     <a href="new.php" class="btn btn-primary active" style="margin-left: 20px;"
-                                        type="button">New </a>
+                                        type="button">New</a>
                                 </div>
+
                                 <?php
-                                require 'list.php';
+                                // Add New Categories
+                                if (isset($_POST['add_category'])) {
+                                    $ten_loai = $_POST['ten_loai'];
+                                    $trang_thai = $_POST['trang_thai'];
+                                    loai_insert($ten_loai, $trang_thai);
+                                    echo '<script type="text/javascript">
+                                    msg("Added Categories Successfully!");
+                                    </script>';
+                                }
+                                // Update Categories
+                                if (isset($_POST['update'])) {
+                                    $ma_loai = $_POST['ma_loai'];
+                                    $ten_loai = $_POST['ten_loai'];
+                                    $trang_thai = $_POST['trang_thai'];
+                                    loai_update($ma_loai, $ten_loai, $trang_thai);
+                                    echo '<script type="text/javascript">
+                                    msg("Updated Categories Successfully!");
+                                    </script>';
+                                }
+                                // Delete Categories
+                                if (isset($_GET['id'])) {
+                                    loai_delete($_GET['id']);
+                                    echo '<script type="text/javascript">
+                                    msg("Deleted Categories Successfully!");
+                                    </script>';
+                                }
+                                // REQUEST Page
+                                extract($_REQUEST);
+                                if (exist_param("btn_new")) {
+                                    $view_name = "new.php";
+                                } else if (exist_param("btn_edit")) {
+                                    $view_name = "edit.php";
+                                } else {
+                                    $view_name = "list.php";
+                                }
+                                include $view_name;
                                 ?>
                             </div>
                         </div>
@@ -401,8 +470,6 @@ if ($email != false && $password != false) {
             </footer>
         </div>
     </div>
-    <!-- latest jquery-->
-    <script src="../../content/admin/js/jquery-3.5.1.min.js"></script>
     <!-- feather icon js-->
     <script src="../../content/admin/js/icons/feather-icon/feather.min.js"></script>
     <script src="../../content/admin/js/icons/feather-icon/feather-icon.js"></script>

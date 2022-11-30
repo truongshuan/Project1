@@ -1,6 +1,9 @@
 <?php
 session_start();
 require '../connection.php';
+require '../../global.php';
+require '../../dao/pdo.php';
+require '../../dao/loai.php';
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
 if ($email != false && $password != false) {
@@ -382,11 +385,23 @@ if ($email != false && $password != false) {
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                            pdo_get_connection();
+                                            $list = loai_select_sold_out();
+                                            foreach ($list as $item) :
+                                            ?>
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Success</td>
-                                                <td>Sold out</td>
+                                                <th scope="row"><?= $item['ma_loai'] ?></th>
+                                                <td><?= $item['ten_loai'] ?></td>
+                                                <td><?php if ($item['trang_thai'] == 1) {
+                                                            echo 'New';
+                                                        } else {
+                                                            echo 'Sold out';
+                                                        } ?></td>
                                             </tr>
+                                            <?php
+                                            endforeach;
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

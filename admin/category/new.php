@@ -373,21 +373,26 @@ if ($email != false && $password != false) {
                                     <h5>New Categories</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form class="theme-form mega-form">
+                                    <form class="theme-form mega-form" method="POST" enctype="multipart/form-data"
+                                        action="index.php">
                                         <div class="mb-3">
                                             <label class="col-form-label">Name</label>
-                                            <input class="form-control" type="text" placeholder="Enter name category">
+                                            <input class="form-control" name="ten_loai" type="text"
+                                                placeholder="Enter name category" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="col-form-label">Description</label>
                                             <br>
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option value="1">Sold</option>
-                                                <option value="2">New</option>
+                                            <select class="form-select" aria-label="Default select example"
+                                                name="trang_thai">
+                                                <option value="null" selected>--Select Desc--</option>
+                                                <option value="1">New</option>
+                                                <option value="2">Sold out</option>
                                             </select>
                                         </div>
                                         <div class="mb-3">
-                                            <button class="btn btn-primary">Add</button>
+                                            <button class="btn btn-primary" type="submit"
+                                                name="add_category">Add</button>
                                         </div>
                                 </div>
                             </div>
