@@ -43,9 +43,14 @@ function loai_delete($ma_loai)
  * @return array mảng loại truy vấn được
  * @throws PDOException lỗi truy vấn
  */
-function loai_select_all()
+function loai_query()
 {
     $sql = "SELECT * FROM loai";
+    return pdo_query($sql);
+}
+function loai_select_all($start, $limit)
+{
+    $sql = "SELECT * FROM loai ORDER BY ma_loai ASC LIMIT $start,$limit";
     return pdo_query($sql);
 }
 function loai_select_sold_out()
@@ -53,6 +58,7 @@ function loai_select_sold_out()
     $sql = "SELECT * FROM loai WHERE trang_thai = 2";
     return pdo_query($sql);
 }
+
 /**
  * Truy vấn một loại theo mã
  * @param int $ma_loai là mã loại cần truy vấn

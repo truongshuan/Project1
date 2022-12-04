@@ -58,13 +58,13 @@
                                     </button>
                                 </div>
                                 <div class="mt-4 text-center">
-                                    Don't have an account? <a href="register.php">Create One</a>
+                                    Don't have an account? <a href="register.php">Create Account</a>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="footer">
-                        Copyright &copy; 2022 &mdash; Group 1
+                        Copyright &copy; FPT Polytechnic - Group 1
                     </div>
                 </div>
             </div>

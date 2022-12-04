@@ -26,15 +26,25 @@
                                 <div class="form-group">
                                     <label for="new-password">New Password</label>
                                     <input id="new-password" type="password" class="form-control" name="password"
-                                        required autofocus data-eye>
-                                    <div class="invalid-feedback">
+                                        required autofocus data-eye required>
+                                    <!-- <div class="invalid-feedback">
                                         Password is required
                                     </div>
                                     <div class="form-text text-muted">
                                         Make sure your password is strong and easy to remember
-                                    </div>
+                                    </div> -->
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="new-password">Confirm New Password</label>
+                                    <input id="new-password" type="password" class="form-control" name="password"
+                                        required autofocus data-eye required>
+                                    <!-- <div class="invalid-feedback">
+                                        Password is required
+                                    </div>
+                                    <div class="form-text text-muted">
+                                        Make sure your password is strong and easy to remember
+                                    </div> -->
+                                </div>
                                 <div class="form-group m-0">
                                     <button type="submit" class="btn btn-success btn-block">
                                         Reset Password
@@ -44,7 +54,7 @@
                         </div>
                     </div>
                     <div class="footer">
-                        Copyright &copy; 2017 &mdash; Your Company
+                        Copyright &copy; FPT Polytechnic - Group 1
                     </div>
                 </div>
             </div>

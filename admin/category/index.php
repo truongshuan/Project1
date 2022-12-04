@@ -4,7 +4,6 @@ require '../connection.php';
 require '../../global.php';
 require '../../dao/pdo.php';
 require '../../dao/loai.php';
-pdo_get_connection();
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
 if ($email != false && $password != false) {
@@ -131,9 +130,10 @@ if ($email != false && $password != false) {
                 <div class="left-menu-header col">
                     <ul>
                         <li>
-                            <form class="form-inline search-form">
+                            <form class="form-inline search-form" method="GET" enctype="multipart/form-data"
+                                action="index.php">
                                 <div class="search-bg"><i class="fa fa-search"></i>
-                                    <input class="form-control-plaintext" placeholder="Search here.....">
+                                    <input class="form-control-plaintext" placeholder="Search here....." name="keyword">
                                 </div>
                             </form><span class="d-sm-none mobile-search search-bg"><i class="fa fa-search"></i></span>
                         </li>
@@ -147,12 +147,15 @@ if ($email != false && $password != false) {
                             <div class="bookmark-box"><i data-feather="star"></i></div>
                             <div class="bookmark-dropdown onhover-show-div">
                                 <div class="form-group mb-0">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fa fa-search"></i></span>
+                                    <form action="list.php" method="GET" enctype="multipart/form-data">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i
+                                                        class="fa fa-search"></i></span>
+                                            </div>
+                                            <input class="form-control" type="text"
+                                                placeholder="Search for categories...">
                                         </div>
-                                        <input class="form-control" type="text" placeholder="Search for bookmark...">
-                                    </div>
+                                    </form>
                                 </div>
                                 <ul class="m-t-5">
                                     <li class="add-to-bookmark"><i class="bookmark-icon"
@@ -361,7 +364,7 @@ if ($email != false && $password != false) {
                             <div class="col-sm-6">
                                 <h3>Category</h3>
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-  item"><a href="../index.php">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                                     <li class="breadcrumb-item">Tables</li>
                                     <li class="breadcrumb-item">Lists Category</li>
                                 </ol>
@@ -449,6 +452,34 @@ if ($email != false && $password != false) {
                                 include $view_name;
                                 ?>
                             </div>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <?php
+                                    if ($cr_page - 1 > 0) {
+                                    ?>
+                                    <li class="page-item"><a style="color: #24695C;" class="page-link"
+                                            href="index.php?page=<?= $cr_page - 1 ?>">Previous</a></li>
+                                    <?php
+                                    }
+                                    ?>
+                                    <?php
+                                    for ($i = 1; $i <= $page; $i++) :
+                                    ?>
+                                    <li class="page-item"><a style="color: #24695C;" class="page-link"
+                                            href="index.php?page=<?= $i ?>"><?= $i ?></a></li>
+                                    <?php
+                                    endfor;
+                                    ?>
+                                    <?php
+                                    if ($cr_page + 1 <= $page) {
+                                    ?>
+                                    <li class="page-item"><a class="page-link" href="index.php?page=<?= $cr_page + 1 ?>"
+                                            style="color: #24695C;">Next</a></li>
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>

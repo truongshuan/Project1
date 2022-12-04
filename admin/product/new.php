@@ -1,6 +1,10 @@
 <?php
 session_start();
 require '../connection.php';
+require '../../global.php';
+require '../../dao/pdo.php';
+require '../../dao/hang-hoa.php';
+require '../../dao/loai.php';
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
 if ($email != false && $password != false) {
@@ -377,42 +381,56 @@ if ($email != false && $password != false) {
                                         enctype="multipart/form-data">
                                         <div class="mb-3">
                                             <label class="col-form-label">Name</label>
-                                            <input class="form-control" type="text" placeholder="Enter name product"
-                                                required>
+                                            <input class="form-control" name="ten_hh" type="text"
+                                                placeholder="Enter name product" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="col-form-label">Price</label>
-                                            <input class="form-control" type="text" placeholder="Enter price product"
-                                                required>
+                                            <input class="form-control" name="don_gia" type="text"
+                                                placeholder="Enter price product" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="col-form-label">Categories</label>
                                             <br>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option value="1">Sold</option>
-                                                <option value="2">New</option>
+                                            <select class="form-select" aria-label="Default select example" required
+                                                name="ma_loai">
+                                                <?php
+                                                pdo_get_connection();
+                                                $start = 0;
+                                                $limit = 0;
+                                                $list_categories = loai_query();
+                                                foreach ($list_categories as $item) :
+                                                ?>
+                                                <option value="<?= $item['ma_loai'] ?>"><?= $item['ten_loai'] ?>
+                                                </option>
+                                                <?php
+                                                endforeach;
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label class="col-form-label">Special</label>
                                             <br>
-                                            <select class="form-select" aria-label="Default select example" required>
+                                            <select class="form-select" aria-label="Default select example" required
+                                                name="dac_biet">
                                                 <option value="1">Normal</option>
                                                 <option value="2">Special</option>
                                             </select>
                                         </div>
+                                        <input type="hidden" name="luot_xem" value="0">
                                         <div class="mb-3">
                                             <label class="col-form-label">Description</label>
-                                            <textarea class="form-control" type="text" placeholder="Enter desc"
-                                                required></textarea>
+                                            <textarea class="form-control" name="mo_ta" type="text"
+                                                placeholder="Enter desc" required></textarea>
                                         </div>
                                         <div class="mb-3">
                                             <label for="col-form-lable">Upload images</label>
-                                            <input class="form-control" type="file" aria-label="file example"
-                                                required="">
+                                            <input class="form-control" name="hinh" type="file"
+                                                aria-label="file example" required>
                                         </div>
                                         <div class="mb-3">
-                                            <button class="btn btn-primary">Submit</button>
+                                            <button class="btn btn-primary" name="add_product"
+                                                type="submit">Submit</button>
                                         </div>
                                     </form>
                                 </div>

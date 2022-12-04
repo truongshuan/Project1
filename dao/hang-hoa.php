@@ -1,16 +1,16 @@
 <?php
 require_once 'pdo.php';
 
-function hang_hoa_insert($ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet, $so_luot_xem, $mo_ta)
+function hang_hoa_insert($ten_hh, $don_gia, $hinh, $ngay_nhap, $mo_ta, $luot_xem, $dac_biet, $ma_loai)
 {
-    $sql = "INSERT INTO hang_hoa(ten_hh, don_gia, giam_gia, hinh, ma_loai, dac_biet, so_luot_xem, mo_ta) VALUES (?,?,?,?,?,?,?,?)";
-    pdo_execute($sql, $ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet == 1, $so_luot_xem, $mo_ta);
+    $sql = "INSERT INTO hang_hoa(ten_hh, don_gia, hinh, ngay_nhap , mo_ta , luot_xem , dac_biet , ma_loai) VALUES (?,?,?,?,?,?,?,?)";
+    pdo_execute($sql, $ten_hh, $don_gia, $hinh, $ngay_nhap, $mo_ta, $luot_xem, $dac_biet, $ma_loai);
 }
 
-function hang_hoa_update($ma_hh, $ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet, $so_luot_xem, $mo_ta)
+function hang_hoa_update($ma_hh, $ten_hh, $don_gia, $hinh, $mo_ta, $luot_xem, $dac_biet, $ma_loai)
 {
-    $sql = "UPDATE hang_hoa SET ten_hh=?,don_gia=?,giam_gia=?,hinh=?,ma_loai=?,dac_biet=?,so_luot_xem=?,mo_ta=? WHERE ma_hh=?";
-    pdo_execute($sql, $ten_hh, $don_gia, $giam_gia, $hinh, $ma_loai, $dac_biet == 1, $so_luot_xem, $mo_ta, $ma_hh);
+    $sql = "UPDATE hang_hoa SET ten_hh=?,don_gia=?,hinh=?,mo_ta=?,luot_xem=?,dac_biet=?,ma_loai=? WHERE ma_hh=?";
+    pdo_execute($sql, $ten_hh, $don_gia, $hinh, $mo_ta, $luot_xem, $dac_biet, $ma_loai, $ma_hh);
 }
 
 function hang_hoa_delete($ma_hh)
@@ -25,9 +25,9 @@ function hang_hoa_delete($ma_hh)
     }
 }
 
-function hang_hoa_select_all()
+function hang_hoa_select_all($start, $limit)
 {
-    $sql = "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai ORDER BY hang_hoa.ma_hh ASC";
+    $sql = "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai ORDER BY hang_hoa.ma_hh ASC LIMIT $start,$limit";
     return pdo_query($sql);
 }
 

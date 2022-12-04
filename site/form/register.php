@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="footer">
-                        Copyright &copy; 2017 &mdash; Your Company
+                        Copyright &copy; FPT Polytechnic - Group 1
                     </div>
                 </div>
             </div>

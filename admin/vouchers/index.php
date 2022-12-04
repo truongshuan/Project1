@@ -1,6 +1,10 @@
 <?php
 session_start();
+ob_start();
 require '../connection.php';
+require '../../global.php';
+require '../../dao/pdo.php';
+require '../../dao/voucher.php';
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
 if ($email != false && $password != false) {
@@ -68,6 +72,34 @@ if ($email != false && $password != false) {
     <link id="color" rel="stylesheet" href="../../content/admin/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../../content/admin/css/responsive.css">
+    <link rel="stylesheet" href="../toastr/toastr.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="../toastr/toastr.min.js"></script>
+    <script>
+    function msg(massage) {
+        $(function() {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr["success"](massage)
+        });
+    }
+    </script>
 </head>
 
 <body>
@@ -98,9 +130,9 @@ if ($email != false && $password != false) {
                 <div class="left-menu-header col">
                     <ul>
                         <li>
-                            <form class="form-inline search-form">
+                            <form class="form-inline search-form" method="GET" action="index.php">
                                 <div class="search-bg"><i class="fa fa-search"></i>
-                                    <input class="form-control-plaintext" placeholder="Search here.....">
+                                    <input class="form-control-plaintext" placeholder="Search here....." name="keyword">
                                 </div>
                             </form><span class="d-sm-none mobile-search search-bg"><i class="fa fa-search"></i></span>
                         </li>
@@ -304,7 +336,7 @@ if ($email != false && $password != false) {
                                             data-feather="gift"></i><span>Vouchers</span></a>
                                     <ul class="nav-submenu menu-content">
                                         <li><a href="index.php">Main Table</a></li>
-                                        <li><a href="new.php">New voucher</a></li>
+                                        <li><a href="index.php?btn_new">New voucher</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
@@ -367,48 +399,60 @@ if ($email != false && $password != false) {
                 <!-- Container-fluid starts-->
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Table Vouchers</h5>
-                                </div>
-                                <div class="card-block row">
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="table-primary">
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Name voucher</th>
-                                                        <th scope="col">Start</th>
-                                                        <th scope="col">End</th>
-                                                        <th scope="col">Description</th>
-                                                        <th scope="col">Code</th>
-                                                        <th scope="col">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Sale off halloween</td>
-                                                        <td>27/11/2022</td>
-                                                        <td>21/12/2022</td>
-                                                        <td>sale ne</td>
-                                                        <td>Halloween20022</td>
-                                                        <td>
-                                                            <a href="edit.php" class="btn btn-outline-success-2x"
-                                                                type="button">Edit</a>
-                                                            <a class="btn btn-outline-danger-2x"
-                                                                type="button">Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                        // Add new voucher
+                        if (isset($_POST['add_voucher'])) {
+                            $ten_km = $_POST['ten_km'];
+                            $code = $_POST['code'];
+                            $ngay_bat_dau = date('Y-m-d', strtotime($_POST['ngay_bat_dau']));
+                            $ngay_ket_thuc = date('Y-m-d', strtotime($_POST['ngay_ket_thuc']));
+                            $mo_ta = $_POST['mo_ta'];
+                            if ($ngay_bat_dau > $ngay_ket_thuc) {
+                                header("location: index.php?btn_new");
+                                $_SESSION['error_date_voucher'] = "The end date must be greater than the start date!";
+                            } else {
+                                voucher_insert($ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code);
+                                echo '<script type="text/javascript">
+                                msg("Added Voucher Successfully!");
+                                </script>';
+                            }
+                        }
+                        // Edit Voucher
+                        if (isset($_POST['edit_voucher'])) {
+                            $ma_km = $_POST['ma_km'];
+                            $ten_km = $_POST['ten_km'];
+                            $code = $_POST['code'];
+                            $ngay_bat_dau = date('Y-m-d', strtotime($_POST['ngay_bat_dau']));
+                            $ngay_ket_thuc = date('Y-m-d', strtotime($_POST['ngay_ket_thuc']));
+                            $mo_ta = $_POST['mo_ta'];
+                            if ($ngay_bat_dau > $ngay_ket_thuc) {
+                                header("location: index.php?btn_edit&id_coup=$ma_km");
+                                $_SESSION['error_date_voucher'] = "The end date must be greater than the start date!";
+                            } else {
+                                voucher_update($ma_km, $ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code);
+                                echo '<script type="text/javascript">
+                                msg("Updated Voucher Successfully!");
+                                </script>';
+                            }
+                        }
+                        // Delete Voucher
+                        if (!empty($_GET['id_cp'])) {
+                            voucher_delete($_GET['id_cp']);
+                            echo '<script type="text/javascript">
+                            msg("Deleted Voucher Successfully!");
+                            </script>';
+                        }
+                        // request controller
+                        extract($_REQUEST);
+                        if (exist_param("btn_new")) {
+                            $view_name = "new.php";
+                        } else if (exist_param("btn_edit")) {
+                            $view_name = "edit.php";
+                        } else {
+                            $view_name = "list.php";
+                        }
+                        include $view_name;
+                        ?>
                     </div>
                 </div>
                 <!-- Container-fluid Ends-->
@@ -450,3 +494,6 @@ if ($email != false && $password != false) {
 </body>
 
 </html>
+<?php
+ob_end_flush();
+?>

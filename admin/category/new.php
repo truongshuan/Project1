@@ -384,8 +384,8 @@ if ($email != false && $password != false) {
                                             <label class="col-form-label">Description</label>
                                             <br>
                                             <select class="form-select" aria-label="Default select example"
-                                                name="trang_thai">
-                                                <option value="null" selected>--Select Desc--</option>
+                                                name="trang_thai" required>
+                                                <option value="null" selected disabled>--Select Desc--</option>
                                                 <option value="1">New</option>
                                                 <option value="2">Sold out</option>
                                             </select>
