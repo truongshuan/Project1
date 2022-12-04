@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -160,37 +161,29 @@
                         <h1 class="featured__tittle">Featured Products
                         </h1>
                         <div class="featured__list">
+                     
                             <div class="featured__card">
-                                <img src="../content/client/img/product1.png" alt="" class="featured__card-img">
+                   
+                            <?php
+                    require '../admin/connection.php';
+                    require '../dao/hang-hoa.php';
+                    $hang_hoa = hang_hoa_select_top10();
+                foreach($hang_hoa as $hh):
+                          
+                    ?>
+                                <img src="../content/client/img/<?=$hh['hinh'] ?>" alt="" class="featured__card-img">
                                 <div class="featured__card-infor">
-                                    <span class="card--name">Pike tail, or snake plant
+                                    <span class="card--name"><?=$hh['ten_hh'] ?>
                                     </span>
-                                    <p class="card--price">$50.00
+                                    <p class="card--price"><?=$hh['don_gia'] ?>
                                     </p>
+                                    
                                 </div>
+                            
                             </div>
-                            <div class="featured__card">
-                                <div class="featured__card-img">
-                                    <img src="../content/client/img/product1.png" alt="">
-                                </div>
-                                <div class="featured__card-infor">
-                                    <span class="card--name">Pike tail, or snake plant
-                                    </span>
-                                    <p class="card--price">$50.00
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="featured__card">
-                                <div class="featured__card-img">
-                                    <img src="../content/client/img/product1.png" alt="">
-                                </div>
-                                <div class="featured__card-infor">
-                                    <span class="card--name">Pike tail, or snake plant
-                                    </span>
-                                    <p class="card--price">$50.00
-                                    </p>
-                                </div>
-                            </div>
+                            <?php
+                            endforeach;
+                            ?>
                         </div>
                     </div>
                     <div class="tags">
@@ -212,74 +205,31 @@
                         </select>
                     </div>
                     <div class="product__list">
+                    <?php
+                    require '../admin/connection.php';
+                    require '../dao/loai.php';
+                    $sql = "SELECT * FROM hang_hoa";
+                    $result = $con->query($sql);
+                    if($result->num_rows > 0):
+                        while($row = $result->fetch_assoc()):
+                    ?>
                         <div class="product__card">
                             <div class="product__card-img">
-                                <img src="../content/client/img/product2.png" alt="" class="product--img">
+                                <img src="../content/client/img/<?=$row['hinh']?>" alt="" class="product--img">
                             </div>
-                            <span class="product__card-name">Aloe vera</span>
-                            <p class="product__card-price">$12.00</p>
+                            <span class="product__card-name"><?=$row['ten_hh']?></span>
+                            <p class="product__card-price"><?=$row['don_gia']?>$</p>
+                            
                             <div class="desc__icons">
                                 <a href="" class="desc__icon"><i class="fa-solid fa-cart-shopping"></i></a>
                                 <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
                                 <a href="details.php" class="desc__icon"><i class="fa-regular fa-eye"></i></a>
                             </div>
-                        </div>
-                        <div class="product__card">
-                            <div class="product__card-img">
-                                <img src="../content/client/img/product3.png" alt="" class="product--img">
-                            </div>
-                            <span class="product__card-name">Aloe vera</span>
-                            <p class="product__card-price">$12.00</p>
-                        </div>
-                        <div class="product__card">
-                            <div class="product__card-img">
-                                <img src="../content/client/img/product4.png" alt="" class="product--img">
-                            </div>
-                            <span class="product__card-name">Aloe vera</span>
-                            <p class="product__card-price">$12.00</p>
-                        </div>
-                        <div class="product__card">
-                            <div class="product__card-img">
-                                <img src="../content/client/img/product5.png" alt="" class="product--img">
-                            </div>
-                            <span class="product__card-name">Aloe vera</span>
-                            <p class="product__card-price">$12.00</p>
-                        </div>
-                        <div class="product__card">
-                            <div class="product__card-img">
-                                <img src="../content/client/img/product2.png" alt="" class="product--img">
-                            </div>
-                            <span class="product__card-name">Aloe vera</span>
-                            <p class="product__card-price">$12.00</p>
-                        </div>
-                        <div class="product__card">
-                            <div class="product__card-img">
-                                <img src="../content/client/img/product2.png" alt="" class="product--img">
-                            </div>
-                            <span class="product__card-name">Aloe vera</span>
-                            <p class="product__card-price">$12.00</p>
-                        </div>
-                        <div class="product__card">
-                            <div class="product__card-img">
-                                <img src="../content/client/img/product2.png" alt="" class="product--img">
-                            </div>
-                            <span class="product__card-name">Aloe vera</span>
-                            <p class="product__card-price">$12.00</p>
-                        </div>
-                        <div class="product__card">
-                            <div class="product__card-img">
-                                <img src="../content/client/img/product2.png" alt="" class="product--img">
-                            </div>
-                            <span class="product__card-name">Aloe vera</span>
-                            <p class="product__card-price">$12.00</p>
-                        </div>
-                        <div class="product__card">
-                            <div class="product__card-img">
-                                <img src="../content/client/img/product2.png" alt="" class="product--img">
-                            </div>
-                            <span class="product__card-name">Aloe vera</span>
-                            <p class="product__card-price">$12.00</p>
-                        </div>
+                        </div>     
+                        <?php
+                        endwhile;
+                    endif;
+                        ?>
                     </div>
                     <div class="page">
                         <ul class="page__navagation">
@@ -292,6 +242,9 @@
                 </div>
             </div>
         </section>
+        <?php
+  print_r($hh);
+        ?>
     </main>
     <section class="foodter_img">
         <img src="../content/client/img/foodter.jpg" alt="">

@@ -45,13 +45,13 @@ function hang_hoa_exist($ma_hh)
 
 function hang_hoa_tang_so_luot_xem($ma_hh)
 {
-    $sql = "UPDATE hang_hoa SET so_luot_xem = so_luot_xem + 1 WHERE ma_hh=?";
+    $sql = "UPDATE hang_hoa SET so_luot_xem = luot_xem + 1 WHERE ma_hh=?";
     pdo_execute($sql, $ma_hh);
 }
 
 function hang_hoa_select_top10()
 {
-    $sql = "SELECT * FROM hang_hoa WHERE so_luot_xem > 0 ORDER BY so_luot_xem DESC LIMIT 0, 10";
+    $sql = "SELECT * FROM hang_hoa WHERE luot_xem > 0 ORDER BY luot_xem DESC LIMIT 0, 3";
     return pdo_query($sql);
 }
 
