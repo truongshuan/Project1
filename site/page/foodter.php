@@ -103,6 +103,6 @@
             </div>
         </div>
         <hr>
-        <p>Copyright &copy 2021 The Gettree Landscaping. Designed by H. Thuận, M. Tý and T. Xuân</p>
+        <p>Designed by H. Thuận, M. Tý and T. Xuân</p>
     </section>
 </footer>
