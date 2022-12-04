@@ -19,7 +19,6 @@
 * ==========================================
 *
 */
-
     body {
         background: #eecda3;
         background: -webkit-linear-gradient(to right, #E2E4B8, #00CBAC);
