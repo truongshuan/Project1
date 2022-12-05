@@ -42,8 +42,8 @@
         <div class="row content">
             <div class="col l-8">
                 <div class="left">
-                    <h1>What is landscaping? How can help you.</h1>
-                    <p class="dropcap">People have practiced landscaping for centuries. As far back as the ancient
+                    <h1 data-aos="fade-up" data-aos-duration="1000">What is landscaping? How can help you.</h1>
+                    <p class="dropcap" data-aos="fade-up" data-aos-duration="1000">People have practiced landscaping for centuries. As far back as the ancient
                         Mayans, humans were manipulating the land for both aesthetic and practical reasons. The addition
                         of plants, changes to the existing terrain and the construction of structures are all part of
                         landscaping. Today landscaping refers to the planning, laying out and construction of gardens
@@ -51,42 +51,42 @@
                     <h1>Landscaping Options & Ideas</h1>
                     <p>If you are considering landscaping your home check out these resources:</p>
                     <div class="box1">
-                        <div class="content">
+                        <div class="content"data-aos="fade-right" data-aos-duration="1000">
                             <i class='bx bx-color'></i>
                             <div>
                                 <p>Landscaping Pictures</p>
                                 <b>Browse hundreds of unique residential landscapes</b>
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content" data-aos="fade-left" data-aos-duration="1000">
                             <i class='bx bx-brightness-half'></i>
                             <div>
                                 <p>Landscaping Ideas</p>
                                 <b>Get inspiration & expert advice for your yard</b>
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content"data-aos="fade-right" data-aos-duration="1000">
                             <i class='bx bx-hive'></i>
                             <div>
                                 <p>How to Landscape</p>
                                 <b>Discover how to plan the ultimate garden retreat</b>
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content" data-aos="fade-left" data-aos-duration="1000">
                             <i class='bx bx-paint-roll'></i>
                             <div>
                                 <p>Backyard Ideas</p>
                                 <b>Learn everything you need to know about outdoor living spaces</b>
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content" data-aos="fade-right" data-aos-duration="1000">
                             <i class='bx bx-landscape'></i>
                             <div>
                                 <p>Front Yard Landscaping</p>
                                 <b>Find ideas for boosting the curb appeal of your home</b>
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content" data-aos="fade-left" data-aos-duration="1000">
                             <i class='bx bxs-hand'></i>
                             <div>
                                 <p>Landscaping Plants</p>
@@ -96,14 +96,14 @@
                     </div>
                     <h1>Our Working Process</h1>
                     <div class="box2">
-                        <div class="content">
+                        <div class="content"data-aos="fade-right" data-aos-duration="1000">
                             <i class='bx bxs-leaf'></i>
                             <div>
                                 <p>1. Consultation</p>
                                 <b>Lorem available market standard industry Lorem Ipsum dummy.</b>
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content"data-aos="fade-left" data-aos-duration="1000">
                             <i class='bx bxs-carousel'></i>
                             <div>
                                 <p>2. Design & Work</p>
@@ -112,21 +112,21 @@
                         </div>
                     </div>
                     <div class="box3">
-                        <div class="content">
+                        <div class="content"data-aos="fade-right" data-aos-duration="1000">
                             <img src="../content/client/img/service_img1.png" alt="">
                         </div>
-                        <div class="content">
+                        <div class="content"data-aos="fade-left" data-aos-duration="1000">
                             <img src="../content/client/img/service_img2.png" alt="">
                         </div>
                     </div>
-                    <div class="box4">
+                    <div class="box4" data-aos="fade-up" data-aos-duration="1000">
                         <p>BY &nbsp;&nbsp;<span>D. JHON SHIKON MILON</span></p>
                         <b>"Gettree and crew did a fantastic install of a Hunter WiFi sprinkler system. The neatest crew
                             we have ever at home"</b>
                     </div>
                     <h1>Our Commitment</h1>
                     <div class="box5">
-                        <div class="content">
+                        <div class="content"data-aos="fade-right" data-aos-duration="1000">
                             <div class="div">
                                 <i class='bx bx-check'></i> No Chemicals
                             </div>
@@ -137,7 +137,7 @@
                                 <i class='bx bx-pie-chart'></i> Free Estimates
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content"data-aos="fade-up" data-aos-duration="1000">
                             <div class="div">
                                 <i class='bx bx-check'></i> No Insect
                             </div>
@@ -148,7 +148,7 @@
                                 <i class='bx bx-pie-chart'></i> Upfront Pricing
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content"data-aos="fade-left" data-aos-duration="1000">
                             <div class="div">
                                 <i class='bx bx-check'></i> No Chemicals
                             </div>
@@ -162,7 +162,7 @@
                     </div>
                     <h1>Reason You Should Choise Us</h1>
                     <div class="box6">
-                        <div class="left">
+                        <div class="left"data-aos="fade-right" data-aos-duration="1000">
                             <p>Garden Services provides full & comprehensive services in irrigation, landscape ,
                                 maintenance and professional tree care management.</p>
                             <div class="content">
@@ -178,7 +178,7 @@
                                 <i class='bx bxs-check-circle'></i> Expert People
                             </div>
                         </div>
-                        <div class="right">
+                        <div class="right"data-aos="fade-left" data-aos-duration="1000">
                             <img src="../content/client/img/service_img3.png" alt="">
                         </div>
                     </div>

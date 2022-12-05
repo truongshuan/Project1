@@ -66,7 +66,7 @@
                         <div class="offer1_circle"><i class='bx bx-color'></i></div>
                         <p>Landscaping</p>
                         <span>Quis autem vel eum iure ende scnse quats</span>
-                        <div class="read_more"><a href="">Read More</a></div>
+                        <div class="read_more"><a href="service.php">Read More</a></div>
                     </div>
                 </div>
                 <div class="col l-3">
@@ -74,7 +74,7 @@
                         <div class="offer1_circle"><i class='bx bx-street-view'></i></div>
                         <p>Pruning Plants</p>
                         <span>Quis autem vel eum iure ende scnse quats</span>
-                        <div class="read_more"><a href="">Read More</a></div>
+                        <div class="read_more"><a href="service.php">Read More</a></div>
                     </div>
                 </div>
                 <div class="col l-3">
@@ -82,7 +82,7 @@
                         <div class="offer1_circle"><i class='bx bxs-leaf'></i></div>
                         <p>Lawn Maintenance</p>
                         <span>Quis autem vel eum iure ende scnse quats</span>
-                        <div class="read_more"><a href="">Read More</a></div>
+                        <div class="read_more"><a href="service.php">Read More</a></div>
                     </div>
                 </div>
                 <div class="col l-3">
@@ -90,7 +90,7 @@
                         <div class="offer1_circle"><i class='bx bxs-institution'></i></i></div>
                         <p>Lawn Moving</p>
                         <span>Quis autem vel eum iure ende scnse quats</span>
-                        <div class="read_more"><a href="">Read More</a></div>
+                        <div class="read_more"><a href="service.php">Read More</a></div>
                     </div>
                 </div>
             </div>

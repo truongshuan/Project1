@@ -4,6 +4,7 @@ pdo_get_connection();
 require '../dao/hang-hoa.php';
 require '../dao/loai.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +18,7 @@ require '../dao/loai.php';
     <!-- CSS -->
     <link rel="stylesheet" href="../content/client/css/product.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
+    <link rel="stylesheet" href="../content/client/css/header.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
     <!-- Font-icon -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -98,90 +100,25 @@ require '../dao/loai.php';
             transform: none;
         }
     } */
+    .menu_con li {
+        margin-left: 0px;
+    }
+
+    .about_home>p {
+        margin-top: 20px;
+    }
+
+    .contact_home2_content {
+        margin-top: 20px;
+    }
     </style>
 </head>
 
 <body>
     <!-- Header -->
-    <!-- Information Company -->
-    <section class="infor_comp">
-        <div class="address">
-            <i class="fa-solid fa-location-dot"></i>
-            <p class="address-dersc">2072 Pinnickinick Street, WA 98370</p>
-        </div>
-        <div class="header-social">
-            <div class="email">
-                <i class="fa-regular fa-envelope"></i>
-                <p class="email-dersc">xuanptpc04031@fpt.edu.vn</p>
-            </div>
-            <div class="social-icons">
-                <i class="fa-brands fa-facebook-f social-icon"></i>
-                <i class="fa-brands fa-twitter social-icon"></i>
-                <i class="fa-brands fa-google social-icon"></i>
-                <i class="fa-brands fa-instagram social-icon"></i>
-            </div>
-        </div>
-    </section>
-    <header class="header " id="header">
-        <nav class="nav">
-            <a href="index.php"><img src="../content/client/img/logo_shop.PNG" alt="" class="nav__image"></a>
-            <div class="nav__menu">
-                <ul class="nav__list">
-                    <li class="nav__link animation">
-                        <a href="index.php" class="nav__item">Home <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown__list">
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home 1</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home 2</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home 3</a></li>
-                            <li class="dropdown__item"><a href="#" class="dropdown__link">Home 4</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav__link animation">
-                        <a href="about.php" class="nav__item">About</a>
-                    </li>
-                    <li class="nav__link animation">
-                        <a href="service.php" class="nav__item">Services <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown__list">
-                            <li class="dropdown__item"><a href="service.php" class="dropdown__link">Garden Walls</a>
-                            </li>
-                            <li class="dropdown__item"><a href="service.php" class="dropdown__link">Landscasings</a>
-                            </li>
-                            <li class="dropdown__item"><a href="service.php" class="dropdown__link">Lawn Moving</a></li>
-                            <li class="dropdown__item"><a href="service.php" class="dropdown__link">Pruning Plants</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav__link animation">
-                        <a href="product.php" class="nav__item">Shop <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown__list">
-                            <li class="dropdown__item"><a href="product.php" class="dropdown__link">Product</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav__link animation">
-                        <a href="blog.php" class="nav__item">Blog <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown__list">
-                            <li class="dropdown__item"><a href="blog.php" class="dropdown__link">Blog Listing</a></li>
-                            <li class="dropdown__item"><a href="blog.php" class="dropdown__link">Blog Single</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav__link">
-                        <a href="contact.php" class="nav__item">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav__icons">
-                <div class="nav__icons-list">
-                    <div class="nav__icon">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <a href="shopping/cart.php" class="nav__icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="total__cart">0</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <?php
+    include "page/header.php";
+    ?>
     <!-- banner -->
     <section class="banner"
         style="background-image: linear-gradient(rgba(15, 66, 41, 0.95), rgba(15, 66, 41, 0.95)), url(../content/client/img/record.jfif);">
@@ -220,37 +157,29 @@ require '../dao/loai.php';
                         <h1 class="featured__tittle">Featured Products
                         </h1>
                         <div class="featured__list">
+
                             <div class="featured__card">
-                                <img src="../content/client/img/product1.png" alt="" class="featured__card-img">
+
+                                <?php
+                                require '../admin/connection.php';
+                                require '../dao/hang-hoa.php';
+                                $hang_hoa = hang_hoa_select_top10();
+                                foreach ($hang_hoa as $hh) :
+
+                                ?>
+                                <img src="../content/client/img/<?= $hh['hinh'] ?>" alt="" class="featured__card-img">
                                 <div class="featured__card-infor">
-                                    <span class="card--name">Pike tail, or snake plant
+                                    <span class="card--name"><?= $hh['ten_hh'] ?>
                                     </span>
-                                    <p class="card--price">$50.00
+                                    <p class="card--price"><?= $hh['don_gia'] ?>
                                     </p>
+
                                 </div>
+
                             </div>
-                            <div class="featured__card">
-                                <div class="featured__card-img">
-                                    <img src="../content/client/img/product1.png" alt="">
-                                </div>
-                                <div class="featured__card-infor">
-                                    <span class="card--name">Pike tail, or snake plant
-                                    </span>
-                                    <p class="card--price">$50.00
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="featured__card">
-                                <div class="featured__card-img">
-                                    <img src="../content/client/img/product1.png" alt="">
-                                </div>
-                                <div class="featured__card-infor">
-                                    <span class="card--name">Pike tail, or snake plant
-                                    </span>
-                                    <p class="card--price">$50.00
-                                    </p>
-                                </div>
-                            </div>
+                            <?php
+                                endforeach;
+                        ?>
                         </div>
                     </div>
                     <div class="tags">
@@ -272,28 +201,74 @@ require '../dao/loai.php';
                         </select>
                     </div>
                     <div class="product__list">
-                        <?php
-                        $start = 0;
-                        $limit = 3;
-                        $list_product = hang_hoa_select_all($start, $limit);
-                        foreach ($list_product as $item) :
-                        ?>
                         <div class="product__card">
-                            <div class="product__card-img"
-                                style="display: flex;justify-content: center;align-items: center;">
-                                <img src="../uploads/<?= $item['hinh'] ?>" alt="" class="product--img" width="130px">
+                            <div class="product__card-img">
+                                <img src="../content/client/img/product2.png" alt="" class="product--img">
                             </div>
-                            <span class="product__card-name"><?= $item['ten_hh'] ?></span>
-                            <p class="product__card-price"><?= $item['don_gia'] ?></p>
+                            <span class="product__card-name">Aloe vera</span>
+                            <p class="product__card-price">$12.00</p>
                             <div class="desc__icons">
                                 <a href="" class="desc__icon"><i class="fa-solid fa-cart-shopping"></i></a>
                                 <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
                                 <a href="details.php" class="desc__icon"><i class="fa-regular fa-eye"></i></a>
                             </div>
                         </div>
-                        <?php
-                        endforeach;
-                        ?>
+                        <div class="product__card">
+                            <div class="product__card-img">
+                                <img src="../content/client/img/product3.png" alt="" class="product--img">
+                            </div>
+                            <span class="product__card-name">Aloe vera</span>
+                            <p class="product__card-price">$12.00</p>
+                        </div>
+                        <div class="product__card">
+                            <div class="product__card-img">
+                                <img src="../content/client/img/product4.png" alt="" class="product--img">
+                            </div>
+                            <span class="product__card-name">Aloe vera</span>
+                            <p class="product__card-price">$12.00</p>
+                        </div>
+                        <div class="product__card">
+                            <div class="product__card-img">
+                                <img src="../content/client/img/product5.png" alt="" class="product--img">
+                            </div>
+                            <span class="product__card-name">Aloe vera</span>
+                            <p class="product__card-price">$12.00</p>
+                        </div>
+                        <div class="product__card">
+                            <div class="product__card-img">
+                                <img src="../content/client/img/product2.png" alt="" class="product--img">
+                            </div>
+                            <span class="product__card-name">Aloe vera</span>
+                            <p class="product__card-price">$12.00</p>
+                        </div>
+                        <div class="product__card">
+                            <div class="product__card-img">
+                                <img src="../content/client/img/product2.png" alt="" class="product--img">
+                            </div>
+                            <span class="product__card-name">Aloe vera</span>
+                            <p class="product__card-price">$12.00</p>
+                        </div>
+                        <div class="product__card">
+                            <div class="product__card-img">
+                                <img src="../content/client/img/product2.png" alt="" class="product--img">
+                            </div>
+                            <span class="product__card-name">Aloe vera</span>
+                            <p class="product__card-price">$12.00</p>
+                        </div>
+                        <div class="product__card">
+                            <div class="product__card-img">
+                                <img src="../content/client/img/product2.png" alt="" class="product--img">
+                            </div>
+                            <span class="product__card-name">Aloe vera</span>
+                            <p class="product__card-price">$12.00</p>
+                        </div>
+                        <div class="product__card">
+                            <div class="product__card-img">
+                                <img src="../content/client/img/product2.png" alt="" class="product--img">
+                            </div>
+                            <span class="product__card-name">Aloe vera</span>
+                            <p class="product__card-price">$12.00</p>
+                        </div>
                     </div>
                     <div class="page">
                         <ul class="page__navagation">
@@ -309,37 +284,40 @@ require '../dao/loai.php';
             </div>
         </section>
     </main>
+    <section class="foodter_img">
+        <img src="../content/client/img/foodter.jpg" alt="">
+    </section>
     <?php
     require 'page/foodter.php';
     ?>
     <section id="goTop">
         <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
     </section>
-    <script>
-    $(function() {
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) $("#goTop").fadeIn();
-            else $("#goTop").fadeOut();
+    <!-- <script>
+        $(function() {
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) $("#goTop").fadeIn();
+                else $("#goTop").fadeOut();
+            });
+            $("#goTop").click(function() {
+                $("body,html").animate({
+                        scrollTop: 0
+                    },
+                    "fast"
+                );
+            });
         });
-        $("#goTop").click(function() {
-            $("body,html").animate({
-                    scrollTop: 0
-                },
-                "fast"
-            );
+        sr.reveal(`.product__list`);
+        sr.reveal(`.contact_home`, {
+            origin: "top"
         });
-    });
-    sr.reveal(`.product__list`);
-    sr.reveal(`.contact_home`, {
-        origin: "top"
-    });
-    sr.reveal(`.about_home`, {});
-    // Preload
-    window.onload = function() {
-        $("#loader").fadeOut();
-        $("body").remove;
-    };
-    </script>
+        sr.reveal(`.about_home`, {});
+        // Preload
+        window.onload = function() {
+            $("#loader").fadeOut();
+            $("body").remove;
+        };
+    </script> -->
 </body>
 
 </html>

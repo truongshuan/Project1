@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../content/client/css/blog.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
+    <link rel="stylesheet" href="../content/client/css/header.css">
     <!-- Font-icon -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <script src="https://kit.fontawesome.com/088d757bb6.js" crossorigin="anonymous"></script>
@@ -20,12 +21,25 @@
     <script src="../content/client/js/scrollreveal.min.js"></script>
     <script src="../content/client/js/main.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <style>
+        .menu_con li {
+            margin-left: 0px;
+        }
+
+        .about_home>p {
+            margin-top: 20px;
+        }
+
+        .contact_home2_content {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Header -->
     <!-- Information Company -->
-    <section class="infor_comp">
+    <!-- <section class="infor_comp">
         <div class="address">
             <i class="fa-solid fa-location-dot"></i>
             <p class="address-dersc">2072 Pinnickinick Street, WA 98370</p>
@@ -109,10 +123,12 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> -->
+    <?php
+    include "page/header.php";
+    ?>
     <!-- banner -->
-    <section class="banner"
-        style="background-image: linear-gradient(rgba(15, 66, 41, 0.95), rgba(15, 100, 41, 0.95)), url(../content/client/img/blog1.jpg);">
+    <section class="banner" style="background-image: linear-gradient(rgba(15, 66, 41, 0.95), rgba(15, 100, 41, 0.95)), url(../content/client/img/blog1.jpg);">
         <div class="banner__content">
             <h1 class="banner__content-tittle">News </h1>
             <div class="banner__content-add">
@@ -254,8 +270,7 @@
                     <h2 class="sreach__tittle">Search</h2>
                     <form action="" class="search__form">
                         <input type="text" placeholder="Search here" class="search__form-group">
-                        <button type="submit" class="search__form-btn"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
+                        <button type="submit" class="search__form-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
                 <div class="category">
@@ -307,6 +322,9 @@
             </div>
         </div>
     </main>
+    <section class="foodter_img">
+        <img src="../content/client/img/foodter.jpg" alt="">
+    </section>
     <?php
     require 'page/foodter.php';
     ?>
@@ -314,19 +332,19 @@
         <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
     </section>
     <script>
-    $(function() {
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) $("#goTop").fadeIn();
-            else $("#goTop").fadeOut();
+        $(function() {
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) $("#goTop").fadeIn();
+                else $("#goTop").fadeOut();
+            });
+            $("#goTop").click(function() {
+                $("body,html").animate({
+                        scrollTop: 0
+                    },
+                    "fast"
+                );
+            });
         });
-        $("#goTop").click(function() {
-            $("body,html").animate({
-                    scrollTop: 0
-                },
-                "fast"
-            );
-        });
-    });
     </script>
 
 </body>
