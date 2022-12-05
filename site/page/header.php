@@ -47,8 +47,41 @@
     <div class="header_icon">
         <div><i class='bx bx-search-alt-2'></i></div>
         <a href="shopping/cart.php" style="color: #000;"><i class='bx bxs-cart'></i></a>
-        <div><i class='bx bx-user-pin'></i></div>
-        <button class="btn_header">Get A Quote <div><i style="font-size: 28px;" class='bx bx-right-arrow-alt'></i>
-            </div></button>
+        <div class="user">
+            <i class='bx bx-user-pin'></i>
+            <ul class="nav__list-child">
+                <?php
+                if (isset($_SESSION['home'])) {
+                ?>
+                    <li class="nav__list-child-item"><a href="#" class="nav__link"><?php echo $ma_kh; ?>
+                        </a>
+                    </li>
+                    <li class="nav__list-child-item"><a href="user/profile.php?id_user=<?= $ma_kh ?>" class="nav__link">Profile</a>
+                    </li>
+                <?php
+                } else {
+                ?>
+                    <li class="nav__list-child-item"><a href="form/login.php" class="nav__link">Login </a>
+                    </li>
+                <?php
+                }
+                ?>
+                <?php
+                if (isset($infor['vai_tro'])) {
+                    $vai_tro = $infor['vai_tro'];
+                    if ($vai_tro == 1) {
+                ?>
+                        <li class="nav__list-child-item"><a href="../admin/" class="nav__link">Admin</a>
+                        </li>
+                <?php
+                    }
+                }
+                ?>
+                <li class="nav__list-child-item"><a href="log/logout.php" class="nav__link">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <a href="service.php"><button class="btn_header">GET AQUET <div><i style="font-size: 28px;" class='bx bx-right-arrow-alt'></i>
+                </div></button></a>
     </div>
 </section>
