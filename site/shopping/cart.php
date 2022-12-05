@@ -22,6 +22,7 @@
 * ==========================================
 *
 */
+<<<<<<< HEAD
 
         body {
             background: #eecda3;
@@ -29,6 +30,14 @@
             background: linear-gradient(to right, #E2E4B8, #00CBAC);
             min-height: 100vh;
         }
+=======
+    body {
+        background: #eecda3;
+        background: -webkit-linear-gradient(to right, #E2E4B8, #00CBAC);
+        background: linear-gradient(to right, #E2E4B8, #00CBAC);
+        min-height: 100vh;
+    }
+>>>>>>> 70f918ac4e4266d806becc052ac82c24a743aee6
     </style>
 </head>
 
