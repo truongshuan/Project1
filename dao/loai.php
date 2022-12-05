@@ -81,3 +81,9 @@ function loai_exist($ma_loai)
     $sql = "SELECT count(*) FROM `loai` WHERE ma_loai=?";
     return pdo_query_value($sql, $ma_loai) > 0;
 }
+function select_loai()
+{
+    $sql = "SELECT ten_loai,COUNT(hang_hoa.ma_loai) AS 'sl' FROM loai INNER JOIN hang_hoa ON loai.ma_loai = hang_hoa.ma_loai GROUP BY ten_loai,hang_hoa.ma_loai;
+    ";
+    return pdo_query($sql);
+}
