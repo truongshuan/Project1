@@ -1,3 +1,6 @@
+<?php
+require_once 'controller.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,14 +25,23 @@
                     <div class="card fat">
                         <div class="card-body">
                             <h4 class="card-title">Login</h4>
-                            <form method="POST" class="my-login-validation" novalidate="">
+                            <?php
+                            if (count($errors) > 0) {
+                            ?>
+                            <div class="alert alert-danger text-center">
+                                <?php
+                                    foreach ($errors as $showerror) {
+                                        echo $showerror;
+                                    }
+                                    ?>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                            <form method="POST" class="my-login-validation" action="login.php">
                                 <div class="form-group">
                                     <label for="email">E-Mail Address</label>
-                                    <input id="email" type="email" class="form-control" name="email" value="" required
-                                        autofocus>
-                                    <div class="invalid-feedback">
-                                        Email is invalid
-                                    </div>
+                                    <input id="email" type="email" class="form-control" name="email" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password
@@ -37,13 +49,8 @@
                                             Forgot Password?
                                         </a>
                                     </label>
-                                    <input id="password" type="password" class="form-control" name="password" required
-                                        data-eye>
-                                    <div class="invalid-feedback">
-                                        Password is required
-                                    </div>
+                                    <input id="password" type="password" class="form-control" name="mat_khau" required>
                                 </div>
-
                                 <div class="form-group">
                                     <div class="custom-checkbox custom-control">
                                         <input type="checkbox" name="remember" id="remember"
@@ -51,11 +58,8 @@
                                         <label for="remember" class="custom-control-label">Remember Me</label>
                                     </div>
                                 </div>
-
                                 <div class="form-group m-0">
-                                    <button type="submit" class="btn btn-success btn-block">
-                                        Login
-                                    </button>
+                                    <button type="submit" name="login" class="btn btn-success btn-block">Login </button>
                                 </div>
                                 <div class="mt-4 text-center">
                                     Don't have an account? <a href="register.php">Create Account</a>

@@ -1,3 +1,6 @@
+<?php
+require_once 'controller.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,14 +27,40 @@
                     <div class="card fat">
                         <div class="card-body">
                             <h4 class="card-title">Register</h4>
-                            <form method="POST" class="my-login-validation" novalidate="">
+                            <?php
+                            if (count($errors) == 1) {
+                            ?>
+                            <div class="alert alert-danger text-center">
+                                <?php
+                                    foreach ($errors as $showerror) {
+                                        echo $showerror;
+                                    }
+                                    ?>
+                            </div>
+                            <?php
+                            } elseif (count($errors) > 1) {
+                            ?>
+                            <div class="alert alert-danger">
+                                <?php
+                                    foreach ($errors as $showerror) {
+                                    ?>
+                                <li><?php echo $showerror; ?></li>
+                                <?php
+                                    }
+                                    ?>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                            <form method="POST" action="register.php" class="my-login-validation" novalidate=""
+                                enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="name">Username</label>
-                                    <input id="name" type="text" class="form-control" name="name" required autofocus>
+                                    <input id="name" type="text" class="form-control" name="ma_kh" required autofocus>
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input id="name" type="text" class="form-control" name="name" required autofocus>
+                                    <input id="name" type="text" class="form-control" name="ten_kh" required autofocus>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">E-Mail Address</label>
@@ -39,32 +68,20 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input id="password" type="password" class="form-control" name="password" required
+                                    <input id="password" type="password" class="form-control" name="mat_khau" required
                                         data-eye>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Confrim Password</label>
-                                    <input id="password" type="password" class="form-control" name="password" required
-                                        data-eye>
+                                    <input id="password" type="password" class="form-control" name="mat_khau_con"
+                                        required data-eye>
                                 </div>
                                 <div class="form-group">
                                     <label for="formFile" class="form-label">Avatar</label>
-                                    <input class="form-control" type="file" id="formFile">
+                                    <input class="form-control" type="file" id="formFile" name="avatar" required>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <div class="custom-checkbox custom-control">
-                                        <input type="checkbox" name="agree" id="agree" class="custom-control-input"
-                                            required="">
-                                        <label for="agree" class="custom-control-label">I agree to the <a href="#">Terms
-                                                and Conditions</a></label>
-                                        <div class="invalid-feedback">
-                                            You must agree with our Terms and Conditions
-                                        </div>
-                                    </div>
-                                </div> -->
-
                                 <div class="form-group m-0">
-                                    <button type="submit" class="btn btn-success btn-block">
+                                    <button type="submit" class="btn btn-success btn-block" name="register">
                                         Register
                                     </button>
                                 </div>

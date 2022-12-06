@@ -2,7 +2,7 @@
 <?php
 $email = $_SESSION['email'];
 if ($email == false) {
-    header('Location: login-user.php');
+    header('Location: login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ if ($email == false) {
                     </div>
                     <div class="card fat">
                         <div class="card-body">
-                            <h4 class="card-title">Create new Password</h4>
+                            <h4 class="card-title">Code Verification Forot </h4>
                             <?php
                             if (isset($_SESSION['info'])) {
                             ?>
@@ -51,27 +51,22 @@ if ($email == false) {
                             <?php
                             }
                             ?>
-                            <form method="POST" action="reset.php" class="my-login-validation">
+                            <form method="POST" action="reset-otp.php" class="my-login-validation">
                                 <div class="form-group">
-                                    <label for="new-password">New Password</label>
-                                    <input id="new-password" type="password" class="form-control" name="mat_khau"
-                                        required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="new-password">Confirm New Password</label>
-                                    <input id="new-password" type="password" class="form-control" name="cmat_khau"
-                                        required>
+                                    <label for="email">Code</label>
+                                    <input id="email" type="number" class="form-control" name="otp"
+                                        placeholder="Enter verification code" required>
                                 </div>
                                 <div class="form-group m-0">
-                                    <button type="submit" name="change-password" class="btn btn-success btn-block">
-                                        Change Password
+                                    <button type="submit" name="check-reset-otp" class="btn btn-success btn-block">
+                                        Submit
                                     </button>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="footer">
-                        Copyright &copy; FPT Polytechnic - Group 1
+                        FPT Polytechnic - Group 1
                     </div>
                 </div>
             </div>
@@ -80,9 +75,6 @@ if ($email == false) {
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="../../content/js/my-login.js"></script>
 </body>

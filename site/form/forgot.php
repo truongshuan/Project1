@@ -1,3 +1,6 @@
+<?php
+require_once 'controller.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,21 +25,29 @@
                     <div class="card fat">
                         <div class="card-body">
                             <h4 class="card-title">Forgot Password</h4>
-                            <form method="POST" class="my-login-validation" novalidate="">
+                            <?php
+                            if (count($errors) > 0) {
+                            ?>
+                            <div class="alert alert-danger text-center">
+                                <?php
+                                    foreach ($errors as $error) {
+                                        echo $error;
+                                    }
+                                    ?>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                            <form method="POST" action="forgot.php" class="my-login-validation">
                                 <div class="form-group">
                                     <label for="email">E-Mail Address</label>
-                                    <input id="email" type="email" class="form-control" name="email" value="" required
-                                        autofocus>
-                                    <div class="invalid-feedback">
-                                        Email is invalid
-                                    </div>
+                                    <input id="email" type="email" class="form-control" name="email" required>
                                     <div class="form-text text-muted">
                                         By clicking "Reset Password" we will send a password reset link
                                     </div>
                                 </div>
-
                                 <div class="form-group m-0">
-                                    <button type="submit" class="btn btn-success btn-block">
+                                    <button type="submit" name="check-email" class="btn btn-success btn-block">
                                         Reset Password
                                     </button>
                                 </div>

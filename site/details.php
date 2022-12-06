@@ -1,3 +1,13 @@
+<?php
+require_once '../dao/pdo.php';
+require_once '../dao/hang-hoa.php';
+if (isset($_GET['id_product'])) {
+    $ma_hh = $_GET['id_product'];
+    hang_hoa_tang_so_luot_xem($ma_hh);
+    $result = hang_hoa_select_by_id($ma_hh);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,274 +33,273 @@
     <link rel="shortcut icon" href="../content/client/img/favicon.png" type="image/x-icon">
     <title>Details - Gettree</title>
     <style>
-        
-        .contact_home1 {
-            margin-top: 10px;
-            width: 100%;
-        }
+    .contact_home1 {
+        margin-top: 10px;
+        width: 100%;
+    }
 
-        .about_home>hr {
-            color:white;
-        }
+    .about_home>hr {
+        color: white;
+    }
 
-        .contact_home1>img {
-            width: 100%;
-            height: 90px;
-        }
+    .contact_home1>img {
+        width: 100%;
+        height: 90px;
+    }
 
-        .about_home>p {
-            margin-top: 20px;
-        }
+    .about_home>p {
+        margin-top: 20px;
+    }
 
-        .contact_home2_content {
-            margin-top: 20px;
-        }
+    .contact_home2_content {
+        margin-top: 20px;
+    }
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: "Poppins", sans-serif;
-        }
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+    }
 
-        .card {
-            border: none;
-            overflow: hidden
-        }
+    .card {
+        border: none;
+        overflow: hidden
+    }
 
-        .thumbnail_images ul {
-            list-style: none;
-            justify-content: center;
-            display: flex;
-            align-items: center;
-            margin-top: 10px
-        }
+    .thumbnail_images ul {
+        list-style: none;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        margin-top: 10px
+    }
 
-        .thumbnail_images ul li {
-            margin: 5px;
-            padding: 10px;
-            border: 2px solid #eee;
-            cursor: pointer;
-            transition: all 0.5s
-        }
+    .thumbnail_images ul li {
+        margin: 5px;
+        padding: 10px;
+        bsorder: 2px solid #eee;
+        cursor: pointer;
+        transition: all 0.5s
+    }
 
-        .thumbnail_images ul li:hover {
-            border: 2px solid #000
-        }
+    .thumbnail_images ul li:hover {
+        border: 2px solid #000
+    }
 
-        .main_image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-            height: 400px;
-            width: 100%;
-            overflow: hidden
-        }
+    .main_image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        height: 400px;
+        width: 100%;
+        overflow: hidden
+    }
 
-        .heart {
-            height: 29px;
-            width: 29px;
-            background-color: #eaeaea;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center
-        }
+    .heart {
+        height: 29px;
+        width: 29px;
+        background-color: #eaeaea;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
 
-        .content p {
-            font-size: 12px
-        }
+    .content p {
+        font-size: 12px
+    }
 
-        .ratings span {
-            font-size: 14px;
-            margin-left: 12px
-        }
+    .ratings span {
+        font-size: 14px;
+        margin-left: 12px
+    }
 
-        .colors {
-            margin-top: 5px
-        }
+    .colors {
+        margin-top: 5px
+    }
 
-        .colors ul {
-            list-style: none;
-            display: flex;
-            padding-left: 0px
-        }
+    .colors ul {
+        list-style: none;
+        display: flex;
+        padding-left: 0px
+    }
 
-        .colors ul li {
-            height: 20px;
-            width: 20px;
-            display: flex;
-            border-radius: 50%;
-            margin-right: 10px;
-            cursor: pointer
-        }
+    .colors ul li {
+        height: 20px;
+        width: 20px;
+        display: flex;
+        border-radius: 50%;
+        margin-right: 10px;
+        cursor: pointer
+    }
 
-        .colors ul li:nth-child(1) {
-            background-color: #6c704d
-        }
+    .colors ul li:nth-child(1) {
+        background-color: #6c704d
+    }
 
-        .colors ul li:nth-child(2) {
-            background-color: #96918b
-        }
+    .colors ul li:nth-child(2) {
+        background-color: #96918b
+    }
 
-        .colors ul li:nth-child(3) {
-            background-color: #68778e
-        }
+    .colors ul li:nth-child(3) {
+        background-color: #68778e
+    }
 
-        .colors ul li:nth-child(4) {
-            background-color: #263f55
-        }
+    .colors ul li:nth-child(4) {
+        background-color: #263f55
+    }
 
-        .colors ul li:nth-child(5) {
-            background-color: black
-        }
+    .colors ul li:nth-child(5) {
+        background-color: black
+    }
 
-        .right-side {
-            position: relative
-        }
+    .right-side {
+        position: relative
+    }
 
-        .search-option {
-            position: absolute;
-            background-color: #000;
-            overflow: hidden;
-            align-items: center;
-            color: #fff;
-            width: 200px;
-            height: 200px;
-            border-radius: 49% 51% 50% 50% / 68% 69% 31% 32%;
-            left: 30%;
-            bottom: -250px;
-            transition: all 0.5s;
-            cursor: pointer
-        }
+    .search-option {
+        position: absolute;
+        background-color: #000;
+        overflow: hidden;
+        align-items: center;
+        color: #fff;
+        width: 200px;
+        height: 200px;
+        border-radius: 49% 51% 50% 50% / 68% 69% 31% 32%;
+        left: 30%;
+        bottom: -250px;
+        transition: all 0.5s;
+        cursor: pointer
+    }
 
-        .search-option .first-search {
-            position: absolute;
-            top: 20px;
-            left: 90px;
-            font-size: 20px;
-            opacity: 1000
-        }
+    .search-option .first-search {
+        position: absolute;
+        top: 20px;
+        left: 90px;
+        font-size: 20px;
+        opacity: 1000
+    }
 
-        .search-option .inputs {
-            opacity: 0;
-            transition: all 0.5s ease;
-            transition-delay: 0.5s;
-            position: relative
-        }
+    .search-option .inputs {
+        opacity: 0;
+        transition: all 0.5s ease;
+        transition-delay: 0.5s;
+        position: relative
+    }
 
-        .search-option .inputs input {
-            position: absolute;
-            top: 200px;
-            left: 30px;
-            padding-left: 20px;
-            background-color: transparent;
-            width: 300px;
-            border: none;
-            color: #fff;
-            border-bottom: 1px solid #eee;
-            transition: all 0.5s;
-            z-index: 10
-        }
+    .search-option .inputs input {
+        position: absolute;
+        top: 200px;
+        left: 30px;
+        padding-left: 20px;
+        background-color: transparent;
+        width: 300px;
+        border: none;
+        color: #fff;
+        border-bottom: 1px solid #eee;
+        transition: all 0.5s;
+        z-index: 10
+    }
 
-        .search-option .inputs input:focus {
-            box-shadow: none;
-            outline: none;
-            z-index: 10
-        }
+    .search-option .inputs input:focus {
+        box-shadow: none;
+        outline: none;
+        z-index: 10
+    }
 
-        .search-option:hover {
-            border-radius: 0px;
-            width: 100%;
-            left: 0px
-        }
+    .search-option:hover {
+        border-radius: 0px;
+        width: 100%;
+        left: 0px
+    }
 
-        .search-option:hover .inputs {
-            opacity: 1
-        }
+    .search-option:hover .inputs {
+        opacity: 1
+    }
 
-        .search-option:hover .first-search {
-            left: 27px;
-            top: 25px;
-            font-size: 15px
-        }
+    .search-option:hover .first-search {
+        left: 27px;
+        top: 25px;
+        font-size: 15px
+    }
 
-        .search-option:hover .inputs input {
-            top: 20px
-        }
+    .search-option:hover .inputs input {
+        top: 20px
+    }
 
-        .search-option .share {
-            position: absolute;
-            right: 20px;
-            top: 22px
-        }
+    .search-option .share {
+        position: absolute;
+        right: 20px;
+        top: 22px
+    }
 
-        .buttons .btn {
-            height: 50px;
-            width: 150px;
-            border-radius: 0px !important
-        }
+    .buttons .btn {
+        height: 50px;
+        width: 150px;
+        border-radius: 0px !important
+    }
 
 
-        /* comment */
+    /* comment */
 
-        .card {
-            background-color: #fff;
-            border: none;
-        }
+    .card {
+        background-color: #fff;
+        border: none;
+    }
 
-        .form-color {
-            background-color: #fafafa;
-        }
+    .form-color {
+        background-color: #fafafa;
+    }
 
-        .form-control {
-            height: 48px;
-            border-radius: 25px;
-        }
+    .form-control {
+        height: 48px;
+        border-radius: 25px;
+    }
 
-        .form-control:focus {
-            color: #495057;
-            background-color: #fff;
-            border-color: #35b69f;
-            outline: 0;
-            box-shadow: none;
-            text-indent: 10px;
-        }
+    .form-control:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #35b69f;
+        outline: 0;
+        box-shadow: none;
+        text-indent: 10px;
+    }
 
-        .c-badge {
-            background-color: #35b69f;
-            color: white;
-            height: 20px;
-            font-size: 11px;
-            width: 92px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 2px;
-        }
+    .c-badge {
+        background-color: #35b69f;
+        color: white;
+        height: 20px;
+        font-size: 11px;
+        width: 92px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2px;
+    }
 
-        .comment-text {
-            font-size: 13px;
-        }
+    .comment-text {
+        font-size: 13px;
+    }
 
-        .wish {
-            color: #35b69f;
-        }
+    .wish {
+        color: #35b69f;
+    }
 
-        .user-feed {
-            font-size: 14px;
-            margin-top: 12px;
-        }
+    .user-feed {
+        font-size: 14px;
+        margin-top: 12px;
+    }
 
-        .back__btn {
-            font-weight: bold;
-            text-decoration: none;
-            color: #000;
-        }
+    .back__btn {
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+    }
     </style>
 </head>
 
@@ -305,24 +314,25 @@
             <div class="row g-0">
                 <div class="col-md-6 border-end">
                     <div class="d-flex flex-column justify-content-center">
-                        <div class="main_image"> <img src="../content/client/img/product1.png" id="main_product_image" width="200">
+                        <div class="main_image"> <img src="../uploads/<?= $result['hinh'] ?>" id="main_product_image"
+                                width="200">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="p-3 right-side">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h3>dfasdfasdf
-                            </h3> <span class="heart"><i class='bx bx-heart'></i></span>
+                            <h3><?= $result['ten_hh'] ?></h3>
+                            <span class="heart"><i class='bx bx-heart'></i></span>
                         </div>
                         <div class="mt-2 pr-3 content">
                             <h6>Decriptsion</h6>
-                            <p style="font-size: 15px;">asdfafds</p>
+                            <p style="font-size: 15px;"><?= $result['mo_ta'] ?></p>
                         </div>
-                        <h3>$123</h3>
+                        <h3>$<?= number_format($result['don_gia']) ?></h3>
                         <div class="ratings d-flex flex-row align-items-center">
                             <div class="d-flex flex-row">Category:
-                            </div> <span style="font-weight: bold;">Plant</span>
+                            </div> <span style="font-weight: bold;"><?= $result['ten_loai'] ?></span>
                         </div>
                         <!-- <div class="ratings d-flex flex-row align-items-center">
                             <div class="d-flex flex-row">Related product
@@ -344,7 +354,8 @@
                     </div>
                     <div class="mt-2">
                         <div class="d-flex flex-row p-3">
-                            <img src="https://i.imgur.com/zQZSWrt.jpg" width="40" height="40" class="rounded-circle mr-3">
+                            <img src="https://i.imgur.com/zQZSWrt.jpg" width="40" height="40"
+                                class="rounded-circle mr-3">
                             <div class="w-100">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex flex-row align-items-center">
@@ -363,7 +374,8 @@
                             </div>
                         </div>
                         <div class="d-flex flex-row p-3">
-                            <img src="https://i.imgur.com/3J8lTLm.jpg" width="40" height="40" class="rounded-circle mr-3">
+                            <img src="https://i.imgur.com/3J8lTLm.jpg" width="40" height="40"
+                                class="rounded-circle mr-3">
                             <div class="w-100">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex flex-row align-items-center">
@@ -384,7 +396,8 @@
                             </div>
                         </div>
                         <div class="d-flex flex-row p-3">
-                            <img src="https://i.imgur.com/agRGhBc.jpg" width="40" height="40" class="rounded-circle mr-3">
+                            <img src="https://i.imgur.com/agRGhBc.jpg" width="40" height="40"
+                                class="rounded-circle mr-3">
                             <div class="w-100">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex flex-row align-items-center">
@@ -421,19 +434,19 @@
         <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
     </section>
     <script>
-        $(function() {
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) $("#goTop").fadeIn();
-                else $("#goTop").fadeOut();
-            });
-            $("#goTop").click(function() {
-                $("body,html").animate({
-                        scrollTop: 0
-                    },
-                    "fast"
-                );
-            });
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) $("#goTop").fadeIn();
+            else $("#goTop").fadeOut();
         });
+        $("#goTop").click(function() {
+            $("body,html").animate({
+                    scrollTop: 0
+                },
+                "fast"
+            );
+        });
+    });
     </script>
 </body>
 

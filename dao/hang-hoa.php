@@ -31,6 +31,17 @@ function hang_hoa_select_all($start, $limit)
     return pdo_query($sql);
 }
 
+function hang_hoa_select_price_low($start, $limit)
+{
+    $sql = "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai  ORDER BY don_gia ASC LIMIT $start,$limit";
+    return pdo_query($sql);
+}
+function hang_hoa_select_price_high($start, $limit)
+{
+    $sql = "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai  ORDER BY don_gia DESC LIMIT $start,$limit";
+    return pdo_query($sql);
+}
+
 function hang_hoa_select_by_id($ma_hh)
 {
     $sql = "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE ma_hh=?";
@@ -45,7 +56,7 @@ function hang_hoa_exist($ma_hh)
 
 function hang_hoa_tang_so_luot_xem($ma_hh)
 {
-    $sql = "UPDATE hang_hoa SET so_luot_xem = luot_xem + 1 WHERE ma_hh=?";
+    $sql = "UPDATE hang_hoa SET luot_xem = luot_xem + 1 WHERE ma_hh=?";
     pdo_execute($sql, $ma_hh);
 }
 

@@ -45,7 +45,9 @@
         <div class="menu_ngang"> <a href="contact.php">Contact</a></div>
     </div>
     <div class="header_icon">
-        <div><i class='bx bx-search-alt-2'></i></div>
+        <a class="openbtn" onclick="openSearch()">
+            <i class='bx bx-search-alt-2'></i>
+        </a>
         <a href="shopping/cart.php" style="color: #000;"><i class='bx bxs-cart'></i></a>
         <div class="user">
             <i class='bx bx-user-pin'></i>
