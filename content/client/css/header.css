@@ -58,7 +58,7 @@
     background-color: #348e38;
 }
 
-.logo>img {
+.logo>a>img {
     width: 100%;
 }
 

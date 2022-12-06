@@ -18,7 +18,7 @@
 </section>
 <!-- header -->
 <section class="header" id="header">
-    <div class="logo"><img src="../content/client/img/logo.png" alt=""></div>
+    <div class="logo"><a href="index.php"><img src="../content/client/img/logo.png" alt=""></a></div>
     <div class="menu">
         <div class="menu_ngang">
             <a href="index.php">Home</a>
@@ -80,6 +80,7 @@
                 ?>
                 <li class="nav__list-child-item"><a href="log/logout.php" class="nav__link">Logout</a>
                 </li>
+                
             </ul>
         </div>
         <a href="service.php"><button class="btn_header">GET AQUET <div><i style="font-size: 28px;"

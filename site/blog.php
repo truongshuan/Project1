@@ -11,6 +11,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../content/client/css/blog.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
+    <link rel="stylesheet" href="../content/client/css/user.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
     <link rel="stylesheet" href="../content/client/css/header.css">
     <!-- Font-icon -->

@@ -18,6 +18,7 @@ pdo_get_connection();
     <!-- CSS -->
     <link rel="stylesheet" href="../content/client/css/product.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
+    <link rel="stylesheet" href="../content/client/css/user.css">
     <link rel="stylesheet" href="../content/client/css/header.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
     <!-- Font-icon -->
@@ -112,45 +113,6 @@ pdo_get_connection();
         margin-top: 20px;
     }
 
-    .nav__list-child {
-        z-index: 100000;
-        padding-top: 43px;
-        display: none;
-        width: 100px;
-        height: 112px;
-        clip-path: polygon(15% 25%, 22% 36%, 100% 36%, 100% 100%, 0 100%, 0 36%, 12% 36%);
-        background-color: gainsboro;
-        position: absolute;
-        line-height: 30px;
-        margin: 0;
-        margin-top: -60px;
-        margin-left: -5px;
-    }
-
-    .nav__list-child li {
-        list-style: none;
-        border-bottom: 1px solid ghostwhite;
-        margin-left: -35px;
-    }
-
-    .nav__list-child li>a {
-        margin-left: 20px;
-        text-decoration: none;
-        color: black;
-        font-weight: 600;
-    }
-
-    .nav__list-child li>a:hover {
-        color: #348e38;
-    }
-
-    .nav__list-child>li>a {
-        font-size: 16px;
-    }
-
-    .user:hover>.nav__list-child {
-        display: block;
-    }
     </style>
 </head>
 

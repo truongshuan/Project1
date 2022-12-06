@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../content/client/css/header.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
+    <link rel="stylesheet" href="../content/client/css/user.css">
     <link rel="stylesheet" href="../content/client/css/backtotop.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script src="../content/client/js/onscroll.js"></script>
@@ -23,14 +24,22 @@
     <link rel="shortcut icon" href="../content/client/img/favicon.png" type="image/x-icon">
     <title>Details - Gettree</title>
     <style>
-        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+        }
+
         .contact_home1 {
             margin-top: 10px;
             width: 100%;
         }
 
         .about_home>hr {
-            color:white;
+            color: white;
         }
 
         .contact_home1>img {
@@ -46,14 +55,7 @@
             margin-top: 20px;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: "Poppins", sans-serif;
-        }
 
         .card {
             border: none;
