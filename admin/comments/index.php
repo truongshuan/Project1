@@ -1,8 +1,11 @@
 <?php
 session_start();
 require '../connection.php';
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+require '../../dao/binh-luan.php';
+require '../../global.php';
+require '../../dao/thong-ke.php';
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
     $sql = "SELECT * FROM `admin` WHERE email = '$email'";
     $run_Sql = mysqli_query($con, $sql);
@@ -68,6 +71,57 @@ if ($email != false && $password != false) {
     <link id="color" rel="stylesheet" href="../../content/admin/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../../content/admin/css/responsive.css">
+    <link rel="stylesheet" href="../toastr/toastr.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="../toastr/toastr.min.js"></script>
+    <script>
+    function msg(massage) {
+        $(function() {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr["info"](massage)
+        });
+    }
+
+    function msgg(massage) {
+        $(function() {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr["success"](massage)
+        });
+    }
+    </script>
 </head>
 
 <body>
@@ -378,7 +432,7 @@ if ($email != false && $password != false) {
                                             <table class="table table-styling table-primary">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Id product</th>
                                                         <th scope="col">Name product</th>
                                                         <th scope="col">Amount comment</th>
                                                         <th scope="col">Newest</th>
@@ -387,17 +441,35 @@ if ($email != false && $password != false) {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Product 1</td>
-                                                        <td>12</td>
-                                                        <td>28/11/2022</td>
-                                                        <td>21/11/2022</td>
-                                                        <td>
-                                                            <a href="detail.php" class="btn btn-light active txt-dark"
-                                                                type="button">Detail</a>
-                                                        </td>
-                                                    </tr>
+                                                    <?php
+                                                    if (isset($_GET['id_cmt'])) {
+                                                        $ma_bl = $_GET['id_cmt'];
+                                                        $sql = "SELECT * FROM binh_luan INNER JOIN phan_hoi ON binh_luan.ma_bl=phan_hoi.ma_bl WHERE phan_hoi.ma_bl = $ma_bl";
+                                                        $result = mysqli_query($con, $sql);
+                                                        if (mysqli_num_rows($result) > 0) {
+                                                            $sql = "DELETE FROM phan_hoi WHERE phan_hoi.ma_bl = $ma_bl";
+                                                            $result = mysqli_query($con, $sql);
+                                                            $sql = "DELETE FROM binh_luan WHERE binh_luan.ma_bl = $ma_bl";
+                                                            $result = mysqli_query($con, $sql);
+                                                            echo '<script type="text/javascript">
+                                                            msgg("Deleted Comment Successfully!");
+                                                            </script>';
+                                                        } else {
+                                                            $sql = "DELETE FROM binh_luan WHERE binh_luan.ma_bl = $ma_bl";
+                                                            $result = mysqli_query($con, $sql);
+                                                            echo '<script type="text/javascript">
+                                                            msgg("Deleted Comment Successfully!");
+                                                            </script>';
+                                                        }
+                                                    }
+                                                    extract($_REQUEST);
+                                                    if (false) {
+                                                        return false;
+                                                    } else {
+                                                        $view_name = "list.php";
+                                                    }
+                                                    include $view_name;
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../content/client/css/about.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
+    <link rel="stylesheet" href="../content/client/css/user.css">
     <link rel="stylesheet" href="../content/client/css/header.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -78,7 +79,6 @@
                                 <div class="tiltle">
                                     <p>Commercial Services</p>
                                     <b>The Gettree elite team of</b>
-
                                 </div>
                             </div>
                             <button class="button">
@@ -101,7 +101,7 @@
             Step Carefully
         </h1>
         <div class="row works">
-            <div class="col l-6"data-aos="fade-right" data-aos-duration="1000">
+            <div class="col l-6" data-aos="fade-right" data-aos-duration="1000">
                 <div class="work1">
                     <div class="left" count="1"><i class='bx bx-shower'></i></div>
                     <div class="right">
@@ -111,7 +111,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col l-6"data-aos="fade-left" data-aos-duration="1000">
+            <div class="col l-6" data-aos="fade-left" data-aos-duration="1000">
                 <div class="work1">
                     <div class="left" count="2"><i class='bx bx-shield-plus'></i></div>
                     <div class="right">
@@ -161,11 +161,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-3"data-aos="fade-left" data-aos-duration="1000">
+                <div class="col l-3" data-aos="fade-left" data-aos-duration="1000">
                     <div class="recore1">
                         <p>10+</p>
                         <b>Years of experience</b>
-
                     </div>
                     <div class="recore1">
                         <p>95K</p>
@@ -181,7 +180,7 @@
     </section>
     <!-- feedback -->
     <section class="grid wide">
-        <div class="row feedback"data-aos="fade-up" data-aos-duration="1000">
+        <div class="row feedback" data-aos="fade-up" data-aos-duration="1000">
             <div class="col l-5">
                 <div class="left">
                     <span>CLIENT TESTIMONIALS</span>

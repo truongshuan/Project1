@@ -1,8 +1,9 @@
 <?php
 session_start();
 require '../connection.php';
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+require '../../dao/hoa-don.php';
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
     $sql = "SELECT * FROM `admin` WHERE email = '$email'";
     $run_Sql = mysqli_query($con, $sql);
@@ -386,6 +387,7 @@ if ($email != false && $password != false) {
                                                         <th scope="col">User</th>
                                                         <th scope="col">Email</th>
                                                         <th scope="col">Phone number</th>
+                                                        <th scope="col">Address</th>
                                                         <th scope="col">Id product</th>
                                                         <th scope="col">Quality</th>
                                                         <th scope="col">Total</th>
@@ -394,30 +396,37 @@ if ($email != false && $password != false) {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                    $list_bill = hoa_don_select_all();
+                                                    foreach ($list_bill as $item) :
+                                                    ?>
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>1@gmail.com</td>
-                                                        <td>092343243</td>
-                                                        <td>43</td>
-                                                        <td>2</td>
-                                                        <td>23499 $</td>
+                                                        <th scope="row"><?= $item['ma_hd'] ?></th>
+                                                        <td><?= $item['ma_kh'] ?></td>
+                                                        <td><?= $item['email'] ?></td>
+                                                        <td><?= $item['sdt'] ?></td>
+                                                        <td><?= $item['dia_chi'] ?></td>
+                                                        <td><?= $item['ma_hh'] ?></td>
+                                                        <td><?= $item['so_luong'] ?></td>
+                                                        <td><?= $item['tong_tien'] ?>$</td>
                                                         <?php
-                                                        $test = 1234;
-                                                        if ($test == 2) {
-                                                            echo '<td style="color: red; font-weight: bold;">Disable</td>';
-                                                        } else if ($test == 3) {
-                                                            echo '<td style="color: #24695C; font-weight: bold;">Accept</td>';
-                                                        } else {
-                                                            echo '<td style="color: #24695C; font-weight: bold;">Paymented</td>';
-                                                        }
-                                                        ?>
+                                                            if ($item['trang_thai'] == 0) {
+                                                                echo '<td style="color: red; font-weight: bold;">Disable</td>';
+                                                            } else if ($item['trang_thai'] == 1) {
+                                                                echo '<td style="color: #24695C; font-weight: bold;">Accept</td>';
+                                                            } else {
+                                                                echo '<td style="color: #24695C; font-weight: bold;">Paymented</td>';
+                                                            }
+                                                            ?>
                                                         <td>
                                                             <a href="edit.php" class="btn btn-primary active"
                                                                 type="button"><i
                                                                     class="fa-solid fa-pen-to-square"></i></a>
                                                         </td>
                                                     </tr>
+                                                    <?php
+                                                    endforeach;
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

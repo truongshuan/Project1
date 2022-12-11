@@ -38,6 +38,17 @@ require_once 'controller.php';
                             <?php
                             }
                             ?>
+                            <?php
+                            if (isset($_SESSION['disable'])) {
+                            ?>
+                            <div class="alert alert-danger text-center">
+                                <?php
+                                    echo $_SESSION['disable'];
+                                    ?>
+                            </div>
+                            <?php
+                            }
+                            ?>
                             <form method="POST" class="my-login-validation" action="login.php">
                                 <div class="form-group">
                                     <label for="email">E-Mail Address</label>
@@ -88,3 +99,8 @@ require_once 'controller.php';
 </body>
 
 </html>
+<?php
+// if (isset($_SESSION['disable'])) {
+//     unset($_SESSION['disable']);
+// }
+?>

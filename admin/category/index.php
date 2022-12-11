@@ -4,8 +4,8 @@ require '../connection.php';
 require '../../global.php';
 require '../../dao/pdo.php';
 require '../../dao/loai.php';
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
     $sql = "SELECT * FROM `admin` WHERE email = '$email'";
     $run_Sql = mysqli_query($con, $sql);

@@ -6,10 +6,10 @@ require_once 'pdo.php';
  * @param String $ten_loai là tên loại
  * @throws PDOException lỗi thêm mới
  */
-function voucher_insert($ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code)
+function voucher_insert($ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code, $discount)
 {
-    $sql = "INSERT INTO khuyen_mai(ten_km,mo_ta,ngay_bat_dau,ngay_het_han,code) VALUES(?,?,?,?,?)";
-    pdo_execute($sql, $ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code);
+    $sql = "INSERT INTO khuyen_mai(ten_km,mo_ta,ngay_bat_dau,ngay_het_han,code,giam_gia) VALUES(?,?,?,?,?,?)";
+    pdo_execute($sql, $ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code, $discount);
 }
 /**
  * Cập nhật tên loại
@@ -17,10 +17,10 @@ function voucher_insert($ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code)
  * @param String $ten_loai là tên loại mới
  * @throws PDOException lỗi cập nhật
  */
-function voucher_update($ma_km, $ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code)
+function voucher_update($ma_km, $ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code, $discount)
 {
-    $sql = "UPDATE khuyen_mai SET ten_km=?,mo_ta=?,ngay_bat_dau=?,ngay_het_han=?,code=? WHERE ma_km=?";
-    pdo_execute($sql, $ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code, $ma_km);
+    $sql = "UPDATE khuyen_mai SET ten_km=?,mo_ta=?,ngay_bat_dau=?,ngay_het_han=?,code=?,giam_gia=? WHERE ma_km=?";
+    pdo_execute($sql, $ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code, $ma_km, $discount);
 }
 /**
  * Xóa một hoặc nhiều loại

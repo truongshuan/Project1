@@ -1,8 +1,9 @@
 <?php
 session_start();
 require '../connection.php';
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+require '../../dao/binh-luan.php';
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
     $sql = "SELECT * FROM `admin` WHERE email = '$email'";
     $run_Sql = mysqli_query($con, $sql);
@@ -68,6 +69,57 @@ if ($email != false && $password != false) {
     <link id="color" rel="stylesheet" href="../../content/admin/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../../content/admin/css/responsive.css">
+    <link rel="stylesheet" href="../toastr/toastr.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="../toastr/toastr.min.js"></script>
+    <script>
+    function msg(massage) {
+        $(function() {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr["info"](massage)
+        });
+    }
+
+    function msgg(massage) {
+        $(function() {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr["success"](massage)
+        });
+    }
+    </script>
 </head>
 
 <body>
@@ -370,7 +422,7 @@ if ($email != false && $password != false) {
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Table Detail Comments</h5>
+                                    <h5>Table Detail Comments </h5>
                                 </div>
                                 <div class="card-block row">
                                     <div class="col-sm-12 col-lg-12 col-xl-12">
@@ -379,23 +431,37 @@ if ($email != false && $password != false) {
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">ID</th>
-                                                        <th scope="col">Username</th>
+                                                        <th scope="col">Fullname</th>
                                                         <th scope="col">Content</th>
                                                         <th scope="col">Date</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                    if (!empty($_GET['id_product'])) {
+                                                        $ma_hh = $_GET['id_product'];
+                                                        $item = binh_luan_select_by_hang_hoa($ma_hh);
+                                                        foreach ($item as $result) :
+                                                    ?>
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>xuan</td>
-                                                        <td>asdfasdfads</td>
-                                                        <td>28/11/2022</td>
+                                                        <th scope="row"><?= $result['ma_bl'] ?></th>
+                                                        <td><?= $result['ten_kh'] ?></td>
+                                                        <td><?= $result['noi_dung'] ?></td>
+                                                        <td><?= $result['ngay_bl'] ?></td>
                                                         <td>
-                                                            <a href="detail.php" class="btn btn-light active txt-dark"
+                                                            <a href="reply.php?id_comment=<?= $result['ma_bl'] ?>"
+                                                                class="btn btn-light active txt-dark" type="button">View
+                                                                Reply</a>
+                                                            <a href="index.php?id_cmt=<?= $result['ma_bl'] ?>"
+                                                                class="btn btn-light active txt-dark"
                                                                 type="button">Delete</a>
                                                         </td>
                                                     </tr>
+                                                    <?php
+                                                        endforeach;
+                                                    }
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

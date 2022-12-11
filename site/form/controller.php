@@ -2,6 +2,7 @@
 <?php
 session_start();
 require_once '../../admin/connection.php';
+require_once '../../dao/khach-hang.php';
 $email = "";
 $name = "";
 $errors = array();
@@ -32,7 +33,7 @@ if (isset($_POST['register'])) {
     } elseif ($mat_khau !== $cmat_khau) {
         $errors['mat_khau'] = "Confirm password not matched!";
     }
-    $email_check = "SELECT * FROM khach_hang WHERE email  = '$email' AND ma_kh = '$ma_kh'";
+    $email_check = "SELECT * FROM khach_hang WHERE email = '$email'";
     $res = mysqli_query($con, $email_check);
     if (mysqli_num_rows($res) > 0) {
         $errors['email'] = "Email and Username are already exist!";
@@ -41,8 +42,9 @@ if (isset($_POST['register'])) {
         $en_mat_khau = password_hash($mat_khau, PASSWORD_BCRYPT);
         $code = rand(999999, 111111);
         $status = "notverified";
-        $insert_data = "INSERT INTO khach_hang (ma_kh,ten_kh,mat_khau,avatar,email,trang_thai,code)
-                        values('$ma_kh', '$ten_kh', '$en_mat_khau', '$avatar', '$email','$status','$code')";
+        $action = 1;
+        $insert_data = "INSERT INTO khach_hang (ma_kh,ten_kh,mat_khau,avatar,email,trang_thai,code,hoat_dong)
+                        values('$ma_kh', '$ten_kh', '$en_mat_khau', '$avatar', '$email','$status','$code','$action')";
         $data_check = mysqli_query($con, $insert_data);
         if ($data_check) {
             $subject = "Email Verification Code";
@@ -114,10 +116,14 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $fetch_pass)) {
             $_SESSION['email'] = $email;
             $status = $fetch['trang_thai'];
-            if ($status == 'verified') {
+            $action = $fetch['hoat_dong'];
+            if ($status == 'verified' && $action == 1) {
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
                 header('location: ../index.php');
+            } else if ($status == 'verified' && $action !== 1) {
+                $_SESSION['disable'] = "Your acount has been disable!";
+                header('location: login.php');
             } else {
                 $info = "It's look like you haven't still verify your email - $email";
                 $_SESSION['info'] = $info;
@@ -184,7 +190,7 @@ if (isset($_POST['check-reset-otp'])) {
         $_SESSION['email'] = $email;
         $info = "Please create a new password that you don't use on any other site.";
         $_SESSION['info'] = $info;
-        header('location: new-password.php');
+        header('location: reset.php');
         exit();
     } else {
         $errors['otp-error'] = "You've entered incorrect code!";
@@ -204,7 +210,7 @@ if (isset($_POST['change-password'])) {
         $update_pass = "UPDATE khach_hang SET code = $code, mat_khau = '$encpass' WHERE email = '$email'";
         $run_query = mysqli_query($con, $update_pass);
         if ($run_query) {
-            $info = "Your password changed. Now you can login with your new password.";
+            $info = "Your password changed. Now you can change password.";
             $_SESSION['info'] = $info;
             header('Location: login.php');
         } else {
@@ -212,4 +218,41 @@ if (isset($_POST['change-password'])) {
         }
     }
 }
+// Change information user
+if (isset($_POST['change-infor'])) {
+    $ma_kh = mysqli_real_escape_string($con, $_POST['ma_kh']);
+    $ten_kh = mysqli_real_escape_string($con, $_POST['ten_kh']);
+    $address = mysqli_real_escape_string($con, $_POST['address']);
+    $infor = khach_hang_select_by_id($ma_kh);
+    if ($_FILES['avatar']['name'] == '') {
+        $avatar = $infor['avatar'];
+    } else {
+        $avatar = $_FILES['avatar']['name'];
+        $avatar_tmp = $_FILES['avatar']['tmp_name'];
+        move_uploaded_file($avatar_tmp, '../../uploads/' . $avatar);
+    }
+    khach_hang_update($ma_kh, $ten_kh, $avatar);
+    header("Location: ../profile.php?user=$ma_kh");
+}
+// Recover password for user
+if (isset($_POST['recover-password'])) {
+    $ma_kh = mysqli_real_escape_string($con, $_POST['ma_kh']);
+    $current = mysqli_real_escape_string($con, $_POST['current']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
+    $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
+    $infor = khach_hang_select_by_id($ma_kh);
+    if (password_verify($current, $infor['mat_khau'])) {
+        if ($password == $cpassword) {
+            $password = password_hash($password, PASSWORD_BCRYPT);
+            mysqli_query($con, "UPDATE khach_hang SET mat_khau='$password' WHERE ma_kh = '$ma_kh'");
+            header('location: ../index.php');
+            exit(0);
+        } else {
+            $errors['password'] = "Password not matched!";
+        }
+    } else {
+        $errors['current'] = "Wrong Current Password!";
+    }
+}
+
 ?>

@@ -1,8 +1,11 @@
 <?php
 session_start();
-require '../connection.php';
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+require_once '../connection.php';
+require_once '../../dao/khach-hang.php';
+require_once '../../dao/pdo.php';
+require_once '../../global.php';
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
     $sql = "SELECT * FROM `admin` WHERE email = '$email'";
     $run_Sql = mysqli_query($con, $sql);
@@ -68,6 +71,34 @@ if ($email != false && $password != false) {
     <link id="color" rel="stylesheet" href="../../content/admin/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../../content/admin/css/responsive.css">
+    <link rel="stylesheet" href="../toastr/toastr.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="../toastr/toastr.min.js"></script>
+    <script>
+    function msg(massage) {
+        $(function() {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr["success"](massage)
+        });
+    }
+    </script>
 </head>
 
 <body>
@@ -369,41 +400,23 @@ if ($email != false && $password != false) {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h5>Table Users</h5>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr class="border-bottom-primary">
-                                                <th scope="col">ID</th>
-                                                <th scope="col">Avatar</th>
-                                                <th scope="col">Username</th>
-                                                <th scope="col">Fullname</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Desc</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="border-bottom-secondary">
-                                                <th scope="row">3</th>
-                                                <td>
-                                                    <img src="../../content/client/img/avatar.png" alt="">
-                                                </td>
-                                                <td>User</td>
-                                                <td>Pham Truong Xuan</td>
-                                                <td>truongshuan0310@gmail.com</td>
-                                                <td>Enable</td>
-                                                <td>
-                                                    <a href="edit.php" class="btn btn-outline-success-2x"
-                                                        type="button">Edit</a>
-                                                    <a class="btn btn-outline-danger-2x" type="button">Del</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <?php
+                                if (isset($_POST['edit_user'])) {
+                                    $ma_kh = $_POST['ma_kh'];
+                                    $hoat_dong = $_POST['hoat_dong'];
+                                    khach_hang_action($ma_kh, $hoat_dong);
+                                    echo '<script type="text/javascript">
+                                    msg("Updated Action User Successfully!");
+                                     </script>';
+                                }
+                                extract($_REQUEST);
+                                if (exist_param("btn_edit")) {
+                                    $view_name = "edit.php";
+                                } else {
+                                    $view_name = "list.php";
+                                }
+                                include $view_name;
+                                ?>
                             </div>
                         </div>
                     </div>

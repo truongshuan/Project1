@@ -5,8 +5,8 @@ require '../../global.php';
 require '../../dao/pdo.php';
 require '../../dao/hang-hoa.php';
 require '../../dao/loai.php';
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
     $sql = "SELECT * FROM `admin` WHERE email = '$email'";
     $run_Sql = mysqli_query($con, $sql);
@@ -411,8 +411,8 @@ if ($email != false && $password != false) {
                                         <div class="mb-3">
                                             <label class="col-form-label">Special</label>
                                             <br>
-                                            <select class="form-select" aria-label="Default select example" required
-                                                name="dac_biet">
+                                            <select class="form-select" required name="dac_biet">
+                                                <option value="null" disabled>--Select -- </option>
                                                 <option value="1">Normal</option>
                                                 <option value="2">Special</option>
                                             </select>

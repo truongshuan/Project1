@@ -24,7 +24,7 @@ if (isset($_GET['id_pd'])) {
                 <div class="mb-3">
                     <label class="col-form-label">Categories</label>
                     <br>
-                    <select class="form-select" aria-label="Default select example" required name="ma_loai">
+                    <select class="form-select" required name="ma_loai">
                         <?php
                         // pdo_get_connection();
                         $list_categories = loai_query();
@@ -40,12 +40,23 @@ if (isset($_GET['id_pd'])) {
                 <div class="mb-3">
                     <label class="col-form-label">Special</label>
                     <br>
-                    <select class="form-select" aria-label="Default select example" required name="dac_biet">
-                        <option value="1">Normal</option>
+                    <select class="form-select" required name="dac_biet">
+                        <?php
+                        if ($desc['dac_biet'] == 1) {
+                        ?>
+                        <option value="1" selected>Normal</option>
                         <option value="2">Special</option>
+                        <?php
+                        } else {
+                        ?>
+                        <option value="1">Normal</option>
+                        <option value="2" selected>Special</option>
+                        <?php
+                        }
+                        ?>
                     </select>
                 </div>
-                <input type="hidden" name="luot_xem" value="0">
+                <input type="hidden" name="luot_xem" value="<?= $desc['luot_xem'] ?>">
                 <input type="hidden" name="ma_hh" value="<?= $desc['ma_hh'] ?>">
                 <div class="mb-3">
                     <label class="col-form-label">Description</label>

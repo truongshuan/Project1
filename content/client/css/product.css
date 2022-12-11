@@ -490,20 +490,24 @@ img {
     border: 1.5px solid #E4E4E4;
 }
 
-.product__card-img {
-    width: 215px;
-    height: auto;
-    margin-bottom: 15px;
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .product--img {
     /* width: 50px; */
     object-fit: cover;
+    margin: 10px 0px;
 }
 
 .product__card-name {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
+    margin: 7px 0px;
 }
 
 .product__card-price {

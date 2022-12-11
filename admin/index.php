@@ -1,7 +1,7 @@
 ﻿<?php require_once "controllerUserData.php"; ?>
 <?php
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
   $sql = "SELECT * FROM `admin` WHERE email = '$email'";
   $run_Sql = mysqli_query($con, $sql);
@@ -53,7 +53,7 @@ if ($email != false && $password != false) {
                                 </div>
                             </div>
                             <div class="card-body text-center p-t-0">
-                                <h3 class="font-light">Wellcome Back, John!!</h3>
+                                <h3 class="font-light">Wellcome Back, <?= $fetch_info['ten_ad'] ?></h3>
                                 <p>Welcome to the viho Family! we are glad that you are visite this
                                     dashboard. we will be happy to help you grow your business.</p>
                                 <button class="btn btn-light">Update</button>

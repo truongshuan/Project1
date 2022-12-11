@@ -9,7 +9,14 @@
                     <option value="low">Price: L to H</option>
                     <option value="high">Price: H to L</option>
                     <option value="new">Newest</option>
-                    <option value="last">Lastest</option>
+                    <?php
+                    $filter_category = loai_query();
+                    foreach ($filter_category as $result_cate) :
+                    ?>
+                    <option value="<?= $result_cate['ma_loai']  ?>"><?= $result_cate['ten_loai']  ?></option>
+                    <?php
+                    endforeach;
+                    ?>
                 </select>
                 <input style="margin: 0px 10px;" type="submit" name="loc" value="Filter" class="btn btn-primary active">
             </form>
@@ -129,6 +136,32 @@
                                     endwhile;
                                 } else if ($filter == 'new') {
                                     $filter_price = "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai  ORDER BY ngay_nhap DESC LIMIT $start,$limit";
+                                    $filter_query = mysqli_query($con, $filter_price);
+                                    while ($filter_item = mysqli_fetch_assoc($filter_query)) :
+                                    ?>
+                            <tr>
+                                <th scope="row"><?= $filter_item['ma_hh'] ?></th>
+                                <td>
+                                    <img src="../../uploads/<?= $filter_item['hinh'] ?>" width="100px">
+                                </td>
+                                <td><?= $filter_item['ten_hh'] ?></td>
+                                <td><?= $filter_item['don_gia'] ?> $</td>
+                                <td><?= $filter_item['ngay_nhap'] ?></td>
+                                <td><?= $filter_item['luot_xem'] ?><i class="fa-solid fa-eye"></i></td>
+                                <td><?= $filter_item['ten_loai'] ?></td>
+                                <td><?= $filter_item['mo_ta'] ?></td>
+                                <td>
+                                    <a href="index.php?btn_edit&id_pd=<?= $filter_item['ma_hh'] ?>"
+                                        class="btn btn-primary active" type="button"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="index.php?id=<?= $filter_item['ma_hh'] ?>" class="btn btn-danger active"
+                                        type="button"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                            <?php
+                                    endwhile;
+                                } else {
+                                    $filter_price = "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE hang_hoa.ma_loai = '$filter' ORDER BY ma_hh DESC LIMIT $start,$limit";
                                     $filter_query = mysqli_query($con, $filter_price);
                                     while ($filter_item = mysqli_fetch_assoc($filter_query)) :
                                     ?>

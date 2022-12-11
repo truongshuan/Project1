@@ -1,3 +1,32 @@
+<?php
+require '../dao/pdo.php';
+require '../dao/khach-hang.php';
+require 'connection.php';
+require 'shopping/func-total.php';
+session_start();
+$cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
+if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+    $email  = $_SESSION['email'];
+    $password = $_SESSION['password'];
+    $sql = "SELECT * FROM khach_hang WHERE email = '$email'";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        $fetch_info = mysqli_fetch_assoc($result);
+        $status = $fetch_info['trang_thai'];
+        $code = $fetch_info['code'];
+        if ($status == "verified") {
+            if ($code != 0) {
+                header('Location: form/reset-code.php');
+            }
+        } else {
+            header('Location: form/user-otp.php');
+        }
+    } else {
+        session_destroy();
+        header('location: index.php');
+    }
+}
+?>
 <!-- infor -->
 <section class="infor">
     <div class="infor_left">
@@ -18,7 +47,7 @@
 </section>
 <!-- header -->
 <section class="header" id="header">
-    <div class="logo"><img src="../content/client/img/logo.png" alt=""></div>
+    <div class="logo"><a href="index.php"><img src="../content/client/img/logo.png" alt=""></a></div>
     <div class="menu">
         <div class="menu_ngang">
             <a href="index.php">Home</a>
@@ -41,51 +70,47 @@
         <div class="menu_ngang">
             <a href="blog.php">Blog</a>
         </div>
-
         <div class="menu_ngang"> <a href="contact.php">Contact</a></div>
     </div>
     <div class="header_icon">
-        <a class="openbtn" onclick="openSearch()">
+        <a class="openbtn" onclick="openSearch()" style="color: #000; cursor: pointer;">
             <i class='bx bx-search-alt-2'></i>
         </a>
-        <a href="shopping/cart.php" style="color: #000;"><i class='bx bxs-cart'></i></a>
-        <div class="user">
-            <i class='bx bx-user-pin'></i>
-            <ul class="nav__list-child">
-                <?php
-                if (isset($_SESSION['home'])) {
-                ?>
-                <li class="nav__list-child-item"><a href="#" class="nav__link"><?php echo $ma_kh; ?>
-                    </a>
-                </li>
-                <li class="nav__list-child-item"><a href="user/profile.php?id_user=<?= $ma_kh ?>"
-                        class="nav__link">Profile</a>
-                </li>
-                <?php
-                } else {
-                ?>
-                <li class="nav__list-child-item"><a href="form/login.php" class="nav__link">Login </a>
-                </li>
-                <?php
-                }
-                ?>
-                <?php
-                if (isset($infor['vai_tro'])) {
-                    $vai_tro = $infor['vai_tro'];
-                    if ($vai_tro == 1) {
-                ?>
-                <li class="nav__list-child-item"><a href="../admin/" class="nav__link">Admin</a>
-                </li>
-                <?php
+        <a href="shopping/cart.php" style="color: #0F4229; font-weight: bold;">
+            <i class='bx bxs-cart item-count'></i>
+            <span style="font-size: 18px;"><?= number_format(total_amount($cart)) ?></span>
+        </a>
+        <div class="list__user">
+            <i class='bx bx-user-pin'>
+                <ul class="list__user-child">
+                    <?php
+                    if (isset($_SESSION['email']) && $_SESSION['password']) {
+                    ?>
+                    <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                            style="text-decoration: none;" href="form/login.php"><?php echo $fetch_info['ma_kh']; ?></a>
+                    </li>
+                    <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                            style="text-decoration: none;"
+                            href="profile.php?user=<?= $fetch_info['ma_kh']; ?>">Profile</a>
+                    </li>
+                    <?php
+                    } else {
+                    ?>
+                    <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                            style="text-decoration: none;" href="form/login.php">Login</a>
+                    </li>
+                    <?php
                     }
-                }
-                ?>
-                <li class="nav__list-child-item"><a href="log/logout.php" class="nav__link">Logout</a>
-                </li>
-            </ul>
+                    ?>
+                    <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                            style="text-decoration: none;" href="form/logout.php">Logout</a>
+                    </li>
+                </ul>
+            </i>
         </div>
-        <a href="service.php"><button class="btn_header">GET AQUET <div><i style="font-size: 28px;"
-                        class='bx bx-right-arrow-alt'></i>
-                </div></button></a>
+        <a href="service.php">
+            <button class="btn_header" style="display: flex; justify-content: center;align-items: center;">GET AQUET <i
+                    style="font-size: 20px;" class='bx bx-right-arrow-alt'></i>
+            </button></a>
     </div>
 </section>

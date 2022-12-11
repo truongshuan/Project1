@@ -1,8 +1,9 @@
 <?php
 session_start();
 require '../connection.php';
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+require '../../dao/thong-ke.php';
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
     $sql = "SELECT * FROM `admin` WHERE email = '$email'";
     $run_Sql = mysqli_query($con, $sql);
@@ -386,13 +387,21 @@ if ($email != false && $password != false) {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                    $data = thong_ke_hang_hoa();
+                                                    foreach ($data as $item) :
+                                                        extract($item);
+                                                    ?>
                                                     <tr>
-                                                        <th scope="row">asdfsdf</th>
-                                                        <td>12</td>
-                                                        <td>1234132</td>
-                                                        <td>13242134</td>
-                                                        <td>324132</td>
+                                                        <td><?= $ten_loai ?></td>
+                                                        <td><?= $so_luong ?></td>
+                                                        <td>$<?= number_format($gia_min) ?></td>
+                                                        <td>$<?= number_format($gia_max) ?></td>
+                                                        <td>$<?= number_format($gia_avg) ?></td>
                                                     </tr>
+                                                    <?php
+                                                    endforeach;
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

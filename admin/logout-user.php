@@ -1,6 +1,6 @@
 <?php
 session_start();
-session_unset();
-session_destroy();
+unset($_SESSION['email_ad']);
+unset($_SESSION['password_ad']);
+// session_destroy();
 header('location: login-user.php');
-?>

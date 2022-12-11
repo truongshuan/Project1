@@ -8,8 +8,8 @@ if (isset($_GET['id_ct'])) {
 <?php
 session_start();
 require '../connection.php';
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
     $sql = "SELECT * FROM `admin` WHERE email = '$email'";
     $run_Sql = mysqli_query($con, $sql);
@@ -396,9 +396,19 @@ if ($email != false && $password != false) {
                                             <br>
                                             <select class="form-select" aria-label="Default select example"
                                                 name="trang_thai" required>
-                                                <option value="null" selected disabled>--Select Desc--</option>
-                                                <option value="1">New</option>
+                                                <?php
+                                                if ($item['trang_thai'] == 1) {
+                                                ?>
+                                                <option value="1" selected>New</option>
                                                 <option value="2">Sold out</option>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                <option value="1">New</option>
+                                                <option value="2" selected>Sold out</option>
+                                                <?php
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="mb-3">

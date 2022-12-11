@@ -5,8 +5,8 @@ require '../connection.php';
 require '../../global.php';
 require '../../dao/pdo.php';
 require '../../dao/voucher.php';
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
     $sql = "SELECT * FROM `admin` WHERE email = '$email'";
     $run_Sql = mysqli_query($con, $sql);
@@ -407,11 +407,12 @@ if ($email != false && $password != false) {
                             $ngay_bat_dau = date('Y-m-d', strtotime($_POST['ngay_bat_dau']));
                             $ngay_ket_thuc = date('Y-m-d', strtotime($_POST['ngay_ket_thuc']));
                             $mo_ta = $_POST['mo_ta'];
+                            $discount = $_POST['giam_gia'];
                             if ($ngay_bat_dau > $ngay_ket_thuc) {
                                 header("location: index.php?btn_new");
                                 $_SESSION['error_date_voucher'] = "The end date must be greater than the start date!";
                             } else {
-                                voucher_insert($ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code);
+                                voucher_insert($ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code, $discount);
                                 echo '<script type="text/javascript">
                                 msg("Added Voucher Successfully!");
                                 </script>';
@@ -425,11 +426,12 @@ if ($email != false && $password != false) {
                             $ngay_bat_dau = date('Y-m-d', strtotime($_POST['ngay_bat_dau']));
                             $ngay_ket_thuc = date('Y-m-d', strtotime($_POST['ngay_ket_thuc']));
                             $mo_ta = $_POST['mo_ta'];
+                            $discount = $_POST['giam_gia'];
                             if ($ngay_bat_dau > $ngay_ket_thuc) {
                                 header("location: index.php?btn_edit&id_coup=$ma_km");
                                 $_SESSION['error_date_voucher'] = "The end date must be greater than the start date!";
                             } else {
-                                voucher_update($ma_km, $ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code);
+                                voucher_update($ma_km, $ten_km, $mo_ta, $ngay_bat_dau, $ngay_ket_thuc, $code, $discount);
                                 echo '<script type="text/javascript">
                                 msg("Updated Voucher Successfully!");
                                 </script>';

@@ -1,6 +1,6 @@
 <?php require_once "controllerUserData.php"; ?>
 <?php
-$email = $_SESSION['email'];
+$email = $_SESSION['email_ad'];
 if ($email == false) {
     header('Location: login-user.php');
 }

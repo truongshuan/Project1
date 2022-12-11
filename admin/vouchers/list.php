@@ -27,6 +27,8 @@ $start = ($cr_page - 1) * $limit;
                                 <th scope="col">End</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Code</th>
+                                <th scope="col">Discount</th>
+                                <th scope="col">Time</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -43,6 +45,7 @@ $start = ($cr_page - 1) * $limit;
                                 <td><?= $item['ngay_bat_dau'] ?></td>
                                 <td><?= $item['ngay_het_han'] ?></td>
                                 <td><?= $item['mo_ta'] ?></td>
+                                <td><?= $item['giam_gia'] ?>%</td>
                                 <td><?= $item['code'] ?></td>
                                 <td>
                                     <a href="index.php?btn_edit&id_coup=<?= $item['ma_km'] ?>"
@@ -63,7 +66,18 @@ $start = ($cr_page - 1) * $limit;
                                 <td><?= $item['ngay_bat_dau'] ?></td>
                                 <td><?= $item['ngay_het_han'] ?></td>
                                 <td><?= $item['mo_ta'] ?></td>
+                                <td><?= $item['giam_gia'] ?>%</td>
                                 <td><?= $item['code'] ?></td>
+                                <td>
+                                    <?php
+                                            $today =  date_format(date_create(), 'Y-m-d');
+                                            if ($today <= $item['ngay_het_han']) {
+                                                echo '<p style="color:#24695C; font-weight: bold;"> Enable </p>';
+                                            } else {
+                                                echo '<p style="color: red; font-weight: bold;"> Out of date </p>';
+                                            }
+                                            ?>
+                                </td>
                                 <td>
                                     <a href="index.php?btn_edit&id_coup=<?= $item['ma_km'] ?>"
                                         class="btn btn-outline-success-2x" type="button">Edit</a>

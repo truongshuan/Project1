@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../content/client/css/service.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
     <link rel="stylesheet" href="../content/client/css/header.css">
+    <link rel="stylesheet" href="../content/client/css/user.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="../content/client/js/onscroll.js"></script>
@@ -43,7 +44,8 @@
             <div class="col l-8">
                 <div class="left">
                     <h1 data-aos="fade-up" data-aos-duration="1000">What is landscaping? How can help you.</h1>
-                    <p class="dropcap" data-aos="fade-up" data-aos-duration="1000">People have practiced landscaping for centuries. As far back as the ancient
+                    <p class="dropcap" data-aos="fade-up" data-aos-duration="1000">People have practiced landscaping for
+                        centuries. As far back as the ancient
                         Mayans, humans were manipulating the land for both aesthetic and practical reasons. The addition
                         of plants, changes to the existing terrain and the construction of structures are all part of
                         landscaping. Today landscaping refers to the planning, laying out and construction of gardens
@@ -51,7 +53,7 @@
                     <h1>Landscaping Options & Ideas</h1>
                     <p>If you are considering landscaping your home check out these resources:</p>
                     <div class="box1">
-                        <div class="content"data-aos="fade-right" data-aos-duration="1000">
+                        <div class="content" data-aos="fade-right" data-aos-duration="1000">
                             <i class='bx bx-color'></i>
                             <div>
                                 <p>Landscaping Pictures</p>
@@ -65,7 +67,7 @@
                                 <b>Get inspiration & expert advice for your yard</b>
                             </div>
                         </div>
-                        <div class="content"data-aos="fade-right" data-aos-duration="1000">
+                        <div class="content" data-aos="fade-right" data-aos-duration="1000">
                             <i class='bx bx-hive'></i>
                             <div>
                                 <p>How to Landscape</p>
@@ -96,14 +98,14 @@
                     </div>
                     <h1>Our Working Process</h1>
                     <div class="box2">
-                        <div class="content"data-aos="fade-right" data-aos-duration="1000">
+                        <div class="content" data-aos="fade-right" data-aos-duration="1000">
                             <i class='bx bxs-leaf'></i>
                             <div>
                                 <p>1. Consultation</p>
                                 <b>Lorem available market standard industry Lorem Ipsum dummy.</b>
                             </div>
                         </div>
-                        <div class="content"data-aos="fade-left" data-aos-duration="1000">
+                        <div class="content" data-aos="fade-left" data-aos-duration="1000">
                             <i class='bx bxs-carousel'></i>
                             <div>
                                 <p>2. Design & Work</p>
@@ -112,10 +114,10 @@
                         </div>
                     </div>
                     <div class="box3">
-                        <div class="content"data-aos="fade-right" data-aos-duration="1000">
+                        <div class="content" data-aos="fade-right" data-aos-duration="1000">
                             <img src="../content/client/img/service_img1.png" alt="">
                         </div>
-                        <div class="content"data-aos="fade-left" data-aos-duration="1000">
+                        <div class="content" data-aos="fade-left" data-aos-duration="1000">
                             <img src="../content/client/img/service_img2.png" alt="">
                         </div>
                     </div>
@@ -126,7 +128,7 @@
                     </div>
                     <h1>Our Commitment</h1>
                     <div class="box5">
-                        <div class="content"data-aos="fade-right" data-aos-duration="1000">
+                        <div class="content" data-aos="fade-right" data-aos-duration="1000">
                             <div class="div">
                                 <i class='bx bx-check'></i> No Chemicals
                             </div>
@@ -137,7 +139,7 @@
                                 <i class='bx bx-pie-chart'></i> Free Estimates
                             </div>
                         </div>
-                        <div class="content"data-aos="fade-up" data-aos-duration="1000">
+                        <div class="content" data-aos="fade-up" data-aos-duration="1000">
                             <div class="div">
                                 <i class='bx bx-check'></i> No Insect
                             </div>
@@ -148,7 +150,7 @@
                                 <i class='bx bx-pie-chart'></i> Upfront Pricing
                             </div>
                         </div>
-                        <div class="content"data-aos="fade-left" data-aos-duration="1000">
+                        <div class="content" data-aos="fade-left" data-aos-duration="1000">
                             <div class="div">
                                 <i class='bx bx-check'></i> No Chemicals
                             </div>
@@ -162,7 +164,7 @@
                     </div>
                     <h1>Reason You Should Choise Us</h1>
                     <div class="box6">
-                        <div class="left"data-aos="fade-right" data-aos-duration="1000">
+                        <div class="left" data-aos="fade-right" data-aos-duration="1000">
                             <p>Garden Services provides full & comprehensive services in irrigation, landscape ,
                                 maintenance and professional tree care management.</p>
                             <div class="content">
@@ -178,7 +180,7 @@
                                 <i class='bx bxs-check-circle'></i> Expert People
                             </div>
                         </div>
-                        <div class="right"data-aos="fade-left" data-aos-duration="1000">
+                        <div class="right" data-aos="fade-left" data-aos-duration="1000">
                             <img src="../content/client/img/service_img3.png" alt="">
                         </div>
                     </div>

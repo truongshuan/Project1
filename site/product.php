@@ -3,7 +3,30 @@ require '../dao/pdo.php';
 require '../dao/hang-hoa.php';
 require '../dao/loai.php';
 require '../admin/connection.php';
+require 'shopping/func-total.php';
+session_start();
+$cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
 pdo_get_connection();
+// Check Session
+if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+    $email  = $_SESSION['email'];
+    $password = $_SESSION['password'];
+    $sql = "SELECT * FROM khach_hang WHERE email = '$email'";
+    $result = mysqli_query($con, $sql);
+    if ($result) {
+        $fetch_info = mysqli_fetch_assoc($result);
+        $status = $fetch_info['trang_thai'];
+        $code = $fetch_info['code'];
+        if ($status == "verified") {
+            if ($code != 0) {
+                header('Location: form/reset-code.php');
+            }
+        } else {
+            header('Location: form/user-otp.php');
+        }
+    }
+}
+// Navagation
 $product = mysqli_query($con, "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai");
 $total = mysqli_num_rows($product);
 $limit = 4;
@@ -11,7 +34,6 @@ $page = ceil($total / $limit);
 $cr_page = (isset($_GET['page']) ? $_GET['page'] : 1);
 $start = ($cr_page - 1) * $limit;
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +47,7 @@ $start = ($cr_page - 1) * $limit;
     <!-- CSS -->
     <link rel="stylesheet" href="../content/client/css/product.css">
     <link rel="stylesheet" href="../content/client/css/Grid.css">
-    <link rel="stylesheet" href="../content/client/css/header.css">
+    <link rel="stylesheet" href="../content/client/css/fix-header.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
     <!-- Font-icon -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -35,6 +57,9 @@ $start = ($cr_page - 1) * $limit;
     <script src="../content/client/js/scrollreveal.min.js"></script>
     <script src="../content/client/js/main.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
     .desc__icons {
         width: 100%;
@@ -119,64 +144,22 @@ $start = ($cr_page - 1) * $limit;
         margin-top: 20px;
     }
 
-    .nav__list-child {
-        z-index: 100000;
-        padding-top: 43px;
-        display: none;
-        width: 100px;
-        height: 112px;
-        clip-path: polygon(15% 25%, 22% 36%, 100% 36%, 100% 100%, 0 100%, 0 36%, 12% 36%);
-        background-color: gainsboro;
-        position: absolute;
-        line-height: 30px;
-        margin: 0;
-        margin-top: -60px;
-        margin-left: -5px;
-    }
-
-    .nav__list-child li {
-        list-style: none;
-        border-bottom: 1px solid ghostwhite;
-        margin-left: -35px;
-    }
-
-    .nav__list-child li>a {
-        margin-left: 20px;
-        text-decoration: none;
-        color: black;
-        font-weight: 600;
-    }
-
-    .nav__list-child li>a:hover {
-        color: #348e38;
-    }
-
-    .nav__list-child>li>a {
-        font-size: 16px;
-    }
-
-    .user:hover>.nav__list-child {
-        display: block;
-    }
-
     .form--search {
         position: fixed;
-        background-color: #eee;
+        height: 100vh;
         width: 100%;
-        height: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1000;
-        opacity: 0.9;
+        top: 0;
+        left: 0;
         display: none;
+        z-index: 500;
+        background-color: #eee;
+        opacity: 0.9;
     }
 
     .search--content {
         position: relative;
         top: 40%;
         width: 100%;
-        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -184,51 +167,41 @@ $start = ($cr_page - 1) * $limit;
 
     .form--search input[type=text] {
         float: left;
-        width: 330px;
-        border: none;
-        outline: none;
-        padding: 17px;
+        width: 350px;
+        height: 60px;
+        padding: 15px;
         font-size: 15px;
         background-color: #fff;
+        border: none;
+        outline: none;
         color: #000;
-    }
-
-    .form--search input[type=text]:hover {
-        background-color: #fff;
     }
 
     .form--search button {
         float: left;
         width: 80px;
-        font-size: 15px;
-        padding: 17px;
+        height: 60px;
+        padding: 15px;
+        font-size: 20px;
         background-color: #0F4229;
         color: #fff;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .closebtn {
         position: absolute;
         top: 25px;
         right: 50px;
-        font-size: 20px;
-        color: #000;
+        font-size: 25px;
+        font-weight: bold;
         cursor: pointer;
-
-    }
-
-    .select {
-        width: 200px;
-        height: 50px;
-        margin-right: 10px;
-        padding: 10px;
-        font-size: 16px;
-        font-weight: normal;
-        border: 2px solid rgb(212, 208, 208);
-        transition: all .4s ease-in;
     }
 
     .btn__filter {
-        width: 30px;
+        width: 50px;
         height: 50px;
         font-size: 20px;
         font-weight: bold;
@@ -239,14 +212,108 @@ $start = ($cr_page - 1) * $limit;
         justify-content: center;
         align-items: center;
     }
+
+    .select {
+        padding: 10px;
+        font-weight: normal;
+        height: 50px;
+        font-size: 14px;
+        border: 2px solid #eee;
+        margin-right: 5px;
+    }
     </style>
 </head>
 
 <body>
     <!-- Header -->
-    <?php
-    include "page/header.php";
-    ?>
+    <!-- infor -->
+    <section class="infor">
+        <div class="infor_left">
+            <div class="infor_left_content"><i class='bx bx-check-circle'></i>
+                ISO 9001:2015,Certified Landscape Designer</div>
+            <div class="infor_left_content"><i class='bx bx-map'></i>
+                331 An Khánh, Cần Thơ</div>
+            <div class="infor_left_content"> <i class='bx bx-time-five'></i>
+                Sun - Friday, 08 am - 05 pm</div>
+        </div>
+        <div class="infor_right">
+            <div>Select Language</div>
+            <div><i class='bx bxl-facebook'></i></div>
+            <div><i class='bx bxl-twitter'></i></div>
+            <div><i class='bx bxl-google'></i></div>
+            <div><i class='bx bxl-instagram-alt'></i></div>
+        </div>
+    </section>
+    <!-- header -->
+    <section class="header" id="header">
+        <div class="logo"><a href="index.php"><img src="../content/client/img/logo.png" alt=""></a></div>
+        <div class="menu">
+            <div class="menu_ngang">
+                <a href="index.php">Home</a>
+            </div>
+            <div class="menu_ngang">
+                <a href="about.php">About Us</i></a>
+            </div>
+            <div class="menu_ngang">
+                <a href="service.php">Services<i class='bx bx-chevron-down'></i></a>
+                <ul class="menu_con">
+                    <li> <a href="service.php"> Landscaping</a></li>
+                    <li> <a href="service.php"> Pruning Plants</a></li>
+                    <li> <a href="service.php"> Lawn Maintenance</a></li>
+                    <li> <a href="service.php"> Lawn Moving</a></li>
+                </ul>
+            </div>
+            <div class="menu_ngang">
+                <a href="product.php">Product</a>
+            </div>
+            <div class="menu_ngang">
+                <a href="blog.php">Blog</a>
+            </div>
+            <div class="menu_ngang"> <a href="contact.php">Contact</a></div>
+        </div>
+        <div class="header_icon">
+            <a class="openbtn" onclick="openSearch()" style="color: #000; cursor: pointer;">
+                <i class='bx bx-search-alt-2'></i>
+            </a>
+            <a href="shopping/cart.php" style="color: #0F4229; font-weight: bold;">
+                <i class='bx bxs-cart item-count'></i>
+                <span style="font-size: 18px;"><?= number_format(total_amount($cart)) ?></span>
+            </a>
+            <div class=" list__user">
+                <i class=' bx bx-user-pin'>
+                    <ul class="list__user-child">
+                        <?php
+                        if (isset($_SESSION['email']) && $_SESSION['password']) {
+                        ?>
+                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                style="text-decoration: none;"
+                                href="form/login.php"><?php echo $fetch_info['ma_kh']; ?></a>
+                        </li>
+                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                style="text-decoration: none;"
+                                href="profile.php?user=<?= $fetch_info['ma_kh']; ?>">Profile</a>
+                        </li>
+                        <?php
+                        } else {
+                        ?>
+                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                style="text-decoration: none;" href="form/login.php">Login</a>
+                        </li>
+                        <?php
+                        }
+                        ?>
+                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                style="text-decoration: none;" href="form/logout.php">Logout</a>
+                        </li>
+                    </ul>
+                </i>
+            </div>
+            <a href="service.php">
+                <button class="btn_header" style="display: flex; justify-content: center;align-items: center;">GET AQUET
+                    <i style="font-size: 20px;" class='bx bx-right-arrow-alt'></i>
+                </button></a>
+        </div>
+    </section>
     <!-- search -->
     <div class="form--search" id="SearchOverlay">
         <div class="search--content">
@@ -324,11 +391,19 @@ $start = ($cr_page - 1) * $limit;
                     <div class="console">
                         <h1 class="show__tittle">Showing 1-9 of 10 results</h1>
                         <form method="POST" action="product.php" class="filter--form">
-                            <select name="filter_val" id="" class="select">
+                            <select name="filter_val" id="" class="select" required>
                                 <option value="" class="option" disabled selected>Filter</option>
                                 <option value="low" class="option">Sort by price: L to H</option>
                                 <option value="high" class="option">Sort by price: H to L</option>
-                                <option value="" class="option">Sort by Category</option>
+                                <?php
+                                $filter_cate = loai_query();
+                                foreach ($filter_cate as $result_cate) :
+                                ?>
+                                <option value="<?= $result_cate['ma_loai'] ?>" class="option">Sort by
+                                    <?= $result_cate['ten_loai'] ?></option>
+                                <?php
+                                endforeach;
+                                ?>
                             </select>
                             <button type="submit" class="btn__filter" name="filter"><i
                                     class='bx bx-filter-alt'></i></button>
@@ -340,21 +415,20 @@ $start = ($cr_page - 1) * $limit;
                             $key = $_GET['keyword'];
                             $sql = "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE ten_hh LIKE '%$key%' ORDER BY ma_hh ASC LIMIT $start,$limit";
                             $result = mysqli_query($con, $sql);
-                            while ($item_key = mysqli_fetch_assoc($result)) :
+                            while ($item = mysqli_fetch_assoc($result)) :
                         ?>
-                        <div class="product__card">
-                            <div class="product__card-img"
-                                style="display: flex; align-items: center; justify-content: center;">
-                                <img src="../uploads/<?= $item_key['hinh'] ?>" alt="" class="product--img"
-                                    width="150px">
-                            </div>
-                            <span class="product__card-name"><?= $item_key['ten_hh'] ?></span>
-                            <p class="product__card-price"><?= number_format($item_key['don_gia']) ?>$</p>
-                            <div class="desc__icons">
-                                <a href="" class="desc__icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
-                                <a href="details.php?id_product=<?= $item_key['ma_hh'] ?>" class="desc__icon"><i
-                                        class="fa-regular fa-eye"></i></a>
+                        <div class="product__card card">
+                            <div class="content">
+                                <img src="../uploads/<?= $item['hinh'] ?>" alt="" class="product--img" width="150px">
+                                <span class="product__card-name"><?= $item['ten_hh'] ?></span>
+                                <p class="product__card-price"><?= number_format($item['don_gia']) ?>$</p>
+                                <div class="desc__icons buttons">
+                                    <a href="shopping/cart-ac.php?id=<?= $item['ma_hh'] ?>"
+                                        class="desc__icon cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
+                                    <a href="details.php?id_product=<?= $item['ma_hh'] ?>" class="desc__icon"><i
+                                            class="fa-regular fa-eye"></i></a>
+                                </div>
                             </div>
                         </div>
                         <?php
@@ -368,18 +442,18 @@ $start = ($cr_page - 1) * $limit;
                                 $list_product = hang_hoa_select_price_low($start, $limit);
                                 foreach ($list_product as $item) :
                                 ?>
-                        <div class="product__card">
-                            <div class="product__card-img"
-                                style="display: flex; align-items: center; justify-content: center;">
+                        <div class="product__card card">
+                            <div class="content">
                                 <img src="../uploads/<?= $item['hinh'] ?>" alt="" class="product--img" width="150px">
-                            </div>
-                            <span class="product__card-name"><?= $item['ten_hh'] ?></span>
-                            <p class="product__card-price"><?= number_format($item['don_gia']) ?>$</p>
-                            <div class="desc__icons">
-                                <a href="" class="desc__icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
-                                <a href="details.php?id_product=<?= $item['ma_hh'] ?>" class="desc__icon"><i
-                                        class="fa-regular fa-eye"></i></a>
+                                <span class="product__card-name"><?= $item['ten_hh'] ?></span>
+                                <p class="product__card-price"><?= number_format($item['don_gia']) ?>$</p>
+                                <div class="desc__icons buttons">
+                                    <a href="shopping/cart-ac.php?id=<?= $item['ma_hh'] ?>"
+                                        class="desc__icon cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
+                                    <a href="details.php?id_product=<?= $item['ma_hh'] ?>" class="desc__icon"><i
+                                            class="fa-regular fa-eye"></i></a>
+                                </div>
                             </div>
                         </div>
                         <?php
@@ -388,39 +462,59 @@ $start = ($cr_page - 1) * $limit;
                                 $list_product = hang_hoa_select_price_high($start, $limit);
                                 foreach ($list_product as $item) :
                                 ?>
-                        <div class="product__card">
-                            <div class="product__card-img"
-                                style="display: flex; align-items: center; justify-content: center;">
+                        <div class="product__card card">
+                            <div class="content">
                                 <img src="../uploads/<?= $item['hinh'] ?>" alt="" class="product--img" width="150px">
-                            </div>
-                            <span class="product__card-name"><?= $item['ten_hh'] ?></span>
-                            <p class="product__card-price"><?= number_format($item['don_gia']) ?>$</p>
-                            <div class="desc__icons">
-                                <a href="" class="desc__icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
-                                <a href="details.php?id_product=<?= $item['ma_hh'] ?>" class="desc__icon"><i
-                                        class="fa-regular fa-eye"></i></a>
+                                <span class="product__card-name"><?= $item['ten_hh'] ?></span>
+                                <p class="product__card-price"><?= number_format($item['don_gia']) ?>$</p>
+                                <div class="desc__icons buttons">
+                                    <a href="shopping/cart-ac.php?id=<?= $item['ma_hh'] ?>"
+                                        class="desc__icon cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
+                                    <a href="details.php?id_product=<?= $item['ma_hh'] ?>" class="desc__icon"><i
+                                            class="fa-regular fa-eye"></i></a>
+                                </div>
                             </div>
                         </div>
                         <?php
                                 endforeach;
+                            } else {
+                                $list_product = mysqli_query($con, "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai WHERE hang_hoa.ma_loai = '$filter' ORDER BY ma_hh DESC LIMIT $start,$limit");
+                                while ($item = mysqli_fetch_assoc($list_product)) :
+                                ?>
+                        <div class="product__card card">
+                            <div class="content">
+                                <img src="../uploads/<?= $item['hinh'] ?>" alt="" class="product--img" width="150px">
+                                <span class="product__card-name"><?= $item['ten_hh'] ?></span>
+                                <p class="product__card-price"><?= number_format($item['don_gia']) ?>$</p>
+                                <div class="desc__icons buttons">
+                                    <a href="shopping/cart-ac.php?id=<?= $item['ma_hh'] ?>"
+                                        class="desc__icon cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
+                                    <a href="details.php?id_product=<?= $item['ma_hh'] ?>" class="desc__icon"><i
+                                            class="fa-regular fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                                endwhile;
                             }
                         } else {
                             $list_product = hang_hoa_select_all($start, $limit);
                             foreach ($list_product as $item) :
                                 ?>
-                        <div class="product__card">
-                            <div class="product__card-img"
-                                style="display: flex; align-items: center; justify-content: center;">
+                        <div class="product__card card">
+                            <div class="content">
                                 <img src="../uploads/<?= $item['hinh'] ?>" alt="" class="product--img" width="150px">
-                            </div>
-                            <span class="product__card-name"><?= $item['ten_hh'] ?></span>
-                            <p class="product__card-price"><?= number_format($item['don_gia']) ?>$</p>
-                            <div class="desc__icons">
-                                <a href="" class="desc__icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
-                                <a href="details.php?id_product=<?= $item['ma_hh'] ?>" class="desc__icon"><i
-                                        class="fa-regular fa-eye"></i></a>
+                                <span class="product__card-name"><?= $item['ten_hh'] ?></span>
+                                <p class="product__card-price"><?= number_format($item['don_gia']) ?>$</p>
+                                <div class="desc__icons buttons">
+                                    <a href="shopping/cart-ac.php?id=<?= $item['ma_hh'] ?>"
+                                        class="desc__icon cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="" class="desc__icon"><i class='bx bx-heart'></i></a>
+                                    <a href="details.php?id_product=<?= $item['ma_hh'] ?>" class="desc__icon"><i
+                                            class="fa-regular fa-eye"></i></a>
+                                </div>
                             </div>
                         </div>
                         <?php
@@ -470,8 +564,60 @@ $start = ($cr_page - 1) * $limit;
     <section id="goTop">
         <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
     </section>
+    <script>
+    let count = 0;
+    //if add to cart btn clicked
+    $(".cart-btn").on("click", function() {
+        let cart = $(".cart-nav");
+        // find the img of that card which button is clicked by user
+        let imgtodrag = $(this)
+            .parent(".buttons")
+            .parent(".content")
+            .parent(".card")
+            .find("img")
+            .eq(0);
+        if (imgtodrag) {
+            // duplicate the img
+            var imgclone = imgtodrag
+                .clone()
+                .offset({
+                    top: imgtodrag.offset().top,
+                    left: imgtodrag.offset().left
+                })
+                .css({
+                    opacity: "0.8",
+                    position: "absolute",
+                    height: "150px",
+                    width: "150px",
+                    "z-index": "100"
+                })
+                .appendTo($("body"))
+                .animate({
+                        top: cart.offset().top + 20,
+                        left: cart.offset().left + 30,
+                        width: 75,
+                        height: 75
+                    },
+                    1000,
+                    "easeInOutExpo"
+                );
 
+            setTimeout(function() {
+                count++;
+                $(".cart-nav .item-count").text(count);
+            }, 1500);
 
+            imgclone.animate({
+                    width: 0,
+                    height: 0
+                },
+                function() {
+                    $(this).detach();
+                }
+            );
+        }
+    });
+    </script>
     <script>
     $(function() {
         $(window).scroll(function() {

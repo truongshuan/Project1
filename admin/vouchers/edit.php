@@ -43,6 +43,11 @@ if (!empty($_GET['id_coup'])) {
                         placeholder="Date" required>
                 </div>
                 <div class="mb-3">
+                    <label class="col-form-label">Discount Voucher</label>
+                    <input name="giam_gia" class="form-control" type="text" placeholder="Enter Discount Voucher"
+                        required value="<?= $result['giam_gia'] ?>">
+                </div>
+                <div class="mb-3">
                     <label class="col-form-label">Description</label>
                     <textarea name="mo_ta" class="form-control" type="text" placeholder="Enter desc"
                         required><?= $result['mo_ta'] ?></textarea>

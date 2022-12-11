@@ -36,6 +36,11 @@
                                                 placeholder="Date" required>
                                         </div>
                                         <div class="mb-3">
+                                            <label class="col-form-label">Discount Voucher</label>
+                                            <input name="giam_gia" class="form-control" type="text"
+                                                placeholder="Enter Discount Voucher" required>
+                                        </div>
+                                        <div class="mb-3">
                                             <label class="col-form-label">Description</label>
                                             <textarea name="mo_ta" class="form-control" type="text"
                                                 placeholder="Enter desc" required></textarea>

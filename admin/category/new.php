@@ -1,8 +1,8 @@
 <?php
 session_start();
 require '../connection.php';
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
+$email = $_SESSION['email_ad'];
+$password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
     $sql = "SELECT * FROM `admin` WHERE email = '$email'";
     $run_Sql = mysqli_query($con, $sql);
@@ -383,9 +383,8 @@ if ($email != false && $password != false) {
                                         <div class="mb-3">
                                             <label class="col-form-label">Description</label>
                                             <br>
-                                            <select class="form-select" aria-label="Default select example"
-                                                name="trang_thai" required>
-                                                <option value="null" selected disabled>--Select Desc--</option>
+                                            <select class="form-select" name="trang_thai" required>
+                                                <option value="null" disabled>--Select Desc--</option>
                                                 <option value="1">New</option>
                                                 <option value="2">Sold out</option>
                                             </select>

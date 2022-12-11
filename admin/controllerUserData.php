@@ -47,8 +47,8 @@ if (isset($_POST['signup'])) {
             if ($mail) {
                 $info = "We've sent a verification code to your email - $email";
                 $_SESSION['info'] = $info;
-                $_SESSION['email'] = $email;
-                $_SESSION['password'] = $password;
+                $_SESSION['email_ad'] = $email;
+                $_SESSION['password_ad'] = $password;
                 // concac
                 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
                 $mail->IsSMTP(); // telling the class to use SMTP
@@ -89,7 +89,7 @@ if (isset($_POST['check'])) {
         $update_res = mysqli_query($con, $update_otp);
         if ($update_res) {
             $_SESSION['name'] = $name;
-            $_SESSION['email'] = $email;
+            $_SESSION['email_ad'] = $email;
             header('location: index.php');
             exit();
         } else {
@@ -110,11 +110,11 @@ if (isset($_POST['login'])) {
         $fetch = mysqli_fetch_assoc($res);
         $fetch_pass = $fetch['mat_khau'];
         if (password_verify($password, $fetch_pass)) {
-            $_SESSION['email'] = $email;
+            $_SESSION['email_ad'] = $email;
             $status = $fetch['trang_thai'];
             if ($status == 'verified') {
-                $_SESSION['email'] = $email;
-                $_SESSION['password'] = $password;
+                $_SESSION['email_ad'] = $email;
+                $_SESSION['password_ad'] = $password;
                 header('location: index.php');
             } else {
                 $info = "It's look like you haven't still verify your email - $email";
@@ -144,7 +144,7 @@ if (isset($_POST['check-email'])) {
             if ($mail) {
                 $info = "We've sent a passwrod reset otp to your email - $email";
                 $_SESSION['info'] = $info;
-                $_SESSION['email'] = $email;
+                $_SESSION['email_ad'] = $email;
                 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
                 $mail->IsSMTP(); // telling the class to use SMTP
                 $mail->SMTPAuth = true; // enable SMTP authentication
@@ -180,7 +180,7 @@ if (isset($_POST['check-reset-otp'])) {
     if (mysqli_num_rows($code_res) > 0) {
         $fetch_data = mysqli_fetch_assoc($code_res);
         $email = $fetch_data['email'];
-        $_SESSION['email'] = $email;
+        $_SESSION['email_ad'] = $email;
         $info = "Please create a new password that you don't use on any other site.";
         $_SESSION['info'] = $info;
         header('location: new-password.php');
@@ -199,7 +199,7 @@ if (isset($_POST['change-password'])) {
         $errors['password'] = "Confirm password not matched!";
     } else {
         $code = 0;
-        $email = $_SESSION['email']; //getting this email using session
+        $email = $_SESSION['email_ad']; //getting this email using session
         $encpass = password_hash($password, PASSWORD_BCRYPT);
         $update_pass = "UPDATE admin SET code = $code, mat_khau = '$encpass' WHERE email = '$email'";
         $run_query = mysqli_query($con, $update_pass);
