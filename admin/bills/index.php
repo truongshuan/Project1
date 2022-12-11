@@ -408,7 +408,7 @@ if ($email != false && $password != false) {
                                                         <td><?= $item['dia_chi'] ?></td>
                                                         <td><?= $item['ma_hh'] ?></td>
                                                         <td><?= $item['so_luong'] ?></td>
-                                                        <td><?= $item['tong_tien'] ?>$</td>
+                                                        <td><?= number_format($item['tong_tien']) ?>$</td>
                                                         <?php
                                                             if ($item['trang_thai'] == 0) {
                                                                 echo '<td style="color: red; font-weight: bold;">Disable</td>';

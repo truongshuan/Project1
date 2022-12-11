@@ -1,3 +1,37 @@
+<?php
+require '../dao/hang-hoa.php';
+require '../dao/khach-hang.php';
+require '../dao/loai.php';
+require 'connection.php';
+require 'shopping/func-total.php';
+session_start();
+// Check Session
+$cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
+if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+    $email  = $_SESSION['email'];
+    $password = $_SESSION['password'];
+    $sql = "SELECT * FROM khach_hang WHERE email = '$email'";
+    $result = mysqli_query($con, $sql);
+    if ($result) {
+        $fetch_info = mysqli_fetch_assoc($result);
+        $status = $fetch_info['trang_thai'];
+        $code = $fetch_info['code'];
+        if ($status == "verified") {
+            if ($code != 0) {
+                header('Location: form/reset-code.php');
+            }
+        } else {
+            header('Location: form/user-otp.php');
+        }
+    }
+} else {
+    header('location: form/login.php');
+}
+if (!empty($_GET['user'])) {
+    $ma_kh = $_GET['user'];
+    $infor = khach_hang_select_by_id($ma_kh);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,18 +61,99 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script src="../content/client/js/onscroll.js"></script>
     <script src="../content/client/js/backtotop.js"></script>
-
     <title>Profile this user</title>
 </head>
 
 <body>
-    <?php
-    require 'page/header.php';
-    if (!empty($_GET['user'])) {
-        $ma_kh = $_GET['user'];
-        $infor = khach_hang_select_by_id($ma_kh);
-    }
-    ?>
+    <!-- HEADER -->
+    <section class="infor">
+        <div class="infor_left">
+            <div class="infor_left_content"><i class='bx bx-check-circle'></i>
+                ISO 9001:2015,Certified Landscape Designer</div>
+            <div class="infor_left_content"><i class='bx bx-map'></i>
+                331 An Khánh, Cần Thơ</div>
+            <div class="infor_left_content"> <i class='bx bx-time-five'></i>
+                Sun - Friday, 08 am - 05 pm</div>
+        </div>
+        <div class="infor_right">
+            <div>Select Language</div>
+            <div><i class='bx bxl-facebook'></i></div>
+            <div><i class='bx bxl-twitter'></i></div>
+            <div><i class='bx bxl-google'></i></div>
+            <div><i class='bx bxl-instagram-alt'></i></div>
+        </div>
+    </section>
+    <!-- header -->
+    <section class="header" id="header">
+        <div class="logo"><a href="index.php"><img src="../content/client/img/logo.png" alt=""></a></div>
+        <div class="menu">
+            <div class="menu_ngang">
+                <a href="index.php">Home</a>
+            </div>
+            <div class="menu_ngang">
+                <a href="about.php">About Us</i></a>
+            </div>
+            <div class="menu_ngang">
+                <a href="service.php">Services<i class='bx bx-chevron-down'></i></a>
+                <ul class="menu_con">
+                    <li> <a href="service.php"> Landscaping</a></li>
+                    <li> <a href="service.php"> Pruning Plants</a></li>
+                    <li> <a href="service.php"> Lawn Maintenance</a></li>
+                    <li> <a href="service.php"> Lawn Moving</a></li>
+                </ul>
+            </div>
+            <div class="menu_ngang">
+                <a href="product.php">Product</a>
+            </div>
+            <div class="menu_ngang">
+                <a href="blog.php">Blog</a>
+            </div>
+            <div class="menu_ngang"> <a href="contact.php">Contact</a></div>
+        </div>
+        <div class="header_icon">
+            <a class="openbtn" onclick="openSearch()" style="color: #000; cursor: pointer;">
+                <i class='bx bx-search-alt-2'></i>
+            </a>
+            <a href="shopping/cart.php" style="color: #0F4229; font-weight: bold;">
+                <i class='bx bxs-cart item-count'></i>
+                <span style="font-size: 18px;"><?= number_format(total_amount($cart)) ?></span>
+            </a>
+            <div class="list__user">
+                <i class='bx bx-user-pin'>
+                    <ul class="list__user-child">
+                        <?php
+                        if (isset($_SESSION['email']) && $_SESSION['password']) {
+                        ?>
+                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                style="text-decoration: none;"
+                                href="form/login.php"><?php echo $fetch_info['ma_kh']; ?></a>
+                        </li>
+                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                style="text-decoration: none;"
+                                href="profile.php?user=<?= $fetch_info['ma_kh']; ?>">Profile</a>
+                        </li>
+                        <?php
+                        } else {
+                        ?>
+                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                style="text-decoration: none;" href="form/login.php">Login</a>
+                        </li>
+                        <?php
+                        }
+                        ?>
+                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                style="text-decoration: none;" href="form/logout.php">Logout</a>
+                        </li>
+                    </ul>
+                </i>
+            </div>
+            <a href="service.php">
+                <button class="btn_header" style="display: flex; justify-content: center;align-items: center;">GET AQUET
+                    <i style="font-size: 20px;" class='bx bx-right-arrow-alt'></i>
+                </button></a>
+        </div>
+    </section>
+    <!-- CONTENT -->
     <div class="container" style="margin-top: 30px;">
         <div class="main-body">
             <div class="row">
@@ -189,25 +304,35 @@
                                     <table class="table">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">#</th>
+                                                <th scope="col">Id bill</th>
                                                 <th scope="col">id product</th>
-                                                <th scope="col">image</th>
+                                                <th scope="col">Name</th>
                                                 <th scope="col">quality</th>
-                                                <th scope="col">Price</th>
+                                                <th scope="col">Total</th>
                                                 <th scope="col">Views</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                            require 'connection.php';
+                                            $sql = "SELECT * FROM hoa_don INNER JOIN chi_tiet_hoa_don ON hoa_don.ma_hd = chi_tiet_hoa_don.ma_hd INNER JOIN hang_hoa ON chi_tiet_hoa_don.ma_hh = hang_hoa.ma_hh WHERE hoa_don.ma_kh= '$ma_kh' ORDER BY hoa_don.ma_hd ASC";
+                                            $result = mysqli_query($con, $sql);
+                                            while ($item = mysqli_fetch_assoc($result)) :
+                                            ?>
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td>Otto</td>
+                                                <th scope="row"><?= $item['ma_hd'] ?></th>
+                                                <td><?= $item['ma_hh'] ?></td>
+                                                <td><?= $item['ten_hh'] ?></td>
+                                                <td><?= $item['so_luong'] ?></td>
+                                                <td><?= number_format($item['tong_tien']) ?>$</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary">PDF</button>
+                                                    <a href="test_pdf.php?id_bill=<?= $item['ma_hd'] ?>"
+                                                        class="btn btn-primary">PDF</a>
                                                 </td>
                                             </tr>
+                                            <?php
+                                            endwhile;
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

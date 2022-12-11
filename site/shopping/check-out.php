@@ -245,9 +245,9 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
                                         } ?></b></div>
                             </div>
                             <input type="hidden" name="tong_tien" value=" <?php if (isset($coupon)) {
-                                                                                echo number_format(total_price($cart) - $coupon);
+                                                                                echo total_price($cart) - $coupon;
                                                                             } else {
-                                                                                echo number_format(total_price($cart));
+                                                                                echo total_price($cart);
                                                                             } ?>">
                             <input type="hidden" name="ma_km" value="<?php
                                                                         if (isset($_POST['save_coup'])) {

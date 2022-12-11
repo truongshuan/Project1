@@ -19,6 +19,18 @@
     <link rel="stylesheet" href="../content/client/css/backtotop.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script src="../content/client/js/backtotop.js"></script>
+    <style>
+    a {
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        background-color: red;
+        margin: 0px 150px 0px 0px;
+    }
+    </style>
 </head>
 
 <body>

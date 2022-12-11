@@ -8,9 +8,10 @@ if (isset($_POST['save_bill'])) {
     $sdt = mysqli_real_escape_string($con, $_POST['sdt']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $dia_chi = mysqli_real_escape_string($con, $_POST['dia_chi']);
-    $tong_tien = mysqli_real_escape_string($con, $_POST['tong_tien']);
+    $tong_tienn = $_POST['tong_tien'];
     $ngay_dat = date_format(date_create(), 'Y-m-d');
     $ma_km = mysqli_real_escape_string($con, $_POST['ma_km']);
+    $tong_tien = (float)$tong_tienn;
     if ($ma_kh == "") {
         $sql = "INSERT INTO hoa_don(email,sdt,dia_chi,ngay_dat,tong_tien,ma_kh,ma_km,trang_thai) VALUES('$email','$sdt','$dia_chi','$ngay_dat','$tong_tien','$ma_kh',NULL,0)";
     } else {
@@ -28,4 +29,6 @@ if (isset($_POST['save_bill'])) {
     // echo 'concac';
     // echo '<pre>';
     // print_r($_POST);
+    // var_dump(is_float($tong_tien));
+    // var_dump(is_string($tong_tien));
 }
