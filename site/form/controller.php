@@ -55,14 +55,14 @@ if (isset($_POST['register'])) {
                 $_SESSION['info'] = $info;
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $mat_khau;
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
                 $mail->IsSMTP(); // telling the class to use SMTP
                 $mail->SMTPAuth = true; // enable SMTP authentication
                 $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
                 $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
                 $mail->Port = 465; // set the SMTP port for the GMAIL server
                 $mail->Username = "xuanptpc04031@fpt.edu.vn"; // GMAIL username
-                $mail->Password = "Shuan0310."; // GMAIL password
+                $mail->Password = "Shuan0310.."; // GMAIL password
                 $mail->AddAddress($email);
                 $mail->SetFrom($sender, 'Admin: Shuandz');
                 $mail->Subject = $subject;
@@ -122,8 +122,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['password'] = $password;
                 header('location: ../index.php');
             } else if ($status == 'verified' && $action !== 1) {
-                $_SESSION['disable'] = "Your acount has been disable!";
-                header('location: login.php');
+                $errors['disable'] = "Your account has disable !";
             } else {
                 $info = "It's look like you haven't still verify your email - $email";
                 $_SESSION['info'] = $info;
@@ -153,14 +152,14 @@ if (isset($_POST['check-email'])) {
                 $info = "We've sent a passwrod reset otp to your email - $email";
                 $_SESSION['info'] = $info;
                 $_SESSION['email'] = $email;
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
                 $mail->IsSMTP(); // telling the class to use SMTP
                 $mail->SMTPAuth = true; // enable SMTP authentication
                 $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
                 $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
                 $mail->Port = 465; // set the SMTP port for the GMAIL server
                 $mail->Username = "xuanptpc04031@fpt.edu.vn"; // GMAIL username
-                $mail->Password = "Shuan0310."; // GMAIL password
+                $mail->Password = "Shuan0310.."; // GMAIL password
                 $mail->AddAddress($email);
                 $mail->SetFrom($sender, 'Admin: Shuandz');
                 $mail->Subject = $subject;

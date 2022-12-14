@@ -26,6 +26,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
 if (isset($_POST['apply'])) {
     $voucher = mysqli_real_escape_string($con, $_POST['voucher']);
     $total = mysqli_real_escape_string($con, $_POST['total']);
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
     $ngay_nhap =  date_format(date_create(), 'Y-m-d');
     $check_voucher = "SELECT * FROM khuyen_mai WHERE code = '$voucher'";
     $res = mysqli_query($con, $check_voucher);
@@ -39,6 +40,8 @@ if (isset($_POST['apply'])) {
             $discount = $fetch['giam_gia'] / 100;
             $coupon = $total * $discount;
             $total_last = $total - $coupon;
+            $_SESSION['status'] = "Applied Voucher Successfully";
+            $_SESSION['status_code'] = "success";
         } else {
             $_SESSION['error_vou'] = "Coupon is Invalide or Expired on $end_date";
         }
@@ -46,7 +49,6 @@ if (isset($_POST['apply'])) {
         $_SESSION['error_vou'] = "Coupon is not exists";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -279,7 +281,6 @@ if (isset($_POST['apply'])) {
                         <!-- End -->
                     </div>
                 </div>
-
                 <div class="row py-5 p-4 bg-white rounded shadow-sm">
                     <div class="col-lg-6">
                         <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
@@ -365,8 +366,7 @@ if (isset($_POST['apply'])) {
                                                                             }
                                                                             ?>">
                                 <button type="submit" name="save_coup"
-                                    class="btn btn-dark rounded-pill py-2 btn-block">Procceed to
-                                    checkout</button>
+                                    class="btn btn-dark rounded-pill py-2 btn-block">Procceed tocheckout</button>
                             </form>
                         </div>
                     </div>

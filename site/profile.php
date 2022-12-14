@@ -324,7 +324,7 @@ if (!empty($_GET['user'])) {
                                                 <td><?= $item['ma_hh'] ?></td>
                                                 <td><?= $item['ten_hh'] ?></td>
                                                 <td><?= $item['so_luong'] ?></td>
-                                                <td><?= number_format($item['tong_tien']) ?>$</td>
+                                                <td><?= number_format($item['tong_tien'], 2) ?>$</td>
                                                 <td>
                                                     <a href="test_pdf.php?id_bill=<?= $item['ma_hd'] ?>"
                                                         class="btn btn-primary">PDF</a>

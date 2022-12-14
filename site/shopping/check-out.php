@@ -256,7 +256,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
                                                                         }
                                                                         ?>">
                             <button class="btn" name="save_bill" type="submit">Place order</button>
-                            <p class="text-muted text-center">Complimentary Shipping & Returns</p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -264,7 +264,6 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
             <div>
             </div>
         </div>
-        </form>
     </div>
 </body>
 

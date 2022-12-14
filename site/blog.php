@@ -2,6 +2,8 @@
 session_start();
 require '../dao/pdo.php';
 require '../admin/connection.php';
+require '../dao/bai-viet.php';
+require '../dao/loai.php';
 pdo_get_connection();
 $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
 require 'shopping/func-total.php';
@@ -155,19 +157,69 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
     <main class="main grid wide" id="main">
         <div class="row content">
             <div class="col l-8 news">
+                <?php
+                // phan trang
+                $blog = mysqli_query($con, "SELECT * FROM bai_viet");
+                $total = mysqli_num_rows($blog);
+                $limit = 3;
+                $page = ceil($total / $limit);
+                $cr_page = (isset($_GET['page']) ? $_GET['page'] : 1);
+                $start = ($cr_page - 1) * $limit;
+                // Truy van
+                if (!empty($_GET['keyword'])) {
+                    $keyword = $_GET['keyword'];
+                    $list_blog = bai_viet_key($keyword, $start, $limit);
+                    foreach ($list_blog as $item) :
+                ?>
                 <div class="new">
-                    <div class="new__img" style="background: url(../content/client/img/blog1.jpg);">
+                    <div class="new__img" style="background: url(../uploads/<?= $item['anh_bv']  ?>);">
+                        <div class="new__time">
+                            <i class='bx bx-calendar new__time-icon'></i>
+                            <p class="new__time-date"><?= $item['ngay_dang'] ?></p>
+                        </div>
+                    </div>
+                    <div class="new__content">
+                        <div class="new__infors">
+                            <div class="new__infor">
+                                <i class='bx bx-user new__infor-icon'></i>
+                                <p class="new__infor-desc">By <?= $item['ten_ad'] ?></p>
+                            </div>
+                            <div class="new__infor">
+                                <i class='bx bx-folder-open new__infor-icon'></i>
+                                <p class="new__infor-desc">Dolor Porin</p>
+                            </div>
+                            <div class="new__infor">
+                                <i class='bx bx-chat new__infor-icon'></i>
+                                <p class="new__infor-desc">No comment</p>
+                            </div>
+                        </div>
+                        <h2 class="new__tittle"><?= $item['tieu_de'] ?></h2>
+                        <p class="new__desc"><?= $item['noi_dung_bv'] ?></p>
+                        <div class="new__links">
+                            <a href="" class="new__link">Read More</a>
+                            <i class="fa-solid fa-arrow-right new__links-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                    endforeach;
+                } else {
+                    $list_blog = bai_viet_select_all($start, $limit);
+                    foreach ($list_blog as $item) :
+                    ?>
+                <div class="new">
+                    <div class="new__img" style="background: url(../uploads/<?= $item['anh_bv']  ?>);">
                         <!-- <img src="" alt="" class="new__img-de"> -->
                         <div class="new__time">
                             <i class='bx bx-calendar new__time-icon'></i>
-                            <p class="new__time-date">May 18, 2022</p>
+                            <p class="new__time-date"><?= $item['ngay_dang'] ?></p>
                         </div>
                     </div>
                     <div class="new__content">
                         <div class="new__infors">
                             <div class="new__infor">
                                 <i class='bx bx-user new__infor-icon'></i>
-                                <p class="new__infor-desc">By Admin</p>
+                                <p class="new__infor-desc">By <?= $item['ten_ad'] ?></p>
                             </div>
                             <div class="new__infor">
                                 <i class='bx bx-folder-open new__infor-icon'></i>
@@ -178,110 +230,53 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
                                 <p class="new__infor-desc">No comment</p>
                             </div>
                         </div>
-                        <h2 class="new__tittle">16 garden design ideas to make the best of your</h2>
-                        <p class="new__desc">These garden design ideas are key to creating a scheme you'll love for
-                            years to come. Whether you're looking for garden landscaping ideas to overhaul your outdoor
-                            space – however big or small – attract more wildlife, or be more
-                            sustainable, we've compiled some fabulous garden ideas to help you transform your back
-                            garden – and it'll even help to boost your property value […]</p>
+                        <h2 class="new__tittle"><?= $item['tieu_de'] ?></h2>
+                        <p class="new__desc"><?= $item['noi_dung_bv'] ?></p>
                         <div class="new__links">
                             <a href="" class="new__link">Read More</a>
                             <i class="fa-solid fa-arrow-right new__links-icon"></i>
                         </div>
                     </div>
                 </div>
-                <div class="new">
-                    <div class="new__img" style="background: url(../content/client/img/blog2.jpg);">
-                        <div class="new__time">
-                            <i class='bx bx-calendar new__time-icon'></i>
-                            <p class="new__time-date">APR 14, 2021</p>
-                        </div>
-                    </div>
-                    <div class="new__content">
-                        <div class="new__infors">
-                            <div class="new__infor">
-                                <i class='bx bx-user new__infor-icon'></i>
-                                <p class="new__infor-desc">By Admin</p>
-                            </div>
-                            <div class="new__infor">
-                                <i class='bx bx-folder-open new__infor-icon'></i>
-                                <p class="new__infor-desc">Dolor Porin</p>
-                            </div>
-                            <div class="new__infor">
-                                <i class='bx bx-chat new__infor-icon'></i>
-                                <p class="new__infor-desc">No comment</p>
-                            </div>
-                        </div>
-                        <h2 class="new__tittle">How to grow and arrange your own wedding</h2>
-                        <p class="new__desc">These garden design ideas are key to creating a scheme you'll love for
-                            years to come. Whether you're looking for garden landscaping ideas to overhaul your outdoor
-                            space – however big or small – attract more wildlife, or be more
-                            sustainable, we've compiled some fabulous garden ideas to help you transform your back
-                            garden – and it'll even help to boost your property value […]</p>
-                        <div class="new__links">
-                            <a href="" class="new__link">Read More</a>
-                            <i class="fa-solid fa-arrow-right new__links-icon"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="new">
-                    <div class="new__img" style="background: url(../content/client/img/blog4.jpg);">
-                        <!-- <img src="" alt="" class="new__img-de"> -->
-                        <div class="new__time">
-                            <i class='bx bx-calendar new__time-icon'></i>
-                            <p class="new__time-date">APR 14, 2021
-                            </p>
-                        </div>
-                    </div>
-                    <div class="new__content">
-                        <div class="new__infors">
-                            <div class="new__infor">
-                                <i class='bx bx-user new__infor-icon'></i>
-                                <p class="new__infor-desc">By Admin</p>
-                            </div>
-                            <div class="new__infor">
-                                <i class='bx bx-folder-open new__infor-icon'></i>
-                                <p class="new__infor-desc">Dolor Porin</p>
-                            </div>
-                            <div class="new__infor">
-                                <i class='bx bx-chat new__infor-icon'></i>
-                                <p class="new__infor-desc">No comment</p>
-                            </div>
-                        </div>
-                        <h2 class="new__tittle">The top 5 garden renovation trends this</h2>
-                        <p class="new__desc">These garden design ideas are key to creating a scheme you'll love for
-                            years to come. Whether you're looking for garden landscaping ideas to overhaul your outdoor
-                            space – however big or small – attract more wildlife, or be more
-                            sustainable, we've compiled some fabulous garden ideas to help you transform your back
-                            garden – and it'll even help to boost your property value […]</p>
-                        <div class="new__links">
-                            <a href="" class="new__link">Read More</a>
-                            <i class="fa-solid fa-arrow-right new__links-icon"></i>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                    endforeach;
+                }
+                ?>
                 <div class="page">
                     <ul class="page__links">
+                        <?php
+                        if ($cr_page - 1 > 0) {
+                        ?>
                         <li class="page__item">
-                            <a href="" class="page__link">1</a>
+                            <a href="blog.php?page=<?= $cr_page - 1 ?>" class="page__link"><i
+                                    class="fa-solid fa-chevron-left"></i></a>
                         </li>
+                        <?php
+                        }
+                        ?>
+                        <?php for ($i = 1; $i <= $page; $i++) : ?>
                         <li class="page__item">
-                            <a href="" class="page__link">2</a>
+                            <a href="blog.php?page=<?= $i ?>" class="page__link"><?= $i ?></a>
                         </li>
+                        <?php endfor; ?>
+                        <?php
+                        if ($cr_page + 1 <= $page) {
+                        ?>
                         <li class="page__item">
-                            <a href="" class="page__link">3</a>
+                            <a href="blog.php?page=<?= $cr_page + 1 ?>" class="page__link"><i
+                                    class="fa-solid fa-chevron-right"></i></a>
                         </li>
-                        <li class="page__item">
-                            <a href="" class="page__link"><i class="fa-solid fa-chevron-right"></i></a>
-                        </li>
+                        <?php
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
             <div class="col l-4 tools">
                 <div class="search">
                     <h2 class="sreach__tittle">Search</h2>
-                    <form action="" class="search__form">
-                        <input type="text" placeholder="Search here" class="search__form-group">
+                    <form action="blog.php" class="search__form" method="GET">
+                        <input type="text" placeholder="Search here" name="keyword" class="search__form-group">
                         <button type="submit" class="search__form-btn"><i
                                 class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
@@ -289,22 +284,13 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
                 <div class="category">
                     <h2 class="category__tittle">Category</h2>
                     <div class="category__lists">
+                        <?php $list_cate = loai_query();
+                        foreach ($list_cate as $item) : ?>
                         <div class="category__item">
-                            <a href="" class="category__name">Dolor proin</a>
+                            <a href="" class="category__name"><?= $item['ten_loai'] ?></a>
                             <i class="fa-solid fa-caret-right"></i>
                         </div>
-                        <div class="category__item">
-                            <a href="" class="category__name">Dolor proin</a>
-                            <i class="fa-solid fa-caret-right"></i>
-                        </div>
-                        <div class="category__item">
-                            <a href="" class="category__name">Dolor proin</a>
-                            <i class="fa-solid fa-caret-right"></i>
-                        </div>
-                        <div class="category__item">
-                            <a href="" class="category__name">Dolor proin</a>
-                            <i class="fa-solid fa-caret-right"></i>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <div class="card">

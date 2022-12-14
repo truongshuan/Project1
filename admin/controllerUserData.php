@@ -57,7 +57,7 @@ if (isset($_POST['signup'])) {
                 $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
                 $mail->Port = 465; // set the SMTP port for the GMAIL server
                 $mail->Username = "xuanptpc04031@fpt.edu.vn"; // GMAIL username
-                $mail->Password = "Shuan0310."; // GMAIL password
+                $mail->Password = "Shuan0310.."; // GMAIL password
                 $mail->AddAddress($email);
                 $mail->SetFrom($sender, 'Admin: Shuandz');
                 $mail->Subject = $subject;
@@ -152,7 +152,7 @@ if (isset($_POST['check-email'])) {
                 $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
                 $mail->Port = 465; // set the SMTP port for the GMAIL server
                 $mail->Username = "xuanptpc04031@fpt.edu.vn"; // GMAIL username
-                $mail->Password = "Shuan0310."; // GMAIL password
+                $mail->Password = "Shuan0310.."; // GMAIL password
                 $mail->AddAddress($email);
                 $mail->SetFrom($sender, 'Admin: Shuandz');
                 $mail->Subject = $subject;

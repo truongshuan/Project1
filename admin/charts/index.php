@@ -309,6 +309,13 @@ if ($email != false && $password != false) {
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
+                                            data-feather="edit-2"></i><span>Blogs</span></a>
+                                    <ul class="nav-submenu menu-content">
+                                        <li><a href="../blog/index.php">Table</a></li>
+                                        <li><a href="../blog/new.php">New Blog</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
                                             data-feather="bar-chart"></i><span>Charts</span></a>
                                     <ul class="nav-submenu menu-content">
                                         <li><a href="index.php">Main Table</a></li>
@@ -327,11 +334,11 @@ if ($email != false && $password != false) {
                     <div class="page-header">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h3>Voucher</h3>
+                                <h3>Chart </h3>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                                     <li class="breadcrumb-item">Tables</li>
-                                    <li class="breadcrumb-item">List vouchers</li>
+                                    <li class="breadcrumb-item">Chart</li>
                                 </ol>
                             </div>
                             <div class="col-sm-6">
@@ -371,12 +378,17 @@ if ($email != false && $password != false) {
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Table Vouchers</h5>
+                                    <h5>Statistical</h5>
+                                </div>
+                                <div>
+                                    <a href="charts.php" class="btn btn-outline-success-2x" type="button"
+                                        style="margin: 10px 10px;">View Chart</a>
                                 </div>
                                 <div class="card-block row">
                                     <div class="col-sm-12 col-lg-12 col-xl-12">
                                         <div class="table-responsive">
                                             <table class="table">
+                                                <h5 style="font-weight: bold; margin: 10px ;">Product & Category</h5>
                                                 <thead class="table-primary">
                                                     <tr>
                                                         <th scope="col">Categories</th>
@@ -405,8 +417,62 @@ if ($email != false && $password != false) {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="charts.php" class="btn btn-outline-success-2x" type="button"
-                                            style="margin: 10px 10px;">View Chart</a>
+                                    </div>
+                                </div>
+                                <div class="card-block row">
+                                    <div class="col-sm-12 col-lg-12 col-xl-12">
+                                        <div class="table-responsive">
+                                            <table class="table" style="margin: 20px 0px;">
+                                                <thead class="table-primary">
+                                                    <h5 style="font-weight: bold; margin: 10px ;">Bills Today</h5>
+                                                    <tr>
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col">Total Bill </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $sql = mysqli_query($con, "SELECT DATE_FORMAT(ngay_dat,'%Y-%m-%d') AS `day`, COUNT(*) AS cnt FROM hoa_don GROUP BY DATE_FORMAT(ngay_dat,'%Y-%m-%d') ORDER BY `day`;");
+                                                    while ($result_bill = mysqli_fetch_assoc($sql)) :
+                                                    ?>
+                                                    <tr>
+                                                        <td><?= $result_bill['day'] ?></td>
+                                                        <td><?= $result_bill['cnt'] ?> bill</td>
+                                                    </tr>
+                                                    <?php
+                                                    endwhile;
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-block row">
+                                    <div class="col-sm-12 col-lg-12 col-xl-12">
+                                        <div class="table-responsive">
+                                            <table class="table" style="margin: 20px 0px;">
+                                                <thead class="table-primary">
+                                                    <h5 style="font-weight: bold; margin: 10px ;"> Sales Today</h5>
+                                                    <tr>
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col">Total Sale </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $sql = mysqli_query($con, "SELECT DATE_FORMAT(ngay_dat,'%Y-%m-%d') AS `day`, COUNT(*) AS cnt,SUM(tong_tien) as tt  FROM hoa_don GROUP BY DATE_FORMAT(ngay_dat,'%Y-%m-%d') ORDER BY `day`;");
+                                                    while ($result_bill = mysqli_fetch_assoc($sql)) :
+                                                    ?>
+                                                    <tr>
+                                                        <td><?= $result_bill['day'] ?></td>
+                                                        <td><?= $result_bill['tt'] ?>$</td>
+                                                    </tr>
+                                                    <?php
+                                                    endwhile;
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

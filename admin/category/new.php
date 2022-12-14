@@ -308,6 +308,13 @@ if ($email != false && $password != false) {
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
+                                            data-feather="edit-2"></i><span>Blogs</span></a>
+                                    <ul class="nav-submenu menu-content">
+                                        <li><a href="../blog/index.php">Table</a></li>
+                                        <li><a href="../blog/new.php">New Blog</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
                                             data-feather="bar-chart"></i><span>Charts</span></a>
                                     <ul class="nav-submenu menu-content">
                                         <li><a href="../charts/index.php">Main Table</a></li>

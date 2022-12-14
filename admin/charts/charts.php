@@ -308,6 +308,13 @@ if ($email != false && $password != false) {
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
+                                            data-feather="edit-2"></i><span>Blogs</span></a>
+                                    <ul class="nav-submenu menu-content">
+                                        <li><a href="../blog/index.php">Table</a></li>
+                                        <li><a href="../blog/new.php">New Blog</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
                                             data-feather="bar-chart"></i><span>Charts</span></a>
                                     <ul class="nav-submenu menu-content">
                                         <li><a href="../charts/index.php">Main Table</a></li>
@@ -365,22 +372,290 @@ if ($email != false && $password != false) {
                     </div>
                 </div>
                 <!-- Container-fluid starts-->
+                <?php
+                $sql_chart = "SELECT `loai` .* , COUNT(hang_hoa.ma_loai) AS 'quality' FROM `hang_hoa`INNER JOIN `loai` ON
+                                hang_hoa.ma_loai = loai.ma_loai GROUP BY hang_hoa.ma_loai";
+                $result = mysqli_query($con, $sql_chart);
+                $data = [];
+                while ($row = mysqli_fetch_array($result)) {
+                    $data[] = $row;
+                }
+                $sql_chart_max_price = "SELECT don_gia,ten_hh,ngay_nhap FROM hang_hoa ORDER BY don_gia,ten_hh,ngay_nhap DESC";
+                $result_max = mysqli_query($con, $sql_chart_max_price);
+                $data_line = [];
+                while ($row_line = mysqli_fetch_array($result_max)) {
+                    $data_line[] = $row_line;
+                }
+                $comment = "SELECT hang_hoa .* , COUNT(binh_luan.ma_hh) AS 'quality' FROM `hang_hoa`INNER JOIN `binh_luan` ON hang_hoa.ma_hh = binh_luan.ma_hh GROUP BY binh_luan.ma_hh";
+                $result = mysqli_query($con, $comment);
+                $data_cmt = [];
+                while ($cmt = mysqli_fetch_array($result)) {
+                    $data_cmt[] = $cmt;
+                }
+                $sale = "SELECT ma_hd,tong_tien FROM `hoa_don` ORDER BY tong_tien ASC";
+                $result = mysqli_query($con, $sale);
+                $data_sale = [];
+                while ($salee = mysqli_fetch_array($result)) {
+                    $data_sale[] = $salee;
+                }
+                $top_view = "SELECT * FROM `hang_hoa` ORDER BY luot_xem ASC";
+                $result = mysqli_query($con, $top_view);
+                $data_view = [];
+                while ($views = mysqli_fetch_array($result)) {
+                    $data_view[] = $views;
+                }
+                $today = "SELECT DATE_FORMAT(ngay_dat,'%Y-%m-%d') AS `day`, COUNT(*) AS cnt,SUM(tong_tien) as tt FROM hoa_don GROUP BY DATE_FORMAT(ngay_dat,'%Y-%m-%d') ORDER BY `day`";
+                $result = mysqli_query($con, $today);
+                $data_today = [];
+                while ($total_sale = mysqli_fetch_array($result)) {
+                    $data_today[] = $total_sale;
+                }
+                $reply = "SELECT binh_luan .* , COUNT(phan_hoi.ma_bl) AS 'quality' FROM phan_hoi INNER JOIN binh_luan ON binh_luan.ma_bl = phan_hoi.ma_bl GROUP BY phan_hoi.ma_bl;
+                ";
+                $result = mysqli_query($con, $reply);
+                $data_reply = [];
+                while ($total_reply = mysqli_fetch_array($result)) {
+                    $data_reply[] = $total_reply;
+                }
+                $bill = mysqli_query($con, "SELECT DATE_FORMAT(ngay_dat,'%Y-%m-%d') AS `day`, COUNT(*) AS cnt FROM hoa_don GROUP BY DATE_FORMAT(ngay_dat,'%Y-%m-%d') ORDER BY `day`");
+                $data_bill = [];
+                while ($bills = mysqli_fetch_assoc($bill)) {
+                    $data_bill[] = $bills;
+                }
+                ?>
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <script type="text/javascript">
+                google.charts.load("current", {
+                    packages: ["corechart", "bar"]
+                });
+                google.charts.load("current", {
+                    packages: ["line"]
+                });
+                google.charts.load("current", {
+                    packages: ["corechart"]
+                });
+                google.charts.setOnLoadCallback(drawBasic);
+
+                function drawBasic() {
+                    if ($("#pie-chart2").length > 0) {
+                        var data = google.visualization.arrayToDataTable([
+                            ['ten_loai', 'quality'],
+                            <?php
+                                foreach ($data as $item) {
+                                    echo "['" . $item['ten_loai'] . "' , " . $item['quality'] . "],";
+                                }
+                                ?>
+                        ]);
+                        var options = {
+                            title: "My Daily Activities",
+                            is3D: true,
+                            width: "100%",
+                            height: 300,
+                            colors: [
+                                vihoAdminConfig.primary,
+                                vihoAdminConfig.secondary,
+                                "#e2c636",
+                                "#222222",
+                                "#717171"
+                            ]
+                        };
+                        var chart = new google.visualization.PieChart(
+                            document.getElementById("pie-chart2")
+                        );
+                        chart.draw(data, options);
+                    }
+                    if ($("#area-chart1").length > 0) {
+                        var data = google.visualization.arrayToDataTable([
+                            ['ten_hh', 'don_gia', 'ngay_nhap'],
+                            <?php
+                                foreach ($data_line as $arr_price) {
+                                    echo "['" . $arr_price['ten_hh'] . "' , " . $arr_price['don_gia'] . "," . $arr_price['ngay_nhap'] . " ],";
+                                }
+                                ?>
+                        ]);
+                        var options = {
+                            title: "Price Product",
+                            hAxis: {
+                                title: "Year",
+                                titleTextStyle: {
+                                    color: "#333"
+                                }
+                            },
+                            vAxis: {
+                                minValue: 0
+                            },
+                            width: "100%",
+                            height: 400,
+                            colors: [vihoAdminConfig.primary, vihoAdminConfig.secondary]
+                        };
+                        var chart = new google.visualization.AreaChart(
+                            document.getElementById("area-chart1")
+                        );
+                        chart.draw(data, options);
+                    }
+                    if ($("#pie-chart3").length > 0) {
+                        var data = google.visualization.arrayToDataTable([
+                            ['ten_loai', 'quality'],
+                            <?php
+                                foreach ($data_cmt as $items) {
+                                    echo "['" . $items['ten_hh'] . "' , " . $items['quality'] . "],";
+                                }
+                                ?>
+                        ]);
+                        var options = {
+                            title: "Total Comment Product",
+                            pieHole: 0.4,
+                            width: "100%",
+                            height: 300,
+                            colors: [
+                                vihoAdminConfig.secondary,
+                                vihoAdminConfig.primary,
+                                "#222222",
+                                "#717171",
+                                "#e2c636"
+                            ]
+                        };
+                        var chart = new google.visualization.PieChart(
+                            document.getElementById("pie-chart3")
+                        );
+                        chart.draw(data, options);
+                    }
+                    if ($("#column-chart1").length > 0) {
+                        var a = google.visualization.arrayToDataTable([
+                                ['Id Bill', 'Total'],
+                                <?php
+                                    foreach ($data_sale as $x) {
+                                        echo "['" . $x['ma_hd'] . "' , '" . $x['tong_tien'] . "$'],";
+                                    }
+                                    ?>
+                            ]),
+                            b = {
+                                chart: {
+                                    title: "Top Sale",
+                                    subtitle: "Bill Sales"
+                                },
+                                bars: "vertical",
+                                vAxis: {
+                                    format: "decimal"
+                                },
+                                height: 400,
+                                width: "100%",
+                                colors: [vihoAdminConfig.primary, vihoAdminConfig.primary, "#e2c636"]
+                            },
+                            c = new google.charts.Bar(document.getElementById("column-chart1"));
+                        c.draw(a, google.charts.Bar.convertOptions(b));
+                    }
+                    if ($("#column-chart2").length > 0) {
+                        var a = google.visualization.arrayToDataTable([
+                                ['Name', 'View'],
+                                <?php
+                                    foreach ($data_view as $y) {
+                                        echo "['" . $y['ten_hh'] . "' , '" . $y['luot_xem'] . "'],";
+                                    }
+                                    ?>
+                            ]),
+                            b = {
+                                chart: {
+                                    title: "Top View",
+                                    subtitle: "Product views"
+                                },
+                                bars: "horizontal",
+                                vAxis: {
+                                    format: "decimal"
+                                },
+                                height: 400,
+                                width: "100%",
+                                colors: [vihoAdminConfig.primary, vihoAdminConfig.primary, "#e2c636"]
+                            },
+                            c = new google.charts.Bar(document.getElementById("column-chart2"));
+                        c.draw(a, google.charts.Bar.convertOptions(b));
+                    }
+                    if ($("#column-chart3").length > 0) {
+                        var a = google.visualization.arrayToDataTable([
+                                ['Date', 'Total Sale'],
+                                <?php
+                                    foreach ($data_today as $cc) {
+                                        echo "['" . $cc['day'] . "' , '" . $cc['tt'] . "$'],";
+                                    }
+                                    ?>
+                            ]),
+                            b = {
+                                chart: {
+                                    title: "Top Sale",
+                                    subtitle: "Bill Sales"
+                                },
+                                bars: "vertical",
+                                vAxis: {
+                                    format: "decimal"
+                                },
+                                height: 400,
+                                width: "100%",
+                                colors: [vihoAdminConfig.primary, vihoAdminConfig.primary, "#e23636"]
+                            },
+                            c = new google.charts.Bar(document.getElementById("column-chart3"));
+                        c.draw(a, google.charts.Bar.convertOptions(b));
+                    }
+                    if ($("#pie-chart1").length > 0) {
+                        var data = google.visualization.arrayToDataTable([
+                            ['ID', 'Quality'],
+                            <?php
+                                foreach ($data_reply as $rep) {
+                                    echo "['" . $rep['ma_bl'] . "' , '" . $rep['quality'] . "'],";
+                                }
+                                ?>
+                        ]);
+                        var options = {
+                            title: "Count reply comment",
+                            width: "100%",
+                            height: 300,
+                            colors: [
+                                // vihoAdminConfig.primary,
+                                vihoAdminConfig.primary,
+                                "#e2c636",
+                                "#222222",
+                                "#717171"
+                            ]
+                        };
+                        var chart = new google.visualization.PieChart(
+                            document.getElementById("pie-chart1")
+                        );
+                        chart.draw(data, options);
+                    }
+
+                    if ($("#column-chart4").length > 0) {
+                        var a = google.visualization.arrayToDataTable([
+                                ['Count Bill', 'Date'],
+                                <?php
+                                    foreach ($data_bill as $show_bill) {
+                                        echo "['" . $show_bill['day'] . "' , '" . $show_bill['cnt'] . "'],";
+                                    }
+                                    ?>
+                            ]),
+                            b = {
+                                chart: {
+                                    title: "Bill Day",
+                                    subtitle: "a"
+                                },
+                                bars: "horizontal",
+                                vAxis: {
+                                    format: "decimal"
+                                },
+                                height: 400,
+                                width: "100%",
+                                colors: [vihoAdminConfig.primary, vihoAdminConfig.primary, "#e2c636"]
+                            },
+                            c = new google.charts.Bar(document.getElementById("column-chart4"));
+                        c.draw(a, google.charts.Bar.convertOptions(b));
+                    }
+
+                }
+                </script>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-xl-4 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Pie Chart <span class="digits">1</span></h5>
-                                </div>
-                                <div class="card-body p-0 chart-block">
-                                    <div class="chart-overflow" id="pie-chart4"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xl-4 box-col-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Area Chart <span class="digits">1</span></h5>
+                                    <h5>Price Product<span class="digits"></span></h5>
                                 </div>
                                 <div class="card-body p-0 chart-block">
                                     <div class="chart-overflow" id="area-chart1"></div>
@@ -390,17 +665,7 @@ if ($email != false && $password != false) {
                         <div class="col-sm-12 col-xl-4 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Area Chart <span class="digits">2</span></h5>
-                                </div>
-                                <div class="card-body p-0 chart-block">
-                                    <div class="chart-overflow" id="area-chart2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xl-4 box-col-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Pie Chart <span class="digits">2</span></h5>
+                                    <h5>Reply Comment <span class="digits"></span></h5>
                                 </div>
                                 <div class="card-body p-0 chart-block">
                                     <div class="chart-overflow" id="pie-chart1"></div>
@@ -410,7 +675,7 @@ if ($email != false && $password != false) {
                         <div class="col-sm-12 col-xl-4 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Pie Chart <span class="digits">3</span></h5>
+                                    <h5>Product & Category<span class="digits"></span></h5>
                                 </div>
                                 <div class="card-body p-0 chart-block">
                                     <div class="chart-overflow" id="pie-chart2"></div>
@@ -420,7 +685,7 @@ if ($email != false && $password != false) {
                         <div class="col-sm-12 col-xl-4 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Pie Chart <span class="digits">4</span></h5>
+                                    <h5>Comment <span class="digits"></span></h5>
                                 </div>
                                 <div class="card-body p-0 chart-block">
                                     <div class="chart-overflow" id="pie-chart3"></div>
@@ -430,7 +695,7 @@ if ($email != false && $password != false) {
                         <div class="col-sm-12 col-xl-6 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Column Chart <span class="digits">1 </span></h5>
+                                    <h5>Total Sales Bill<span class="digits"> </span></h5>
                                 </div>
                                 <div class="card-body chart-block">
                                     <div class="chart-overflow" id="column-chart1"></div>
@@ -440,60 +705,30 @@ if ($email != false && $password != false) {
                         <div class="col-sm-12 col-xl-6 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Column Chart <span class="digits">2</span></h5>
+                                    <h5>Top View Chart<span class="digits"></span></h5>
                                 </div>
                                 <div class="card-body chart-block">
                                     <div class="chart-overflow" id="column-chart2"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 box-col-12">
+                        <div class="col-sm-12 col-xl-6 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Gantt Chart</h5>
+                                    <h5>Total Sales Day <span class="digits"> </span></h5>
                                 </div>
                                 <div class="card-body chart-block">
-                                    <div class="chart-overflow" id="gantt_chart"></div>
+                                    <div class="chart-overflow" id="column-chart3"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 box-col-12">
+                        <div class="col-sm-12 col-xl-6 box-col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Line Chart</h5>
+                                    <h5>Bill Chart<span class="digits"></span></h5>
                                 </div>
                                 <div class="card-body chart-block">
-                                    <div class="chart-overflow" id="line-chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 box-col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Combo Chart</h5>
-                                </div>
-                                <div class="card-body chart-block">
-                                    <div class="chart-overflow" id="combo-chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xl-6 box-col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>bar-chart2</h5>
-                                </div>
-                                <div class="card-body chart-block">
-                                    <div id="bar-chart2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xl-6 box-col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>word tree</h5>
-                                </div>
-                                <div class="card-body chart-block">
-                                    <div class="word-tree" id="wordtree_basic"></div>
+                                    <div class="chart-overflow" id="column-chart4"></div>
                                 </div>
                             </div>
                         </div>

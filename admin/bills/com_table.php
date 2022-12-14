@@ -1,6 +1,7 @@
 <?php
 session_start();
 require '../connection.php';
+require '../../dao/hoa-don.php';
 $email = $_SESSION['email_ad'];
 $password = $_SESSION['password_ad'];
 if ($email != false && $password != false) {
@@ -312,6 +313,13 @@ if ($email != false && $password != false) {
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
+                                            data-feather="edit-2"></i><span>Blogs</span></a>
+                                    <ul class="nav-submenu menu-content">
+                                        <li><a href="../blog/index.php">Table</a></li>
+                                        <li><a href="../blog/new.php">New Blog</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
                                             data-feather="bar-chart"></i><span>Charts</span></a>
                                     <ul class="nav-submenu menu-content">
                                         <li><a href="../charts/index.php">Main Table</a></li>
@@ -374,8 +382,7 @@ if ($email != false && $password != false) {
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Table head options</h5><span>Use class<code>.table-primary</code> inside thead
-                                        tr element.</span>
+                                    <h5>Table Payment Bill.</span>
                                 </div>
                                 <div class="card-block row">
                                     <div class="col-sm-12 col-lg-12 col-xl-12">
@@ -387,7 +394,7 @@ if ($email != false && $password != false) {
                                                         <th scope="col">User</th>
                                                         <th scope="col">Email</th>
                                                         <th scope="col">Phone number</th>
-                                                        <th scope="col">Adress</th>
+                                                        <th scope="col">Address</th>
                                                         <th scope="col">Id product</th>
                                                         <th scope="col">Quality</th>
                                                         <th scope="col">Total</th>
@@ -395,17 +402,26 @@ if ($email != false && $password != false) {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                    $list_bill = hoa_don_select_trang_thai();
+                                                    foreach ($list_bill as $item) :
+                                                    ?>
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>1@gmail.com</td>
-                                                        <td>092343243</td>
-                                                        <td>CanTho</td>
-                                                        <td>43</td>
-                                                        <td>2</td>
-                                                        <td>23499 $</td>
-                                                        <td style="color: #24695C; font-weight: bold;">Completed</td>
+                                                        <th scope="row"><?= $item['ma_hd'] ?></th>
+                                                        <td><?= $item['ma_kh'] ?></td>
+                                                        <td><?= $item['email'] ?></td>
+                                                        <td><?= $item['sdt'] ?></td>
+                                                        <td><?= $item['dia_chi'] ?></td>
+                                                        <td><?= $item['ma_hh'] ?></td>
+                                                        <td><?= $item['so_luong'] ?></td>
+                                                        <td><?= number_format($item['tong_tien'], 2) ?>$</td>
+                                                        <?php
+                                                            echo '<td style="color: #24695C; font-weight: bold;">Paymented</td>';
+                                                            ?>
                                                     </tr>
+                                                    <?php
+                                                    endforeach;
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

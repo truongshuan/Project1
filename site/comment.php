@@ -17,6 +17,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
         $msg = mysqli_real_escape_string($con, $_POST['msg']);
         $ma_kh = $fetch_info['ma_kh'];
         $ma_hh = $_SESSION['id_product'];
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $ngay_bl = date_format(date_create(), 'Y-m-d');
         $sql = "INSERT INTO binh_luan(noi_dung,ngay_bl,ma_kh,ma_hh) VAlUES ('$msg','$ngay_bl','$ma_kh','$ma_hh')";
         $query = mysqli_query($con, $sql);
@@ -28,6 +29,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
         $noi_dung = mysqli_real_escape_string($con, $_POST['reply_msg']);
         $ma_kh = $fetch_info['ma_kh'];
         $ma_hh = $_SESSION['id_product'];
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $ngay_ph = date_format(date_create(), 'Y-m-d');
         $sql = "INSERT INTO phan_hoi(noi_dung_ph,ngay_ph,ma_kh,ma_bl,ma_hh) VAlUES ('$noi_dung','$ngay_ph','$ma_kh','$ma_bl','$ma_hh')";
         $query = mysqli_query($con, $sql);
@@ -38,6 +40,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
         $noi_dung = mysqli_real_escape_string($con, $_POST['reply_msg']);
         $ma_kh = $fetch_info['ma_kh'];
         $ma_hh = $_SESSION['id_product'];
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $ngay_ph = date_format(date_create(), 'Y-m-d');
         $sql = "INSERT INTO phan_hoi(noi_dung_ph,ngay_ph,ma_kh,ma_bl,ma_hh) VAlUES ('$noi_dung','$ngay_ph','$ma_kh','$ma_bl','$ma_hh')";
         $query = mysqli_query($con, $sql);

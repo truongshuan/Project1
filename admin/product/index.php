@@ -343,6 +343,13 @@ if ($email != false && $password != false) {
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
+                                            data-feather="edit-2"></i><span>Blogs</span></a>
+                                    <ul class="nav-submenu menu-content">
+                                        <li><a href="../blog/index.php">Table</a></li>
+                                        <li><a href="../blog/new.php">New Blog</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
                                             data-feather="bar-chart"></i><span>Charts</span></a>
                                     <ul class="nav-submenu menu-content">
                                         <li><a href="../charts/index.php">Main Table</a></li>
@@ -407,6 +414,7 @@ if ($email != false && $password != false) {
                         if (isset($_POST['add_product'])) {
                             $ten_hh = $_POST['ten_hh'];
                             $don_gia = $_POST['don_gia'];
+                            date_default_timezone_set('Asia/Ho_Chi_Minh');
                             $ngay_nhap =  date_format(date_create(), 'Y-m-d');
                             $mo_ta = $_POST['mo_ta'];
                             $luot_xem = $_POST['luot_xem'];
@@ -446,8 +454,8 @@ if ($email != false && $password != false) {
                         if (isset($_GET['id'])) {
                             hang_hoa_delete($_GET['id']);
                             echo '<script type="text/javascript">
-                                            msg("Deleted Product Successfully!");
-                                            </script>';
+                            msg("Deleted Product Successfully!");
+                             </script>';
                         }
                         // REQUEST Page
                         extract($_REQUEST);

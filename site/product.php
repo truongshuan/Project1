@@ -1,4 +1,15 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+// new
+// require 'vendor/autoload.php';
+// 
+require "../PHPMailer/src/SMTP.php";
+require "../PHPMailer/src/Exception.php";
+require "../PHPMailer/src/PHPMailer.php";
+$mail = new PHPMailer(true);
 require '../dao/pdo.php';
 require '../dao/hang-hoa.php';
 require '../dao/loai.php';
@@ -25,6 +36,40 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
             header('Location: form/user-otp.php');
         }
     }
+}
+if (isset($_GET['payment']) == 'paypal') {
+    unset($_SESSION['cart']);
+    $code_payment = $_SESSION['bill_code'];
+    $email_user = $_SESSION['bill_email'];
+    $sql = "SELECT * FROM hoa_don WHERE code_payment = '$code_payment'";
+    $result = mysqli_query($con, $sql);
+    $item = mysqli_fetch_assoc($result);
+    $ma_hd = $item['ma_hd'];
+    $update = "UPDATE hoa_don SET trang_thai = 2 WHERE ma_hd = '$ma_hd'";
+    $query = mysqli_query($con, $update);
+    // Send mail 
+    if ($mail) {
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $subject = "Email Thank For Payment!";
+        $mail->IsSMTP(); // telling the class to use SMTP
+        $mail->SMTPAuth = true; // enable SMTP authentication
+        $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
+        $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
+        $mail->Port = 465; // set the SMTP port for the GMAIL server
+        $mail->Username = "xuanptpc04031@fpt.edu.vn"; // GMAIL username
+        $mail->Password = "Shuan0310.."; // GMAIL password
+        $mail->AddAddress($email_user);
+        $mail->SetFrom('xuanptpc04031@fpt.edu.vn', 'Admin: Shuandz');
+        $mail->Subject = $subject;
+        $mail->Body = 'Thank For You Payment Bill'
+            . "\n"
+            .  'Dear User,'
+            . "\n"
+            . 'Thank you so much for using Gettree service andd paying for your order by Paypal';
+        $mail->addEmbeddedImage('../content/client/img/logo.png', 'logo.png');
+        $mail->Send();
+    }
+    header('location:  product.php');
 }
 // Navagation
 $product = mysqli_query($con, "SELECT * FROM hang_hoa INNER JOIN loai ON hang_hoa.ma_loai = loai.ma_loai");
