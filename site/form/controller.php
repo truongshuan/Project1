@@ -33,7 +33,7 @@ if (isset($_POST['register'])) {
     } elseif ($mat_khau !== $cmat_khau) {
         $errors['mat_khau'] = "Confirm password not matched!";
     }
-    $email_check = "SELECT * FROM khach_hang WHERE email = '$email'";
+    $email_check = "SELECT * FROM khach_hang WHERE email = '$email' || ma_kh = '$ma_kh'";
     $res = mysqli_query($con, $email_check);
     if (mysqli_num_rows($res) > 0) {
         $errors['email'] = "Email and Username are already exist!";
