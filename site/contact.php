@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../content/client/css/header.css">
     <link rel="stylesheet" href="../content/client/css/user.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
+     <link rel="stylesheet" href="../content/client/css/mobile.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="../content/client/js/onscroll.js"></script>
     <link rel="stylesheet" href="../content/client/css/backtotop.css">

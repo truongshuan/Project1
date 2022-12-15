@@ -187,3 +187,7 @@
 .user__link:hover {
     color: #348e38;
 }
+
+.btn-bar {
+    display: none;
+}

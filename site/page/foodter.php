@@ -1,12 +1,12 @@
 <footer>
     <section class="grid wide contact_home">
         <div class="row">
-            <div class="col l-3">
+            <div class="col l-3 c-12">
                 <div class="contact_home1">
                     <img src="../content/client/img/logo.png" alt="">
                 </div>
             </div>
-            <div class="col l-3">
+            <div class="col l-3 c-4">
                 <div class="contact_home2">
                     <i class='bx bxs-map'></i>
                     <div class="contact_home2_content">
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col l-3">
+            <div class="col l-3 c-4">
                 <div class="contact_home2">
                     <i class='bx bx-phone'></i>
                     <div class="contact_home2_content">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col l-3">
+            <div class="col l-3 c-4">
                 <div class="contact_home2">
                     <i class='bx bx-envelope'></i>
                     <div class="contact_home2_content">

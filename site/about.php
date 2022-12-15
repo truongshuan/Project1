@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../content/client/css/user.css">
     <link rel="stylesheet" href="../content/client/css/header.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
+    <link rel="stylesheet" href="../content/client/css/mobile.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="../content/client/js/onscroll.js"></script>
     <link rel="stylesheet" href="../content/client/css/backtotop.css">
@@ -40,7 +41,7 @@
     <!-- about us -->
     <section class="grid wide about_us">
         <div class="row">
-            <div class="col l-6" data-aos="fade-right" data-aos-duration="1000">
+            <div class="col l-6 c-12" data-aos="fade-right" data-aos-duration="1000">
                 <div class="about_us_left">
                     <img src="../content/client/img/aboutus.png" alt="">
                     <div class="about_us_left_box">
@@ -53,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col l-6" data-aos="fade-left" data-aos-duration="1000">
+            <div class="col l-6 c-12" data-aos="fade-left" data-aos-duration="1000">
                 <div class="about_us_right">
                     <span>ABOUT US</span>
                     <p>We are available for
@@ -101,46 +102,46 @@
             Step Carefully
         </h1>
         <div class="row works">
-            <div class="col l-6" data-aos="fade-right" data-aos-duration="1000">
+            <div class="col l-6 c-12" data-aos="fade-right" data-aos-duration="1000">
                 <div class="work1">
                     <div class="left" count="1"><i class='bx bx-shower'></i></div>
                     <div class="right">
                         <p>Consulting & Estimation</p>
                         <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
-                            the</b>
+                            </b>
                     </div>
                 </div>
             </div>
-            <div class="col l-6" data-aos="fade-left" data-aos-duration="1000">
+            <div class="col l-6 c-12" data-aos="fade-left" data-aos-duration="1000">
                 <div class="work1">
                     <div class="left" count="2"><i class='bx bx-shield-plus'></i></div>
                     <div class="right">
                         <p>Design & Choose Material</p>
                         <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
-                            the</b>
+                            </b>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col l-6" data-aos="fade-right" data-aos-duration="1000">
+            <div class="col l-6 c-12" data-aos="fade-right" data-aos-duration="1000">
                 <div class="work1">
                     <div class="left" count="3"><i class='bx bx-podcast'></i></div>
                     <div class="right">
                         <p>Proceed To Work</p>
                         <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
-                            the</b>
+                            </b>
                     </div>
                 </div>
 
             </div>
-            <div class="col l-6" data-aos="fade-left" data-aos-duration="1000">
+            <div class="col l-6 c-12" data-aos="fade-left" data-aos-duration="1000">
                 <div class="work1">
                     <div class="left" count="4"><i class='bx bx-ghost'></i></div>
                     <div class="right">
                         <p>Complete & Maintenance</p>
                         <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
-                            the</b>
+                            </b>
                     </div>
                 </div>
             </div>
@@ -161,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-3" data-aos="fade-left" data-aos-duration="1000">
+                <div class="col l-3 c-12" data-aos="fade-left" data-aos-duration="1000">
                     <div class="recore1">
                         <p>10+</p>
                         <b>Years of experience</b>

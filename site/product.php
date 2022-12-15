@@ -94,6 +94,7 @@ $start = ($cr_page - 1) * $limit;
     <link rel="stylesheet" href="../content/client/css/Grid.css">
     <link rel="stylesheet" href="../content/client/css/fix-header.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
+    <link rel="stylesheet" href="../content/client/css/mobile.css">
     <!-- Font-icon -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <script src="https://kit.fontawesome.com/088d757bb6.js" crossorigin="anonymous"></script>

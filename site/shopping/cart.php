@@ -70,51 +70,57 @@ if (isset($_POST['apply'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Favicon -->
     <link rel="shortcut icon" href="../../content/client/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../../content/client/css/Grid.css">
     <link rel="stylesheet" href="../../content/client/css/fix-header.css">
     <link rel="stylesheet" href="../../content/client/css/Grid.css">
     <link rel="stylesheet" href="../../admin/toastr/toastr.min.css">
+    <link rel="stylesheet" href="../../content/client/css/foodter.css">
+    <link rel="stylesheet" href="../../content/client/css/backtotop.css">
+    <script src="../../content/client/js/backtotop.js"></script>
+    <script src="../../content/client/js/onscroll.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="../../admin/toastr/toastr.min.js"></script>
     <script>
-    function msg(massage) {
-        $(function() {
-            toastr.options = {
-                "closeButton": true,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            }
-            toastr["success"](massage)
-        });
-    }
+        function msg(massage) {
+            $(function() {
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                toastr["success"](massage)
+            });
+        }
     </script>
     <title>Gettree - Cart</title>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: "Poppins", sans-serif;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+        }
 
-    body {
-        background: #eee;
-    }
+        body {
+            background: #eee;
+        }
     </style>
 </head>
 
@@ -178,25 +184,19 @@ if (isset($_POST['apply'])) {
                         <?php
                         if (isset($_SESSION['email']) && $_SESSION['password']) {
                         ?>
-                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
-                                style="text-decoration: none;"
-                                href="../form/login.php"><?php echo $fetch_info['ma_kh']; ?></a>
-                        </li>
-                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
-                                style="text-decoration: none;"
-                                href="../profile.php?user=<?= $fetch_info['ma_kh']; ?>">Profile</a>
-                        </li>
+                            <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="../form/login.php"><?php echo $fetch_info['ma_kh']; ?></a>
+                            </li>
+                            <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="../profile.php?user=<?= $fetch_info['ma_kh']; ?>">Profile</a>
+                            </li>
                         <?php
                         } else {
                         ?>
-                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
-                                style="text-decoration: none;" href="../form/login.php">Login</a>
-                        </li>
+                            <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="../form/login.php">Login</a>
+                            </li>
                         <?php
                         }
                         ?>
-                        <li class="user__child-item" style="list-style: none;"><a class="user__link"
-                                style="text-decoration: none;" href="../form/logout.php">Logout</a>
+                        <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="../form/logout.php">Logout</a>
                         </li>
                     </ul>
                 </i>
@@ -241,37 +241,31 @@ if (isset($_POST['apply'])) {
                                     <?php
                                     foreach ($cart as $key => $value) :
                                     ?>
-                                    <tr>
-                                        <th scope="row" class="border-0">
-                                            <div class="p-2">
-                                                <img src="../../uploads/<?= $value['hinh'] ?>" alt="" width="70"
-                                                    class="img-fluid rounded shadow-sm">
-                                                <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"> <a href="#"
-                                                            class="text-dark d-inline-block align-middle"><?= $value['ten_hh'] ?></a>
-                                                    </h5><span
-                                                        class="text-muted font-weight-normal font-italic d-block">Category:
-                                                        <?= $value['ten_loai'] ?></span>
+                                        <tr>
+                                            <th scope="row" class="border-0">
+                                                <div class="p-2">
+                                                    <img src="../../uploads/<?= $value['hinh'] ?>" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><?= $value['ten_hh'] ?></a>
+                                                        </h5><span class="text-muted font-weight-normal font-italic d-block">Category:
+                                                            <?= $value['ten_loai'] ?></span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </th>
-                                        <td class="border-0 align-middle"><strong>$<?= $value['don_gia'] ?></strong>
-                                        </td>
-                                        <td class="border-0 align-middle">
-                                            <form action="cart-ac.php" method="GET">
-                                                <input type="hidden" name="action" value="update">
-                                                <input type="hidden" name="id" value="<?= $value['ma_hh'] ?>">
-                                                <input type="number" name="quality" type="submit"
-                                                    style="border: none; width: 50px; font-weight: bold;"
-                                                    value="<?= $value['quality'] ?>">
-                                            </form>
-                                        </td>
-                                        <td class="border-0 align-middle">
-                                            <a href="cart-ac.php?id=<?= $value['ma_hh'] ?>&action=delete"
-                                                class="text-dark"><i class="fa fa-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                            </th>
+                                            <td class="border-0 align-middle"><strong>$<?= $value['don_gia'] ?></strong>
+                                            </td>
+                                            <td class="border-0 align-middle">
+                                                <form action="cart-ac.php" method="GET">
+                                                    <input type="hidden" name="action" value="update">
+                                                    <input type="hidden" name="id" value="<?= $value['ma_hh'] ?>">
+                                                    <input type="number" name="quality" type="submit" style="border: none; width: 50px; font-weight: bold;" value="<?= $value['quality'] ?>">
+                                                </form>
+                                            </td>
+                                            <td class="border-0 align-middle">
+                                                <a href="cart-ac.php?id=<?= $value['ma_hh'] ?>&action=delete" class="text-dark"><i class="fa fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
                                     <?php
                                     endforeach;
                                     ?>
@@ -288,9 +282,9 @@ if (isset($_POST['apply'])) {
                             <?php
                             if (isset($_SESSION['error_vou'])) {
                             ?>
-                            <div class="alert alert-danger" role="alert" style="text-align: center;">
-                                <?php echo $_SESSION['error_vou'] ?>
-                            </div>
+                                <div class="alert alert-danger" role="alert" style="text-align: center;">
+                                    <?php echo $_SESSION['error_vou'] ?>
+                                </div>
                             <?php
                             }
                             ?>
@@ -298,11 +292,9 @@ if (isset($_POST['apply'])) {
                             <form action="cart.php" method="POST">
                                 <div class="input-group mb-4 border rounded-pill p-2">
                                     <input type="hidden" name="total" value="<?= total_price($cart) ?>">
-                                    <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3"
-                                        class="form-control border-0" name="voucher" required>
+                                    <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3" class="form-control border-0" name="voucher" required>
                                     <div class="input-group-append border-0">
-                                        <button id="button-addon3" type="submit" name="apply"
-                                            class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Apply
+                                        <button id="button-addon3" type="submit" name="apply" class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Apply
                                             coupon</button>
                                     </div>
                                 </div>
@@ -324,19 +316,16 @@ if (isset($_POST['apply'])) {
                             <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you
                                 have entered.</p>
                             <ul class="list-unstyled mb-4">
-                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                        class="text-muted">Order Subtotal
+                                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal
                                     </strong><strong>$<?= number_format(total_price($cart)) ?> </strong></li>
-                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                        class="text-muted">Coupon</strong><strong>$
+                                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Coupon</strong><strong>$
                                         <?php
                                         if (isset($coupon)) {
                                             echo $coupon;
                                         }
                                         ?>
                                     </strong></li>
-                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                        class="text-muted">Total</strong>
+                                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
                                     <h5 class="font-weight-bold">$
                                         <?php if (isset($total_last)) {
                                             echo number_format($total_last);
@@ -365,8 +354,7 @@ if (isset($_POST['apply'])) {
                                                                                 echo 0;
                                                                             }
                                                                             ?>">
-                                <button type="submit" name="save_coup"
-                                    class="btn btn-dark rounded-pill py-2 btn-block">Procceed tocheckout</button>
+                                <button type="submit" name="save_coup" class="btn btn-dark rounded-pill py-2 btn-block">Procceed tocheckout</button>
                             </form>
                         </div>
                     </div>
@@ -374,6 +362,117 @@ if (isset($_POST['apply'])) {
             </div>
         </div>
     </div>
+    <footer>
+        <section class="grid wide contact_home">
+            <div class="row">
+                <div class="col l-3 c-12">
+                    <div class="contact_home1">
+                        <img src="../../content/client/img/logo.png" alt="">
+                    </div>
+                </div>
+                <div class="col l-3 c-4">
+                    <div class="contact_home2">
+                        <i class='bx bxs-map'></i>
+                        <div class="contact_home2_content">
+                            <p> Address</p>
+                            <b>Cần Thơ</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-3 c-4">
+                    <div class="contact_home2">
+                        <i class='bx bx-phone'></i>
+                        <div class="contact_home2_content">
+                            <p> Hotline</p>
+                            <b>0941477074</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-3 c-4">
+                    <div class="contact_home2">
+                        <i class='bx bx-envelope'></i>
+                        <div class="contact_home2_content">
+                            <p> Email Us</p>
+                            <b>hoangthuan@gmail.com</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="grid wide about_home">
+            <div class="row">
+                <div class="col l-3">
+                    <div class="about_home1">
+                        <p>About Us</p>
+                        <b>Consectetur adipiscing elit sed tempor incididunt ut labore dolore magna aliqua. Quis suspe
+                            ndisse ultrices gravida risus</b>
+                        <div class="icon_about_home1">
+                            <i class='bx bx-envelope'></i>
+                            <i class='bx bxl-facebook'></i>
+                            <i class='bx bxl-twitter'></i>
+                            <i class='bx bxl-instagram-alt'></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-3">
+                    <div class="about_home2">
+                        <p>Explore</p>
+                        <ul class="ul_about_home2">
+                            <li>Company Story</li>
+                            <li>Latest Services</li>
+                            <li>Meet The Team</li>
+                            <li>Need a Career?</li>
+                            <li>Setting & Privacy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col l-3">
+                    <div class="about_home3">
+                        <p>Recent Post</p>
+                        <div class="about_home3_1">
+                            <img src="../../content/client/img/foodter1.jpg" alt="">
+                            <div>
+                                <p>16 garden design ideas to make</p>
+                                <div class="about_home3_1_icon">
+                                    <i class='bx bx-envelope'></i> May 8, 2021
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about_home3_1">
+                            <img src="../../content/client/img/foodter2.jpg" alt="">
+                            <div>
+                                <p>
+                                    How to grow and arrange your</p>
+                                <div class="about_home3_1_icon">
+                                    <i class='bx bx-envelope'></i> May 8, 2021
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col l-3">
+                    <div class="about_home4">
+                        <p>Newsletter</p>
+                        <b>Tempor incididunt ut labore dolore magna aliqua suspe ndisse</b>
+                        <br>
+                        <div class="input_foodter_box">
+                            <input type="text" class="input_foodter" placeholder="Email Address">
+                            <div class="input_foodter_email">
+                                <i class='bx bx-envelope'></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p>Designed by H. Thuận, M. Tý and T. Xuân</p>
+        </section>
+    </footer>
+    <section id="goTop">
+        <i title="Lên đầu trang" class='bx bx-chevron-up'></i>
+    </section>
     <!-- Srcipt -->
     <?php require '../alert/success.php'; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
