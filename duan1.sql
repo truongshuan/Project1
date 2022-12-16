@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2022 at 04:23 AM
+-- Generation Time: Dec 16, 2022 at 04:22 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -100,24 +100,9 @@ CREATE TABLE `chi_tiet_hoa_don` (
 --
 
 INSERT INTO `chi_tiet_hoa_don` (`ma_hd`, `ma_hh`, `so_luong`, `gia_tien`) VALUES
-(108, 51, 1, 96),
-(109, 50, 1, 29),
-(110, 50, 1, 29),
-(111, 50, 1, 29),
-(112, 51, 1, 96),
-(113, 50, 1, 29),
-(114, 45, 1, 35),
-(114, 50, 1, 29),
-(115, 50, 1, 29),
-(115, 51, 1, 96),
-(116, 45, 1, 35),
-(117, 45, 2, 35),
-(118, 52, 1, 21),
-(118, 50, 1, 29),
-(119, 50, 1, 29),
-(120, 45, 1, 35),
-(121, 50, 1, 29),
-(122, 50, 1, 29);
+(124, 57, 1, 19),
+(125, 55, 1, 40),
+(126, 56, 1, 28);
 
 -- --------------------------------------------------------
 
@@ -142,10 +127,10 @@ CREATE TABLE `hang_hoa` (
 --
 
 INSERT INTO `hang_hoa` (`ma_hh`, `ten_hh`, `don_gia`, `hinh`, `ngay_nhap`, `mo_ta`, `luot_xem`, `dac_biet`, `ma_loai`) VALUES
-(45, 'Aloe Vera Plant', 35, 'product1.png', '2022-12-05', '1', 193, 2, 90),
-(50, 'Aloe Vera Plant1', 29, 'test2.png', '2022-12-07', 'San pham dat biet', 55, 1, 91),
-(51, 'Cacti Plant', 96, 'product2.png', '2022-12-07', '1', 23, 1, 92),
-(52, 'Potted Plant', 21, 'product4.png', '2022-12-10', '123', 7, 2, 91);
+(55, 'Cacti Plant', 40, 'product1.png', '2022-12-16', 'Cactus spines are produced from specialized structures called areoles, a kind of highly reduced branch. Areoles are an identifying feature of cacti. As well as spines, areoles give rise to flowers, which are usually tubular and multipetaled. Many cacti ha', 9, 2, 100),
+(56, 'Aloe Vera Plant', 28, 'product2.png', '2022-12-16', 'loe vera is a stemless or very short-stemmed plant growing to 60–100 centimetres (24–39 inches) tall, spreading by offsets.[4] The leaves are thick and fleshy, green to grey-green, with some varieties showing white flecks on their upper and lower stem sur', 1, 2, 101),
+(57, 'Aloe barbadensis', 19, 'product3.png', '2022-12-16', 'The botanical name of Aloe vera is Aloe barbadensis miller. It belongs to Asphodelaceae (Liliaceae) family, and is a shrubby or arborescent, perennial, xerophytic, succulent, pea- green color plant. It grows mainly in the dry regions of Africa, Asia, Euro', 0, 2, 102),
+(58, 'Nelumbo nucifera', 95, 'product5.png', '2022-12-16', 'Lotus plants are adapted to grow in the flood plains of slow-moving rivers and delta areas. Stands of lotus drop hundreds of thousands of seeds every year to the bottom of the pond. While some sprout immediately, and most are eaten by wildlife, the remain', 0, 2, 102);
 
 -- --------------------------------------------------------
 
@@ -171,21 +156,9 @@ CREATE TABLE `hoa_don` (
 --
 
 INSERT INTO `hoa_don` (`ma_hd`, `email`, `sdt`, `dia_chi`, `ngay_dat`, `tong_tien`, `ma_kh`, `ma_km`, `trang_thai`, `code_payment`) VALUES
-(108, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-13', '96.00', 'truongshuan', 0, 2, '8376'),
-(109, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-13', '29.00', 'truongshuan', 0, 2, '7448'),
-(110, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-13', '29.00', 'truongshuan', 0, 2, '7034'),
-(111, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-13', '29.00', 'truongshuan', 0, 2, '1879'),
-(112, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-13', '96.00', 'truongshuan', 0, 2, '777'),
-(113, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-13', '29.00', 'truongshuan', 0, 2, '893'),
-(114, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-13', '64.00', 'truongshuan', 0, 1, '8144'),
-(115, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-13', '125.00', 'truongshuan', 0, 0, '9518'),
-(116, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-14', '24.50', 'truongshuan', 22, 2, '8571'),
-(117, 'truongshuan0310@gmail.com', '0985194780', 'a', '2022-12-14', '70.00', 'user', 0, 2, '6104'),
-(118, 'khanhnam03102002@gmail.com', '0985194780', 'a', '2022-12-14', '35.00', 'user', 22, 0, '9391'),
-(119, 'khanhnam03102002@gmail.com', '0985194780', 'a', '2022-12-14', '20.30', 'user', 22, 2, '8961'),
-(120, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-14', '35.00', 'truongshuan', 0, 2, '6966'),
-(121, 'khanhnam03102002@gmail.com', '0985194780', 'a', '2022-12-14', '29.00', 'user', 0, 2, '6580'),
-(122, 'truongshuan0310@gmail.com', '12341', '1423', '2022-12-14', '20.30', 'user', 22, 2, '7377');
+(124, 'khanhnam03102002@gmail.com', '0985194780', '31A-Pham Van Nho', '2022-12-16', '15.20', 'user', 27, 0, '642'),
+(125, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-16', '40.00', 'user', 0, 2, '6834'),
+(126, 'khanhnam03102002@gmail.com', '0961518977', 'Hẻm Tổ 7 Phường An Khánh', '2022-12-16', '22.40', 'user', 27, 2, '7681');
 
 -- --------------------------------------------------------
 
@@ -209,8 +182,7 @@ CREATE TABLE `khach_hang` (
 --
 
 INSERT INTO `khach_hang` (`ma_kh`, `ten_kh`, `mat_khau`, `avatar`, `email`, `trang_thai`, `code`, `hoat_dong`) VALUES
-('truongshuan', 'Pham Truong Xuan', '$2y$10$9hC0jEFc1sj105R4UmCcheA/od1axnomWOwpYsUz5.z6wrSdUOSZ2', '34afead24c24957acc35.jpg', 'khanhnam03102002@gmail.com', 'verified', 0, 1),
-('user', 'Test Name Usere', '$2y$10$nO67va1PA9zAeBm4l/ELSuaurGrK4rMrUikpofIGJKJJ.9fftm7tq', '1f707b02ddf404aa5de5.jpg', 'truongshuan0310@gmail.com', 'verified', 0, 1);
+('user', 'Pham Truong Xuan', '$2y$10$zJGhgG0571t4OOqt6pCLPuJ6zKxKMq6qQKmPeYHXpWn38cqENSaWe', '1f707b02ddf404aa5de5.jpg', 'khanhnam03102002@gmail.com', 'verified', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -233,7 +205,7 @@ CREATE TABLE `khuyen_mai` (
 --
 
 INSERT INTO `khuyen_mai` (`ma_km`, `ten_km`, `mo_ta`, `ngay_bat_dau`, `ngay_het_han`, `code`, `giam_gia`) VALUES
-(22, 'Sale of Noel', '123', '2022-12-12', '2022-12-16', 'Noel2022', 30);
+(27, 'Giftcode Noel 2022', 'Saleoff in Holiday', '2022-12-15', '2022-12-31', 'Noel2022', 20);
 
 -- --------------------------------------------------------
 
@@ -252,9 +224,10 @@ CREATE TABLE `loai` (
 --
 
 INSERT INTO `loai` (`ma_loai`, `ten_loai`, `trang_thai`) VALUES
-(90, 'Succulent', 1),
-(91, 'Cactus', 1),
-(92, 'Aloe vera', 1);
+(100, 'Succulent', 1),
+(101, 'Aloe vera', 1),
+(102, 'Lotus', 1),
+(103, 'Cactus', 1);
 
 -- --------------------------------------------------------
 
@@ -353,43 +326,43 @@ ALTER TABLE `phan_hoi`
 -- AUTO_INCREMENT for table `bai_viet`
 --
 ALTER TABLE `bai_viet`
-  MODIFY `ma_bv` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `ma_bv` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `binh_luan`
 --
 ALTER TABLE `binh_luan`
-  MODIFY `ma_bl` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã bình luận', AUTO_INCREMENT=90;
+  MODIFY `ma_bl` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã bình luận', AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `hang_hoa`
 --
 ALTER TABLE `hang_hoa`
-  MODIFY `ma_hh` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã hàng hóa', AUTO_INCREMENT=55;
+  MODIFY `ma_hh` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã hàng hóa', AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `hoa_don`
 --
 ALTER TABLE `hoa_don`
-  MODIFY `ma_hd` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã hóa đơn', AUTO_INCREMENT=123;
+  MODIFY `ma_hd` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã hóa đơn', AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT for table `khuyen_mai`
 --
 ALTER TABLE `khuyen_mai`
-  MODIFY `ma_km` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã khuyến mãi', AUTO_INCREMENT=25;
+  MODIFY `ma_km` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã khuyến mãi', AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `loai`
 --
 ALTER TABLE `loai`
-  MODIFY `ma_loai` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã loại', AUTO_INCREMENT=99;
+  MODIFY `ma_loai` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã loại', AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT for table `phan_hoi`
 --
 ALTER TABLE `phan_hoi`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã phản hồi', AUTO_INCREMENT=93;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Mã phản hồi', AUTO_INCREMENT=95;
 
 --
 -- Constraints for dumped tables

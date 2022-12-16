@@ -317,7 +317,8 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
                 alert(
                     `Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`
                 );
-                window.location.replace('http://localhost/duan1/site/product.php?payment=paypal');
+                window.location.replace(
+                    'http://localhost/duan1/site/product.php?payment=paypal');
                 // When ready to go live, remove the alert and show a success message within this page. For example:
                 // const element = document.getElementById('paypal-button-container');
                 // element.innerHTML = '<h3>Thank you for your payment!</h3>';
