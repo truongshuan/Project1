@@ -138,9 +138,16 @@ $result_pd = mysqli_num_rows($sql);
                                         </g>
                                     </svg>
                                 </div>
-                                <h5><?= $result_bill['cnt'] ?></h5>
-                                <p>Total Bill at <?= $result_bill['day']  ?></p><a class="btn-arrow arrow-primary"
-                                    href="javascript:void(0)"><i
+                                <h5><?php if (isset($result_bill['cnt'])) {
+                      echo $result_bill['cnt'];
+                    } else {
+                      echo 0;
+                    } ?></h5>
+                                <p>Total Bill at <?php if (isset($result_bill['day'])) {
+                                    echo $result_bill['day'];
+                                  } else {
+                                    echo 'Today';
+                                  } ?></p><a class="btn-arrow arrow-primary" href="javascript:void(0)"><i
                                         class="toprightarrow-primary fa fa-arrow-up me-2"></i>95.54% </a>
                                 <div class="parrten">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -190,9 +197,16 @@ $result_pd = mysqli_num_rows($sql);
                 $sql = mysqli_query($con, "SELECT DATE_FORMAT(ngay_dat,'%Y-%m-%d') AS `day`, COUNT(*) AS cnt,SUM(tong_tien) as tt FROM hoa_don GROUP BY DATE_FORMAT(ngay_dat,'%Y-%m-%d') ORDER BY `day`");
                 $query = mysqli_fetch_assoc($sql);
                 ?>
-                                <h5><?= $query['tt'] ?>$</h5>
-                                <p>Total Sale to <?= $query['day'] ?></p><a class="btn-arrow arrow-primary"
-                                    href="javascript:void(0)"><i
+                                <h5><?php if (isset($query['tt'])) {
+                      echo $query['tt'];
+                    } else {
+                      echo 0;
+                    } ?>$</h5>
+                                <p>Total Sale to <?php if (isset($query['day'])) {
+                                    echo $query['day'];
+                                  } else {
+                                    echo 'To day';
+                                  } ?></p><a class="btn-arrow arrow-primary" href="javascript:void(0)"><i
                                         class="toprightarrow-primary fa fa-arrow-up me-2"></i>95.54% </a>
                                 <div class="parrten">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"

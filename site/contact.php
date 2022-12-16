@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Gettree - Contact</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="../content/client/img/favicon.png" type="image/x-icon">
@@ -14,7 +15,7 @@
     <link rel="stylesheet" href="../content/client/css/header.css">
     <link rel="stylesheet" href="../content/client/css/user.css">
     <link rel="stylesheet" href="../content/client/css/foodter.css">
-     <link rel="stylesheet" href="../content/client/css/mobile.css">
+    <link rel="stylesheet" href="../content/client/css/mobile.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="../content/client/js/onscroll.js"></script>
     <link rel="stylesheet" href="../content/client/css/backtotop.css">

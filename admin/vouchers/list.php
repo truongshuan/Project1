@@ -70,8 +70,9 @@ $start = ($cr_page - 1) * $limit;
                                 <td><?= $item['code'] ?></td>
                                 <td>
                                     <?php
+                                            date_default_timezone_set('Asia/Ho_Chi_Minh');
                                             $today =  date_format(date_create(), 'Y-m-d');
-                                            if ($today <= $item['ngay_het_han']) {
+                                            if ($today >= $item['ngay_bat_dau']  && $today <= $item['ngay_het_han']) {
                                                 echo '<p style="color:#24695C; font-weight: bold;"> Enable </p>';
                                             } else {
                                                 echo '<p style="color: red; font-weight: bold;"> Out of date </p>';

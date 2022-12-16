@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Gettree - About Us</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="../content/client/img/favicon.png" type="image/x-icon">
@@ -108,7 +109,7 @@
                     <div class="right">
                         <p>Consulting & Estimation</p>
                         <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
-                            </b>
+                        </b>
                     </div>
                 </div>
             </div>
@@ -118,7 +119,7 @@
                     <div class="right">
                         <p>Design & Choose Material</p>
                         <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
-                            </b>
+                        </b>
                     </div>
                 </div>
             </div>
@@ -130,7 +131,7 @@
                     <div class="right">
                         <p>Proceed To Work</p>
                         <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
-                            </b>
+                        </b>
                     </div>
                 </div>
 
@@ -141,7 +142,7 @@
                     <div class="right">
                         <p>Complete & Maintenance</p>
                         <b>Lorem Ipsum is simply dummy text of free available market typesetting industry has been
-                            </b>
+                        </b>
                     </div>
                 </div>
             </div>

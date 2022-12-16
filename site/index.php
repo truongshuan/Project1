@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Gettree – Garden & Landscaping</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="../content/client/img/favicon.png" type="image/x-icon">
@@ -41,19 +41,24 @@
                 <span>Gettree garden began operations in 1996 as a residential landscaping lawn maintenance company.
                     From the very beginning, our focus has been attention to detail, professionalism</span>
                 <div class="btn_garden">
-                    <button class="btn_garden1">Get Started<div><i style="font-size: 28px;" class='bx bx-right-arrow-alt'></i></div> </button>
-                    <button class="btn_garden2">How It Works<div><i style="font-size: 28px;" class='bx bx-right-arrow-alt'></i></div></button>
+                    <button class="btn_garden1">Get Started<div><i style="font-size: 28px;"
+                                class='bx bx-right-arrow-alt'></i></div> </button>
+                    <button class="btn_garden2">How It Works<div><i style="font-size: 28px;"
+                                class='bx bx-right-arrow-alt'></i></div></button>
                 </div>
             </div>
-            <div class="col l-6 garden_phai" data-aos="fade-left" data-aos-duration="1000"><img src="../content/client/img/about1.jfif" alt=""></div>
+            <div class="col l-6 garden_phai" data-aos="fade-left" data-aos-duration="1000"><img
+                    src="../content/client/img/about1.jfif" alt=""></div>
         </div>
     </section>
     <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#ffffff" fill-opacity="1" d="M0,288L24,282.7C48,277,96,267,144,250.7C192,235,240,213,288,208C336,203,384,213,432,229.3C480,245,528,267,576,240C624,213,672,139,720,128C768,117,816,171,864,176C912,181,960,139,1008,144C1056,149,1104,203,1152,218.7C1200,235,1248,213,1296,218.7C1344,224,1392,256,1416,272L1440,288L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z">
+        <path fill="#ffffff" fill-opacity="1"
+            d="M0,288L24,282.7C48,277,96,267,144,250.7C192,235,240,213,288,208C336,203,384,213,432,229.3C480,245,528,267,576,240C624,213,672,139,720,128C768,117,816,171,864,176C912,181,960,139,1008,144C1056,149,1104,203,1152,218.7C1200,235,1248,213,1296,218.7C1344,224,1392,256,1416,272L1440,288L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z">
         </path>
     </svg>
     <!-- offer -->
-    <section class="offer" style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../content/client/img/bg_offer.jpg);">
+    <section class="offer"
+        style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../content/client/img/bg_offer.jpg);">
         <p data-aos="fade-up" data-aos-duration="1000">What We Offer</p>
         <h1 data-aos="fade-up" data-aos-duration="1000">Make Your Dream Landscaping <br>
             Garden With Gettree</h1>
@@ -178,7 +183,8 @@
         </div>
     </section>
     <!-- recore -->
-    <section class="recore" style="background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../content/client/img/record.jfif);">
+    <section class="recore"
+        style="background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../content/client/img/record.jfif);">
         <section class="grid wide">
             <div class="row">
                 <div class="col l-3 c-12" data-aos="zoom-in" data-aos-duration="500">
@@ -296,25 +302,29 @@
     </section>
     <!-- hinh anh garden -->
     <section class="img_garden">
-        <div class="img_garden1" data-aos="fade-up" data-aos-duration="500" style="background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url(../content/client/img/img_garden1.jpg);">
+        <div class="img_garden1" data-aos="fade-up" data-aos-duration="500"
+            style="background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url(../content/client/img/img_garden1.jpg);">
             <div class="img_garden1_content">
                 <p>Gardening Watering</p>
                 <b>Landscaping</b>
             </div>
         </div>
-        <div class="img_garden1" data-aos="fade-up" data-aos-duration="500" style="background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url(../content/client/img/img_garden2.jpg);">
+        <div class="img_garden1" data-aos="fade-up" data-aos-duration="500"
+            style="background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url(../content/client/img/img_garden2.jpg);">
             <div class="img_garden1_content">
                 <p>Gardening Watering</p>
                 <b>Landscaping</b>
             </div>
         </div>
-        <div class="img_garden1" data-aos="fade-up" data-aos-duration="500" style="background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url(../content/client/img/img_garden3.jpg);">
+        <div class="img_garden1" data-aos="fade-up" data-aos-duration="500"
+            style="background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url(../content/client/img/img_garden3.jpg);">
             <div class="img_garden1_content">
                 <p>Gardening Watering</p>
                 <b>Landscaping</b>
             </div>
         </div>
-        <div class="img_garden1" data-aos="fade-up" data-aos-duration="500" style="background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url(../content/client/img/img_garden4.jpg);">
+        <div class="img_garden1" data-aos="fade-up" data-aos-duration="500"
+            style="background-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url(../content/client/img/img_garden4.jpg);">
             <div class="img_garden1_content">
                 <p>Gardening Watering</p>
                 <b>Landscaping</b>
@@ -364,23 +374,31 @@
         </h1>
         <div class="grid wide ">
             <div class="row">
+                <?php
+                require 'connection.php';
+                $list_voucher = mysqli_query($con, "SELECT * FROM khuyen_mai");
+                while ($result = mysqli_fetch_assoc($list_voucher)) :
+                ?>
                 <div class="col l-4 c-12 " data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                     <div class="box_new">
                         <div class="box_new_top">
-                            <img src="../content/client/img/new1.jpg" alt="">
+                            <img src="../content/client/img/voucher-qua-tang-1.jpg" alt="">
                         </div>
                         <div class="box_new_content">
-                            <p>DOLOR PROIN</p>
-                            <b>16 garden design ideas to make the best of your</b>
+                            <p>New Voucher - Code: <?= $result['code'] ?></p>
+                            <b><?= $result['ten_km'] ?> - Discount: <?= $result['giam_gia'] ?>%/Bill</b>
                         </div>
                         <div class="box_new_bot">
-                            <div><i class='bx bx-notepad'></i> October 8, 2022</div>
+                            <div><i class='bx bx-notepad'></i> <?= $result['ngay_bat_dau'] ?></div>
                             <hr>
-                            <div><i class='bx bx-message-rounded-dots'></i> COMMENT (0)</div>
+                            <div><i class='bx bx-notepad'></i> <?= $result['ngay_het_han'] ?></div>
                         </div>
                     </div>
                 </div>
-                <div class="col l-4 c-12" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                <?php
+                endwhile;
+                ?>
+                <!-- <div class="col l-4 c-12" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
                     <div class="box_new">
                         <div class="box_new_top">
                             <img src="../content/client/img/new2.jpg" alt="">
@@ -411,7 +429,7 @@
                             <div><i class='bx bx-message-rounded-dots'></i> COMMENT (0)</div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -427,7 +445,7 @@
     </section>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+    AOS.init();
     </script>
 
 </body>

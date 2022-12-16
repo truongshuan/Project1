@@ -68,25 +68,31 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
                 <div class="header_icon nav_mobile_icon">
-                <div class="list__user">
+                    <div class="list__user">
                         <i class='bx bx-user-pin'>
                             <ul class="list__user-child">
                                 <?php
                                 if (isset($_SESSION['email']) && $_SESSION['password']) {
                                 ?>
-                                    <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="form/login.php"><?php echo $fetch_info['ma_kh']; ?></a>
-                                    </li>
-                                    <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="profile.php?user=<?= $fetch_info['ma_kh']; ?>">Profile</a>
-                                    </li>
+                                <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                        style="text-decoration: none;"
+                                        href="form/login.php"><?php echo $fetch_info['ma_kh']; ?></a>
+                                </li>
+                                <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                        style="text-decoration: none;"
+                                        href="profile.php?user=<?= $fetch_info['ma_kh']; ?>">Profile</a>
+                                </li>
                                 <?php
                                 } else {
                                 ?>
-                                    <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="form/login.php">Login</a>
-                                    </li>
+                                <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                        style="text-decoration: none;" href="form/login.php">Login</a>
+                                </li>
                                 <?php
                                 }
                                 ?>
-                                <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="form/logout.php">Logout</a>
+                                <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                                        style="text-decoration: none;" href="form/logout.php">Logout</a>
                                 </li>
                             </ul>
                         </i>
@@ -98,7 +104,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
                         <i class='bx bxs-cart item-count'></i>
                         <span style="font-size: 18px;"><?= number_format(total_amount($cart)) ?></span>
                     </a>
-                    
+
                 </div>
             </div>
     </section>
@@ -140,25 +146,31 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
                     <?php
                     if (isset($_SESSION['email']) && $_SESSION['password']) {
                     ?>
-                        <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="form/login.php"><?php echo $fetch_info['ma_kh']; ?></a>
-                        </li>
-                        <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="profile.php?user=<?= $fetch_info['ma_kh']; ?>">Profile</a>
-                        </li>
+                    <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                            style="text-decoration: none;" href="form/login.php"><?php echo $fetch_info['ma_kh']; ?></a>
+                    </li>
+                    <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                            style="text-decoration: none;"
+                            href="profile.php?user=<?= $fetch_info['ma_kh']; ?>">Profile</a>
+                    </li>
                     <?php
                     } else {
                     ?>
-                        <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="form/login.php">Login</a>
-                        </li>
+                    <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                            style="text-decoration: none;" href="form/login.php">Login</a>
+                    </li>
                     <?php
                     }
                     ?>
-                    <li class="user__child-item" style="list-style: none;"><a class="user__link" style="text-decoration: none;" href="form/logout.php">Logout</a>
+                    <li class="user__child-item" style="list-style: none;"><a class="user__link"
+                            style="text-decoration: none;" href="form/logout.php">Logout</a>
                     </li>
                 </ul>
             </i>
         </div>
         <a href="service.php">
-            <button class="btn_header" style="display: flex; justify-content: center;align-items: center;">GET AQUET <i style="font-size: 20px;" class='bx bx-right-arrow-alt'></i>
+            <button class="btn_header" style="display: flex; justify-content: center;align-items: center;">GET AQUET <i
+                    style="font-size: 20px;" class='bx bx-right-arrow-alt'></i>
             </button></a>
     </div>
 </section>

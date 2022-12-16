@@ -498,3 +498,9 @@
         height: auto;
     }
 }
+
+@media (min-width: 1921px) {
+    .btn-bar {
+        display: none;
+    }
+}

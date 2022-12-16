@@ -417,7 +417,6 @@ if ($email != false && $password != false) {
                                 if (isset($_POST['change'])) {
                                     $ma_hd = $_POST['ma_hd'];
                                     $trang_thai = $_POST['trang_thai'];
-
                                     hoa_don_update($ma_hd, $trang_thai);
                                     echo '<script type="text/javascript">
                                     msg("Updated Bill Successfully!");
